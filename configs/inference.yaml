@@ -1,0 +1,5 @@
+dataset_config: configs/dataset.yaml
+model_config: configs/model.yaml
+output_dir: reports/predictions
+batch_size: 32
+save_raw_output: true
