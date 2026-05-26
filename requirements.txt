@@ -1,0 +1,5 @@
+numpy
+pandas
+pyyaml
+opencv-python-headless
+Pillow
