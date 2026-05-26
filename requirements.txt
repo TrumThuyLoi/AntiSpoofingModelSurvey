@@ -3,3 +3,5 @@ pandas
 pyyaml
 opencv-python-headless
 Pillow
+datasets>=2.14.0
+huggingface_hub>=0.20.0

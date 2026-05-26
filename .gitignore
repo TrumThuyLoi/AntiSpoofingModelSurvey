@@ -1,5 +1,13 @@
-# data
-data/
-
-# venv
 .venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+models/
+*.pt
+*.pth
+*.onnx
+
+reports/
