@@ -1,4 +1,4 @@
-"""Tests cho create_label_studio_task.py — dùng unittest, không đọc dataset thật."""
+"""Tests cho create_label_studio_task.py — unittest; mock data + file import nếu có."""
 
 from __future__ import annotations
 
@@ -18,6 +18,18 @@ from create_label_studio_task import (
     build_tasks_from_rows,
     load_raw_annotations,
     write_tasks,
+)
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+IMPORT_DIR = REPO_ROOT / "label-studio" / "import"
+DATASETS = ("celeba_spoof", "casia_fasd")
+
+# (dataset, tasks filename, chỉ cho phép nhãn unknown)
+_IMPORT_TASK_FILES = (
+    ("celeba_spoof", "celeba_spoof_tasks.json", False),
+    ("celeba_spoof", "celeba_spoof_unknown_tasks.json", True),
+    ("casia_fasd", "casia_fasd_tasks.json", False),
+    ("casia_fasd", "casia_fasd_unknown_tasks.json", True),
 )
 
 # ---------------------------------------------------------------------------
@@ -58,6 +70,62 @@ def _write_csv(path: Path, rows: List[Dict[str, str]]) -> None:
         writer = csv.DictWriter(f, fieldnames=cols)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def _raw_csv_path(dataset: str) -> Path:
+    return REPO_ROOT / "data" / "raw" / dataset / "annotations" / "raw.csv"
+
+
+def _load_tasks_json(path: Path) -> List[Dict[str, Any]]:
+    with path.open(encoding="utf-8") as f:
+        tasks = json.load(f)
+    if not isinstance(tasks, list):
+        raise AssertionError(f"{path.name}: root phải là JSON array")
+    return tasks
+
+
+def _validate_tasks_against_raw(
+    testcase: unittest.TestCase,
+    tasks: List[Dict[str, Any]],
+    by_path: Dict[str, Dict[str, str]],
+    *,
+    unknown_only: bool = False,
+) -> None:
+    """Kiểm tra tasks.json / unknown_tasks.json khớp raw.csv."""
+    seen: set[str] = set()
+    for i, task in enumerate(tasks):
+        prefix = f"task[{i}]"
+        testcase.assertIsInstance(task, dict, f"{prefix}: không phải object")
+        data = task.get("data")
+        meta = task.get("meta")
+        testcase.assertIsInstance(data, dict, f"{prefix}: thiếu data dict")
+        testcase.assertIsInstance(meta, dict, f"{prefix}: thiếu meta dict")
+
+        image_path = meta.get("image_path")
+        testcase.assertTrue(image_path, f"{prefix}: meta.image_path trống")
+
+        if image_path in seen:
+            testcase.fail(f"{prefix}: image_path trùng: {image_path}")
+        seen.add(image_path)
+
+        image_url = data.get("image")
+        testcase.assertTrue(image_url, f"{prefix}: data.image trống")
+        testcase.assertEqual(
+            image_url,
+            _image_url_from_image_path(str(image_path)),
+            f"{prefix}: data.image không khớp image_path",
+        )
+
+        raw_row = by_path.get(image_path)
+        testcase.assertIsNotNone(raw_row, f"{prefix}: {image_path} không có trong raw.csv")
+
+        testcase.assertEqual(meta.get("label_original"), raw_row["label"], prefix)
+        testcase.assertEqual(meta.get("source_dataset"), raw_row["source_dataset"], prefix)
+        testcase.assertEqual(meta.get("split"), raw_row["split"], prefix)
+
+        if unknown_only:
+            testcase.assertEqual(raw_row["label"], "unknown", prefix)
+            testcase.assertEqual(meta.get("label_original"), "unknown", prefix)
 
 
 # ---------------------------------------------------------------------------
@@ -319,6 +387,45 @@ class TestTasksConsistency(unittest.TestCase):
         paths = [t["meta"]["image_path"] for t in tasks]
         duplicates = [p for p in paths if paths.count(p) > 1]
         self.assertGreater(len(duplicates), 0, "Không phát hiện được duplicate")
+
+
+# ---------------------------------------------------------------------------
+# File import thật: *_tasks.json và *_unknown_tasks.json
+# ---------------------------------------------------------------------------
+
+
+class TestGeneratedImportFiles(unittest.TestCase):
+    """Kiểm tra file trong label-studio/import/ nếu đã được generate."""
+
+    def test_import_task_files(self) -> None:
+        for dataset, filename, unknown_only in _IMPORT_TASK_FILES:
+            with self.subTest(dataset=dataset, file=filename, unknown_only=unknown_only):
+                tasks_path = IMPORT_DIR / filename
+                raw_csv = _raw_csv_path(dataset)
+                if not tasks_path.is_file():
+                    self.skipTest(f"Chưa có {tasks_path}")
+                if not raw_csv.is_file():
+                    self.skipTest(f"Chưa có {raw_csv}")
+
+                rows = load_raw_annotations(raw_csv)
+                by_path = {row["image_path"]: row for row in rows}
+                tasks = _load_tasks_json(tasks_path)
+
+                _validate_tasks_against_raw(self, tasks, by_path, unknown_only=unknown_only)
+
+                if unknown_only:
+                    expected = sum(1 for r in rows if r.get("label") == "unknown")
+                    self.assertEqual(
+                        len(tasks),
+                        expected,
+                        f"{filename}: số task phải bằng số dòng unknown trong raw.csv",
+                    )
+                else:
+                    self.assertEqual(
+                        len(tasks),
+                        len(rows),
+                        f"{filename}: số task phải bằng số dòng raw.csv",
+                    )
 
 
 if __name__ == "__main__":

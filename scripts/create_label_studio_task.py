@@ -115,6 +115,24 @@ def generate_tasks_for_dataset(dataset: str, limit: int | None = None) -> Path:
     return out_json_path
 
 
+def generate_unknown_tasks_for_dataset(dataset: str, limit: int | None = None) -> Path:
+    """
+    Generate Label Studio tasks only for rows in raw.csv where label == "unknown".
+
+    Output: label-studio/import/{dataset}_unknown_tasks.json
+    """
+    raw_csv_path, _ = _dataset_spec(dataset)
+    out_json_path = REPO_ROOT / "label-studio" / "import" / f"{dataset}_unknown_tasks.json"
+
+    rows = load_raw_annotations(raw_csv_path)
+    unknown_rows = [row for row in rows if row.get("label") == "unknown"]
+    if limit is not None:
+        unknown_rows = unknown_rows[:limit]
+
+    tasks = build_tasks_from_rows(unknown_rows)
+    write_tasks(tasks, out_json_path)
+    return out_json_path
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -136,6 +154,11 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional limit on number of rows/tasks per dataset (for sampling / quick runs).",
     )
+    parser.add_argument(
+        "--unknown-only",
+        action="store_true",
+        help='Only generate tasks for rows with label "unknown" (writes {dataset}_unknown_tasks.json).',
+    )
     return parser.parse_args()
 
 
@@ -151,7 +174,10 @@ def main() -> None:
         raise SystemExit("Please specify --dataset {celeba_spoof,casia_fasd} or --all.")
 
     for ds in datasets:
-        out_path = generate_tasks_for_dataset(ds, limit=args.limit)
+        if args.unknown_only:
+            out_path = generate_unknown_tasks_for_dataset(ds, limit=args.limit)
+        else:
+            out_path = generate_tasks_for_dataset(ds, limit=args.limit)
         print(f"[INFO] Generated tasks for {ds}: {out_path}")
 
 
