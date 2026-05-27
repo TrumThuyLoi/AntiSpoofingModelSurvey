@@ -1,5 +1,5 @@
 name: minifasnet
-weights_dir: models/minifasnet
-device: cpu   # đổi cuda khi có GPU + torch CUDA
+weights_dir: models/minifasnet/2.7_80x80_MiniFASNetV2.pth
+device: gpu
 input_size: [80, 80]   # chỉnh theo repo MiniFASNet chính thức khi tích hợp
 threshold: 0.5
