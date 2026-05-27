@@ -28,13 +28,25 @@ PROJECT_DIRS = (
     "scripts",
     "src",
     "src/datasets",
+    "src/preprocessing",
     "src/models",
     "src/inference",
     "src/evaluation",
     "src/utils",
+    "third_party",
     "docker",
     "label-studio",
 )
+
+SUBMODULE_REL = "third_party/Silent-Face-Anti-Spoofing"
+SUBMODULE_MARKERS = (
+    "src/anti_spoof_predict.py",
+    "src/generate_patches.py",
+    "src/model_lib/MiniFASNet.py",
+    "resources/anti_spoof_models",
+)
+
+PREPROCESSING_MODULE = "src/preprocessing/minifasnet.py"
 
 CONFIG_FILES = (
     "configs/dataset.yaml",
@@ -49,13 +61,16 @@ REQUIRED_PACKAGES: tuple[tuple[str, str], ...] = (
     ("yaml", "pyyaml"),
     ("cv2", "opencv-python-headless"),
     ("PIL", "Pillow"),
-)
-
-OPTIONAL_PACKAGES: tuple[tuple[str, str], ...] = (
     ("torch", "torch"),
+    ("torchvision", "torchvision"),
+    ("tqdm", "tqdm"),
     ("sklearn", "scikit-learn"),
     ("matplotlib", "matplotlib"),
-    ("tqdm", "tqdm"),
+    ("dotenv", "dotenv"),
+    ("requests", "requests"),
+    ("datasets", "datasets"),
+    ("huggingface_hub", "huggingface_hub"),
+    ("label_studio", "label-studio"),
 )
 
 
@@ -120,6 +135,43 @@ def check_directories(root: Path, result: CheckResult) -> None:
             result.fail(f"Thiếu thư mục: {rel_path}/")
             print(f"  FAIL  {rel_path}/")
 
+    prep_file = root / PREPROCESSING_MODULE
+    if prep_file.is_file():
+        print(f"  OK  {PREPROCESSING_MODULE}")
+    else:
+        result.fail(f"Thiếu file: {PREPROCESSING_MODULE}")
+        print(f"  FAIL  {PREPROCESSING_MODULE}")
+
+
+def check_submodule(root: Path, result: CheckResult) -> None:
+    print("\n[Submodule Silent-Face-Anti-Spoofing]")
+    submodule = root / SUBMODULE_REL
+    if not submodule.is_dir():
+        result.fail(
+            f"Thiếu submodule: {SUBMODULE_REL}/ — "
+            "chạy: git submodule update --init --recursive"
+        )
+        print(f"  FAIL  {SUBMODULE_REL}/")
+        return
+
+    git_meta = submodule / ".git"
+    if git_meta.is_file() or git_meta.is_dir():
+        print(f"  OK  {SUBMODULE_REL}/ (.git)")
+    else:
+        result.warn(
+            f"{SUBMODULE_REL}/ không có .git — có thể là bản copy thường, "
+            "nên dùng git submodule"
+        )
+        print(f"  WARN  {SUBMODULE_REL}/ — không phải submodule git")
+
+    for rel_marker in SUBMODULE_MARKERS:
+        marker = submodule / rel_marker
+        if marker.exists():
+            print(f"  OK  {SUBMODULE_REL}/{rel_marker}")
+        else:
+            result.fail(f"Submodule thiếu: {SUBMODULE_REL}/{rel_marker}")
+            print(f"  FAIL  {SUBMODULE_REL}/{rel_marker}")
+
 
 def _load_yaml(path: Path) -> Any:
     try:
@@ -182,13 +234,64 @@ def _check_path_fields(
             result.warn(f"{config_rel}: path chưa tồn tại — {key}={value}")
 
 
-def check_configs(root: Path, result: CheckResult) -> None:
+def _check_weights_path(
+    root: Path,
+    weights_rel: str,
+    result: CheckResult,
+) -> None:
+    """weights_dir có thể là file .pth hoặc thư mục chứa weight."""
+    weights_path = root / weights_rel
+    if weights_path.is_file():
+        if weights_path.suffix.lower() == ".pth":
+            print(f"  OK  weight file: {weights_rel}")
+        else:
+            result.warn(f"configs/model.yaml: weights_dir không phải .pth: {weights_rel}")
+        return
+
+    if weights_path.is_dir():
+        pth_files = list(weights_path.glob("*.pth"))
+        if pth_files:
+            print(f"  OK  weight dir: {weights_rel} ({len(pth_files)} file .pth)")
+        else:
+            result.warn(
+                f"Thư mục weight trống ({weights_rel}) — "
+                "tải pretrained vào đây (xem MiniFASNet_GUIDE.md)"
+            )
+            print(f"  WARN  {weights_rel}/ — chưa có file .pth")
+        return
+
+    result.warn(
+        f"Chưa có weight tại {weights_rel} — "
+        "tải 2.7_80x80_MiniFASNetV2.pth (xem MiniFASNet_GUIDE.md)"
+    )
+    print(f"  WARN  weight chưa tồn tại: {weights_rel}")
+
+
+def _validate_input_size(model: dict[str, Any], result: CheckResult) -> None:
+    raw = model.get("input_size")
+    if raw is None:
+        result.fail("configs/model.yaml thiếu key: input_size")
+        return
+    if not isinstance(raw, (list, tuple)) or len(raw) != 2:
+        result.fail(f"configs/model.yaml: input_size phải là [height, width], nhận {raw!r}")
+        return
+    try:
+        h, w = int(raw[0]), int(raw[1])
+    except (TypeError, ValueError):
+        result.fail(f"configs/model.yaml: input_size không phải số nguyên: {raw!r}")
+        return
+    if h <= 0 or w <= 0:
+        result.fail(f"configs/model.yaml: input_size phải dương: {[h, w]}")
+
+
+def check_configs(root: Path, result: CheckResult) -> dict[str, Any] | None:
     print("\n[Config YAML]")
 
     dataset = check_config_file(root, "configs/dataset.yaml", result)
     model = check_config_file(root, "configs/model.yaml", result)
     inference = check_config_file(root, "configs/inference.yaml", result)
     evaluation = check_config_file(root, "configs/evaluation.yaml", result)
+    model_data: dict[str, Any] | None = model
 
     if dataset:
         for key in ("name", "annotation_path", "image_root", "source_dataset"):
@@ -203,9 +306,10 @@ def check_configs(root: Path, result: CheckResult) -> None:
         )
 
     if model:
-        for key in ("name", "weights_dir", "device", "threshold"):
+        for key in ("name", "weights_dir", "device", "threshold", "input_size"):
             if key not in model:
                 result.fail(f"configs/model.yaml thiếu key: {key}")
+        _validate_input_size(model, result)
         weights_dir = model.get("weights_dir")
         if isinstance(weights_dir, str):
             _check_path_fields(
@@ -215,12 +319,7 @@ def check_configs(root: Path, result: CheckResult) -> None:
                 ("weights_dir",),
                 result,
             )
-            weights_path = root / weights_dir
-            if weights_path.is_dir() and not any(weights_path.iterdir()):
-                result.warn(
-                    f"models/minifasnet: thư mục weight trống "
-                    f"({weights_dir}) — bình thường trước khi tải pretrained"
-                )
+            _check_weights_path(root, weights_dir, result)
 
     if inference:
         for key in ("dataset_config", "model_config", "output_dir", "batch_size"):
@@ -255,6 +354,39 @@ def check_configs(root: Path, result: CheckResult) -> None:
         if thresholds is not None and not isinstance(thresholds, list):
             result.fail("configs/evaluation.yaml: 'thresholds' phải là list")
 
+    return model_data
+
+
+def check_device_config(model: dict[str, Any] | None, result: CheckResult) -> None:
+    """Cảnh báo khi config yêu cầu GPU nhưng CUDA không khả dụng."""
+    if not model:
+        return
+
+    print("\n[Device vs CUDA]")
+    device = str(model.get("device", "")).strip().lower()
+    print(f"  configs/model.yaml device = {device!r}")
+
+    if device not in ("gpu", "cuda"):
+        print("  OK  device không yêu cầu CUDA")
+        return
+
+    try:
+        import torch
+    except ImportError:
+        print("  SKIP  chưa import torch — bỏ qua kiểm tra CUDA")
+        return
+
+    cuda_ok = torch.cuda.is_available()
+    print(f"  torch.cuda.is_available() = {cuda_ok}")
+    if not cuda_ok:
+        result.warn(
+            "configs/model.yaml: device=gpu nhưng CUDA không khả dụng — "
+            "đổi device: cpu trong configs/model.yaml hoặc cài driver/CUDA"
+        )
+        print("  WARN  GPU được cấu hình nhưng CUDA không sẵn sàng")
+    else:
+        print(f"  OK  CUDA — {torch.cuda.get_device_name(0)}")
+
 
 def check_requirements_file(root: Path, result: CheckResult) -> None:
     print("\n[requirements.txt]")
@@ -283,19 +415,6 @@ def check_imports(result: CheckResult) -> None:
         except ImportError:
             result.fail(f"Thiếu package: {pip_name} (import {module_name})")
             print(f"  FAIL  {module_name} — cài: pip install {pip_name}")
-
-    print("\n[Import packages — tùy chọn]")
-    for module_name, pip_name in OPTIONAL_PACKAGES:
-        try:
-            mod = importlib.import_module(module_name)
-            version = getattr(mod, "__version__", "unknown")
-            print(f"  OK  {module_name} ({pip_name}) — {version}")
-            if module_name == "torch":
-                cuda = mod.cuda.is_available()
-                print(f"        torch.cuda.is_available() = {cuda}")
-        except ImportError:
-            result.warn(f"Chưa cài (tùy chọn): {pip_name}")
-            print(f"  SKIP  {module_name} — pip install {pip_name}")
 
 
 def print_summary(result: CheckResult) -> int:
@@ -335,14 +454,17 @@ def main() -> int:
 
     check_python_version(result)
     check_directories(root, result)
+    check_submodule(root, result)
     check_requirements_file(root, result)
 
+    model_config: dict[str, Any] | None = None
     try:
-        check_configs(root, result)
+        model_config = check_configs(root, result)
     except ImportError as exc:
         result.fail(str(exc))
 
     check_imports(result)
+    check_device_config(model_config, result)
 
     return print_summary(result)
 
