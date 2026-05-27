@@ -5,5 +5,6 @@ opencv-python-headless
 Pillow
 dotenv
 requests
+label-studio
 datasets>=2.14.0
 huggingface_hub>=0.20.0

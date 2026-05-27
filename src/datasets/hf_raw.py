@@ -3,10 +3,14 @@ from __future__ import annotations
 import os
 import json
 import logging
+import argparse
 from pathlib import Path
 from typing import Any
 from datasets import Dataset
-from .specs import HFRawDatasetSpec, DownloadResult, CELEBA_SPOOF_SPEC, CASIA_FASD_SPEC
+from dotenv import load_dotenv
+from .specs import HFRawDatasetSpec, DownloadResult, DATASET_SPECS
+
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
@@ -256,3 +260,24 @@ def download_raw_dataset(
         label_counts=label_counts,
         skipped=False,
     )
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Tải raw dataset từ Hugging Face")
+    parser.add_argument(
+        "--dataset",
+        required=True,
+        choices=sorted(DATASET_SPECS),
+        help="Tên dataset (celeba_spoof | casia_fasd)",
+    )
+    parser.add_argument("--force", action="store_true", default=False)
+    parser.add_argument("--log-every", type=int, default=5000)
+    parser.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"])
+    args = parser.parse_args()
+
+    logging.basicConfig(level=args.log_level)
+    spec = DATASET_SPECS[args.dataset]
+    result = download_raw_dataset(spec, force=args.force, log_every=args.log_every)
+    print(result)
+
+if __name__ == "__main__":
+    main()

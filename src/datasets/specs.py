@@ -3,10 +3,10 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class HFRawDatasetSpec:
-    source_dataset: str          # "celeba-spoof" | "casia-fasd"
+    source_dataset: str          # "celeba_spoof" | "casia_fasd"
     repo_id: str
     dataset_page: str
-    default_raw_rel_dir: str     # "data/raw/celeba-spoof"
+    default_raw_rel_dir: str     # "data/raw/celeba_spoof"
     hf_split: str = "test"
     image_column: str = "cropped_image"
     label_field: str = "labels"
@@ -24,10 +24,11 @@ class DownloadResult:
     skipped: bool
 
 CELEBA_SPOOF_SPEC = HFRawDatasetSpec(
-    source_dataset="celeba-spoof",
+    source_dataset="celeba_spoof",
     repo_id="nguyenkhoa/celeba-spoof-for-face-antispoofing-test",
+    dataset_page="https://huggingface.co/datasets/nguyenkhoa/celeba-spoof-for-face-antispoofing-test",
     hf_split="test",
-    default_raw_rel_dir="data/raw/celeba-spoof",
+    default_raw_rel_dir="data/raw/celeba_spoof",
     label_field="labels",
     label_name_field="labelNames",
     label_aliases={
@@ -39,10 +40,11 @@ CELEBA_SPOOF_SPEC = HFRawDatasetSpec(
 )
 
 CASIA_FASD_SPEC = HFRawDatasetSpec(
-    source_dataset="casia-fasd",
+    source_dataset="casia_fasd",
     repo_id="vu-hong-quang/casia_fasd",
+    dataset_page="https://huggingface.co/datasets/vu-hong-quang/casia_fasd",
     hf_split="test",
-    default_raw_rel_dir="data/raw/casia-fasd",
+    default_raw_rel_dir="data/raw/casia_fasd",
     label_field="labels",
     label_name_field="labelNames",
     label_aliases={
@@ -51,5 +53,10 @@ CASIA_FASD_SPEC = HFRawDatasetSpec(
         "spoof": "spoof",
         "1spoof": "spoof",
     },
-    token_env_var="HUGGINGFACE_TOKEN",
+    token_env_var="HUGGINGFACE_CASIA_FASD_TOKEN",
 )
+
+DATASET_SPECS: dict[str, HFRawDatasetSpec] = {
+    "celeba_spoof": CELEBA_SPOOF_SPEC,
+    "casia_fasd": CASIA_FASD_SPEC,
+}
