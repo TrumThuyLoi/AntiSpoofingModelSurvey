@@ -3,5 +3,7 @@ pandas
 pyyaml
 opencv-python-headless
 Pillow
+dotenv
+requests
 datasets>=2.14.0
 huggingface_hub>=0.20.0
