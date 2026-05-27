@@ -41,19 +41,19 @@ def _install_specs_stub() -> None:
         skipped: bool
 
     celeba_spec = HFRawDatasetSpec(
-        source_dataset="celeba-spoof",
+        source_dataset="celeba_spoof",
         repo_id="nguyenkhoa/celeba-spoof-for-face-antispoofing-test",
         dataset_page=(
             "https://huggingface.co/datasets/nguyenkhoa/celeba-spoof-for-face-antispoofing-test"
         ),
-        default_raw_rel_dir="data/raw/celeba-spoof",
+        default_raw_rel_dir="data/raw/celeba_spoof",
         label_aliases=_LABEL_ALIASES,
     )
     casia_spec = HFRawDatasetSpec(
-        source_dataset="casia-fasd",
+        source_dataset="casia_fasd",
         repo_id="vu-hong-quang/casia_fasd",
         dataset_page="https://huggingface.co/datasets/vu-hong-quang/casia_fasd",
-        default_raw_rel_dir="data/raw/casia-fasd",
+        default_raw_rel_dir="data/raw/casia_fasd",
         label_aliases=_LABEL_ALIASES,
         token_env_var="HUGGINGFACE_TOKEN",
     )
@@ -91,8 +91,8 @@ hf_raw = _import_hf_raw()
 from src.datasets.specs import CASIA_FASD_SPEC, CELEBA_SPOOF_SPEC
 
 _DATASET_SPECS = (
-    ("celeba-spoof", CELEBA_SPOOF_SPEC),
-    ("casia-fasd", CASIA_FASD_SPEC),
+    ("celeba_spoof", CELEBA_SPOOF_SPEC),
+    ("casia_fasd", CASIA_FASD_SPEC),
 )
 
 
