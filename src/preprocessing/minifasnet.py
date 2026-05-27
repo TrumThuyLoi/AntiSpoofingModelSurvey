@@ -101,17 +101,21 @@ def preprocess_path(
     *,
     config_path: PathLike | None = None,
     add_batch_dim: bool = False,
+    device: torch.device | str | None = None,
 ) -> torch.Tensor:
     """
     Đọc ảnh từ disk → preprocess.
 
     Nếu ``input_size`` None, đọc từ ``configs/model.yaml`` (hoặc ``config_path``).
     ``add_batch_dim=True`` → shape (1, C, H, W).
+    ``device`` — nếu set, tensor được ``.to(device)`` (vd. cuda:0).
     """
     size = input_size if input_size is not None else load_input_size_from_model_config(config_path)
     tensor = preprocess_bgr(read_bgr_image(path), size)
     if add_batch_dim:
-        return tensor.unsqueeze(0)
+        tensor = tensor.unsqueeze(0)
+    if device is not None:
+        tensor = tensor.to(device)
     return tensor
 
 
@@ -121,6 +125,7 @@ def preprocess_paths(
     *,
     config_path: PathLike | None = None,
     add_batch_dim: bool = False,
+    device: torch.device | str | None = None,
 ) -> list[torch.Tensor | None]:
     """
     Preprocess danh sách ảnh; phần tử None nếu lỗi (log qua exception message nếu cần).
@@ -132,6 +137,8 @@ def preprocess_paths(
             tensor = preprocess_bgr(read_bgr_image(path), size)
             if add_batch_dim:
                 tensor = tensor.unsqueeze(0)
+            if device is not None:
+                tensor = tensor.to(device)
             results.append(tensor)
         except (FileNotFoundError, ValueError):
             results.append(None)
