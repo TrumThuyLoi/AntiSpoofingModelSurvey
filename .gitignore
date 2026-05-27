@@ -11,3 +11,5 @@ models/
 *.onnx
 
 reports/
+
+data/
