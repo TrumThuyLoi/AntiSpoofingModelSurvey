@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Tác giả** |Vũ Hông Quang|
+| **Tác giả** |Vũ Hồng Quang|
 | **Ngày** |28/05/2026|
 | **Repo / branch** |main|
 | **Môi trường** | Python, OS, GPU/CPU |
@@ -42,7 +42,7 @@
 | Model / repo | Nguồn | Ghi chú |
 |--------------|-------|---------|
 | MiniFASNet (Silent-Face-Anti-Spoofing) | | |
-| | | |
+|  Vision Transformers (ViT)| | |
 | | | |
 
 ### 3.2 Tiêu chí so sánh
