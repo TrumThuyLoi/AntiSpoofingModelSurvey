@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "vitfas_vitb16_224",
+    "source_dataset": "casia_fasd",
+    "predictions_path": "reports/models/vitfas_vitb16_224/predictions/casia_fasd/latest.csv",
+    "evaluated_at": "2026-05-28T16:56:20"
+  },
+  "filtering": {
+    "total_rows": 4063,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 4063,
+    "kept_live_rows": 995,
+    "kept_spoof_rows": 3068
+  },
+  "metrics": {
+    "threshold": 0.3,
+    "num_samples": 4063,
+    "num_live": 995,
+    "num_spoof": 3068,
+    "cm_true_live_pred_live": 833,
+    "cm_true_live_pred_spoof": 162,
+    "cm_true_spoof_pred_live": 1527,
+    "cm_true_spoof_pred_spoof": 1541,
+    "apcer": 0.4977183833116037,
+    "bpcer": 0.1628140703517588,
+    "acer": 0.3302662268316812,
+    "accuracy": 0.5842973172532612,
+    "precision_live": 0.35296610169491527,
+    "recall_live": 0.8371859296482412,
+    "f1_live": 0.49657228017883764,
+    "precision_spoof": 0.9048737522019965,
+    "recall_spoof": 0.5022816166883963,
+    "f1_spoof": 0.6459861664221337
+  }
+}

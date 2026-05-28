@@ -30,7 +30,7 @@ Dự án có thể mở rộng để khảo sát thêm các mô hình anti-spoof
 - `/src/evaluation` - Code tính metric như accuracy, APCER, BPCER, ACER, confusion matrix
 - `/src/utils` - Hàm tiện ích: đọc ảnh, lưu JSON/CSV, logging, xử lý path
 - `/scripts` - Script chạy các tác vụ chính như sample data, run inference, evaluate
-- `/reports` - Báo cáo kết quả khảo sát, bảng metric, hình ảnh minh họa failure case
+- `/reports` - Báo cáo kết quả khảo sát, bảng metric, hình ảnh minh họa failure case (xem dưới)
 - `/configs` - File cấu hình cho dataset, model, threshold, batch size
 - `/docker` - Dockerfile, docker-compose và cấu hình service phụ nếu cần
 - `/label-studio` - Cấu hình hoặc file export/import phục vụ kiểm tra nhãn bằng Label Studio
@@ -179,7 +179,9 @@ Dự án có thể mở rộng để khảo sát thêm các mô hình anti-spoof
 2. Load annotation từ `/data/sampled` hoặc `/data/labeled`
 3. Load model weight
 4. Chạy predict trên từng ảnh hoặc batch ảnh
-5. Lưu kết quả vào `/reports/predictions`
+5. Lưu kết quả theo **model_id** vào `reports/models/<model_id>/predictions/<dataset>/`  
+   - File theo thời gian: `run_<dataset>_YYYYMMDD_HHMMSS.csv`  
+   - File mới nhất: `latest.csv` (ghi đè **chỉ trong cùng `<model_id>`**)
 6. Log ảnh lỗi hoặc ảnh không chạy được
 7. Đảm bảo script có thể chạy lại mà không phụ thuộc notebook
 
@@ -190,13 +192,16 @@ Dự án có thể mở rộng để khảo sát thêm các mô hình anti-spoof
 4. Tính confusion matrix
 5. Tính APCER, BPCER và ACER
 6. Thử nhiều threshold nếu có score
-7. Lưu bảng metric vào `/reports/metrics`
+7. Lưu bảng metric vào `reports/models/<model_id>/metrics/<dataset>/`  
+   - `metrics_summary.csv`  
+   - `metrics_threshold_<t>.json`  
+   - `confusion_matrix_<t>.png`
 8. Lưu biểu đồ hoặc hình minh họa nếu cần
 
 ### Phân tích failure cases
 1. Lọc false accept: spoof nhưng model dự đoán live
 2. Lọc false reject: live nhưng model dự đoán spoof
-3. Copy hoặc tạo danh sách ảnh lỗi vào `/reports/failure_cases`
+3. Copy hoặc tạo danh sách ảnh lỗi vào `reports/models/<model_id>/failure_cases/<dataset>/`
 4. Quan sát các pattern lỗi thường gặp
 5. Ghi nhận nguyên nhân có thể:
    - ảnh mờ

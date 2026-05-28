@@ -1,0 +1,10 @@
+{
+  "model_id": "minifasnet_v2_2p7",
+  "model_name": "minifasnet",
+  "weights_path": "/mnt/d/ThucTap/DVX/models/2.7_80x80_MiniFASNetV2.pth",
+  "threshold": 0.5,
+  "device": "cuda:0",
+  "source_dataset": "casia_fasd",
+  "last_run_csv": "run_casia_fasd_20260528_171125.csv",
+  "updated_at": "2026-05-28T17:12:22"
+}

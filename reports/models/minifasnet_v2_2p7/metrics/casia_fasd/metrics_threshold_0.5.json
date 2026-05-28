@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "minifasnet_v2_2p7",
+    "source_dataset": "casia_fasd",
+    "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/casia_fasd/latest.csv",
+    "evaluated_at": "2026-05-28T17:06:11"
+  },
+  "filtering": {
+    "total_rows": 4063,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 4063,
+    "kept_live_rows": 995,
+    "kept_spoof_rows": 3068
+  },
+  "metrics": {
+    "threshold": 0.5,
+    "num_samples": 4063,
+    "num_live": 995,
+    "num_spoof": 3068,
+    "cm_true_live_pred_live": 843,
+    "cm_true_live_pred_spoof": 152,
+    "cm_true_spoof_pred_live": 40,
+    "cm_true_spoof_pred_spoof": 3028,
+    "apcer": 0.01303780964797914,
+    "bpcer": 0.1527638190954774,
+    "acer": 0.08290081437172828,
+    "accuracy": 0.9527442776273689,
+    "precision_live": 0.9546998867497168,
+    "recall_live": 0.8472361809045226,
+    "f1_live": 0.8977635782747603,
+    "precision_spoof": 0.9522012578616352,
+    "recall_spoof": 0.9869621903520208,
+    "f1_spoof": 0.9692701664532649
+  }
+}

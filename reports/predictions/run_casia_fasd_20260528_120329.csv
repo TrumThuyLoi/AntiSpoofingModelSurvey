@@ -1,0 +1,24 @@
+# model_name=minifasnet
+# weights_path=/mnt/d/ThucTap/DVX/models/minifasnet/2.7_80x80_MiniFASNetV2.pth
+# threshold=0.5
+# device=cuda:0
+# dataset_config=configs/dataset_casia_fasd_cropped.yaml
+# model_config=/mnt/d/ThucTap/DVX/configs/model.yaml
+# inference_config=/mnt/d/ThucTap/DVX/configs/inference.yaml
+# annotation_path=/mnt/d/ThucTap/DVX/data/processed/casia_fasd/annotations/casia_fasd_sample_cropped.csv
+# dataset_name=casia_fasd_sample_cropped
+# source_dataset=casia_fasd
+# batch_size=32
+# save_raw_output=True
+# num_input_rows=5
+# num_valid_rows=5
+# num_skipped_invalid=0
+# num_errors=0
+# started_at=2026-05-28T12:03:29
+# finished_at=2026-05-28T12:03:29
+image_path,label_true,label_pred,live_score,spoof_score,error,raw_output
+data/processed/casia_fasd/images/test/000000.jpg,live,live,0.995515763759613,0.0044842613860964775,,"[0.0008619065629318357, 0.995515763759613, 0.0036223549395799637]"
+data/processed/casia_fasd/images/test/000001.jpg,live,live,0.9985191226005554,0.00148087739944458,,"[0.0009348198655061424, 0.9985191226005554, 0.0005460574757307768]"
+data/processed/casia_fasd/images/test/000002.jpg,live,live,0.9984684586524963,0.001531511778011918,,"[0.0005828167777508497, 0.9984684586524963, 0.0009486950584687293]"
+data/processed/casia_fasd/images/test/000003.jpg,live,live,0.9998249411582947,0.0001751143136061728,,"[5.5967488151509315e-05, 0.9998249411582947, 0.00011914682545466349]"
+data/processed/casia_fasd/images/test/000004.jpg,live,live,0.9979162812232971,0.002083739498630166,,"[0.001341988448984921, 0.9979162812232971, 0.0007417510496452451]"
