@@ -42,8 +42,8 @@
 | Model / repo | Nguồn | Ghi chú |
 |--------------|-------|---------|
 | MiniFASNet (Silent-Face-Anti-Spoofing) | | |
-|  Vision Transformers (ViT)| | |
-| | | |
+| Vision Transformers (ViT)| | |
+| Face Anti-Spoof ONNX | | |
 
 ### 3.2 Tiêu chí so sánh
 
