@@ -18,7 +18,7 @@ if str(ROOT) not in sys.path:
 from src.models.minifasnet import MiniFASNetWrapper  # noqa: E402
 
 MODEL_CONFIG = ROOT / "configs" / "model_minifasnet.yaml"
-WEIGHTS_PATH = ROOT / "models" / "minifasnet" / "2.7_80x80_MiniFASNetV2.pth"
+WEIGHTS_PATH = ROOT / "models" / "2.7_80x80_MiniFASNetV2.pth"
 SUBMODULE_UTILITY = (
     ROOT / "third_party" / "Silent-Face-Anti-Spoofing" / "src" / "utility.py"
 )

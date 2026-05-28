@@ -10,6 +10,9 @@ torch
 torchvision
 tqdm
 scikit-learn
+transformers 
 matplotlib
+timm
+seaborn
 datasets>=2.14.0
 huggingface_hub>=0.20.0

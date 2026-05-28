@@ -21,12 +21,12 @@ class TestModelId(unittest.TestCase):
         cfg = {
             "model_id": "minifasnet_v2_2p7",
             "name": "minifasnet",
-            "weights_dir": "models/minifasnet/2.7_80x80_MiniFASNetV2.pth",
+            "weights_dir": "models/2.7_80x80_MiniFASNetV2.pth",
         }
         self.assertEqual(resolve_model_id(cfg, ROOT), "minifasnet_v2_2p7")
 
     def test_derive_from_weights(self) -> None:
-        weights = ROOT / "models/minifasnet/2.7_80x80_MiniFASNetV2.pth"
+        weights = ROOT / "models/2.7_80x80_MiniFASNetV2.pth"
         if not weights.is_file():
             self.skipTest(f"Thiếu {weights}")
         cfg = {"name": "minifasnet", "weights_dir": str(weights.relative_to(ROOT))}

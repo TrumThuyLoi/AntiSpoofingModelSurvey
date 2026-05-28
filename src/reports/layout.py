@@ -32,7 +32,7 @@ def derive_model_id_from_weights(model_name: str, weights_path: Path) -> str:
     """
     Fallback (B): ``name`` + stem weight.
 
-    VD. minifasnet + ``2.7_80x80_MiniFASNetV2.pth`` → ``minifasnet_2p7_80x80_minifasnetv2``
+    VD. ``2.7_80x80_MiniFASNetV2.pth`` → ``minifasnet_2p7_80x80_minifasnetv2``
     """
     name = (model_name or "model").strip().lower()
     stem = weights_path.stem.replace(".", "p")

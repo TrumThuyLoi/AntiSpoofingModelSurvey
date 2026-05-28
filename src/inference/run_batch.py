@@ -11,8 +11,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-import torch
-import torch.nn.functional as F
 import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -20,6 +18,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from src.models.minifasnet import MiniFASNetWrapper
+from src.models.vit_fas import ViTFASWrapper
 from src.reports.layout import model_report_paths
 
 BASE_FIELDNAMES = (
@@ -119,81 +118,85 @@ def _empty_result_row(rel_path: str, label_true: str) -> dict[str, Any]:
     }
 
 
-def _result_row_from_prob(
+def _result_row_from_scores(
     rel_path: str,
     label_true: str,
-    prob,
-    threshold: float,
+    live_score: float,
+    spoof_score: float,
+    label_pred: str,
+    raw_output: Any | None,
     *,
     save_raw_output: bool,
 ) -> dict[str, Any]:
-    live_score = float(prob[1])
-    spoof_score = float(prob[0] + prob[2])
     row = _empty_result_row(rel_path, label_true)
-    row["label_pred"] = "live" if live_score >= threshold else "spoof"
+    row["label_pred"] = label_pred
     row["live_score"] = live_score
     row["spoof_score"] = spoof_score
-    if save_raw_output:
-        row["raw_output"] = json.dumps(prob.tolist())
+    if save_raw_output and raw_output is not None:
+        row["raw_output"] = json.dumps(raw_output)
     return row
 
 
 def _predict_chunk(
-    wrapper: MiniFASNetWrapper,
+    wrapper: Any,
     chunk: list[dict[str, str]],
     repo_root: Path,
     *,
     save_raw_output: bool,
 ) -> list[dict[str, Any]]:
-    """Preprocess chunk → cat → một forward mini-batch trên wrapper.device."""
-    output_rows: list[dict[str, Any] | None] = [None] * len(chunk)
-    tensors: list[torch.Tensor] = []
-    tensor_indices: list[int] = []
-
-    for idx, row in enumerate(chunk):
+    """Predict theo wrapper chuẩn hóa interface (load/predict/predict_batch)."""
+    output_rows: list[dict[str, Any]] = []
+    for row in chunk:
         rel_path = row["image_path"]
         label_true = row.get("label", "")
         try:
             abs_path = _resolve_image_path(repo_root, rel_path)
-            tensors.append(wrapper.preprocess(abs_path))
-            tensor_indices.append(idx)
+            pred = wrapper.predict(abs_path)
+            output_rows.append(
+                _result_row_from_scores(
+                    rel_path=rel_path,
+                    label_true=label_true,
+                    live_score=float(pred["live_score"]),
+                    spoof_score=float(pred["spoof_score"]),
+                    label_pred=str(pred["label_pred"]),
+                    raw_output=pred.get("raw_output"),
+                    save_raw_output=save_raw_output,
+                )
+            )
         except Exception as exc:
             err_row = _empty_result_row(rel_path, label_true)
             err_row["error"] = str(exc)
-            output_rows[idx] = err_row
+            output_rows.append(err_row)
+    return output_rows
 
-    if tensors:
-        if not wrapper._loaded:
-            wrapper.load()
-        assert wrapper.model is not None
-        try:
-            batch_tensor = torch.cat(tensors, dim=0)
-            with torch.no_grad():
-                probs = F.softmax(wrapper.model.forward(batch_tensor), dim=1).detach().cpu().numpy()
-            for j, idx in enumerate(tensor_indices):
-                row = chunk[idx]
-                output_rows[idx] = _result_row_from_prob(
-                    row["image_path"],
-                    row.get("label", ""),
-                    probs[j],
-                    wrapper.threshold,
-                    save_raw_output=save_raw_output,
-                )
-        except Exception as exc:
-            for idx in tensor_indices:
-                row = chunk[idx]
-                err_row = _empty_result_row(row["image_path"], row.get("label", ""))
-                err_row["error"] = str(exc)
-                output_rows[idx] = err_row
 
-    if any(r is None for r in output_rows):
-        raise RuntimeError("Thiếu kết quả cho một số ảnh trong mini-batch.")
-    return output_rows  # type: ignore[return-value]
+def _build_model_wrapper(model_cfg: dict[str, Any], model_config_abs: Path):
+    model_name = str(model_cfg.get("name", "")).strip().lower()
+    device_cfg = str(model_cfg.get("device", "cpu")).strip().lower()
+    prefer_cpu = device_cfg == "cpu"
+
+    if model_name == "minifasnet":
+        wrapper = MiniFASNetWrapper(model_config_path=model_config_abs, prefer_cpu=prefer_cpu)
+        wrapper.load()
+        return wrapper
+    if model_name == "vit_fas":
+        wrapper = ViTFASWrapper(
+            weights_path=model_cfg["weights_dir"],
+            input_size=tuple(model_cfg.get("input_size", [224, 224])),
+            threshold=float(model_cfg.get("threshold", 0.5)),
+            prefer_cpu=prefer_cpu,
+        )
+        wrapper.load()
+        return wrapper
+    raise ValueError(
+        f"Model chưa được hỗ trợ trong runner: name={model_name!r}. "
+        "Hỗ trợ: 'minifasnet', 'vit_fas'."
+    )
 
 
 def run_batch_inference(
     dataset_config_path: Path | str = "configs/dataset.yaml",
-    model_config_path: Path | str = "configs/model.yaml",
+    model_config_path: Path | str = "configs/model_minifasnet.yaml",
     inference_config_path: Path | str = "configs/inference.yaml",
     *,
     annotation_csv: Path | str | None = None,
@@ -226,11 +229,7 @@ def run_batch_inference(
     cfg["output_dir"] = report_paths.predictions_dir(source_dataset)
 
     model_config_abs = _resolve_path(root, str(model_config_path))
-    device_cfg = str(model_cfg.get("device", "cpu")).strip().lower()
-    prefer_cpu = device_cfg == "cpu"
-
-    wrapper = MiniFASNetWrapper(model_config_path=model_config_abs, prefer_cpu=prefer_cpu)
-    wrapper.load()
+    wrapper = _build_model_wrapper(model_cfg, model_config_abs)
 
     rows_in = _read_annotation_rows(cfg["annotation_path"])
     valid_rows = [r for r in rows_in if _is_valid_row(r)]

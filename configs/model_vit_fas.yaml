@@ -1,6 +1,6 @@
 model_id: vitfas_vitb16_224
 name: vit_fas
-weights_dir: models/best_model_run_eif1jakb.pth
+weights_dir: models/vitfas_vitb16_224x224.pth
 device: gpu
 input_size: [224, 224]
 threshold: 0.5
