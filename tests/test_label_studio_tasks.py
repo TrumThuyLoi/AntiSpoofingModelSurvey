@@ -14,6 +14,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from create_label_studio_task import (
+    SOURCE_DATASET_SPLIT_KEY,
     _image_url_from_image_path,
     build_tasks_from_rows,
     load_raw_annotations,
@@ -188,6 +189,13 @@ class TestBuildTasks(unittest.TestCase):
         for row, task in zip(_VALID_ROWS, tasks):
             self.assertEqual(task["meta"]["source_dataset"], row["source_dataset"])
             self.assertEqual(task["meta"]["split"], row["split"])
+
+    def test_composite_source_dataset_split_key_for_label_studio(self) -> None:
+        """Tương thích config Text value=\"$source_dataset | $split\" (một key literal)."""
+        tasks = build_tasks_from_rows(_VALID_ROWS)
+        for row, task in zip(_VALID_ROWS, tasks):
+            expected = f"{row['source_dataset']} | {row['split']}"
+            self.assertEqual(task["data"][SOURCE_DATASET_SPLIT_KEY], expected)
 
     def test_image_path_preserved_in_meta(self) -> None:
         tasks = build_tasks_from_rows(_VALID_ROWS)
