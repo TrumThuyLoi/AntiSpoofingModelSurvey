@@ -1,3 +1,5 @@
-predictions_path: reports/predictions/latest.csv
+# Đổi theo file *_latest.csv sau inference, hoặc truyền --predictions
+predictions_path: reports/predictions/celeba_spoof_latest.csv
 metrics_output_dir: reports/metrics
 thresholds: [0.3, 0.5, 0.7]
+# dataset: celeba_spoof  # optional — override auto-detect
