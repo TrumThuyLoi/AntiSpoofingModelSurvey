@@ -3,7 +3,7 @@
     "model_id": "minifasnet_v2_2p7",
     "source_dataset": "celeba_spoof",
     "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/celeba_spoof/latest.csv",
-    "evaluated_at": "2026-05-28T13:49:33"
+    "evaluated_at": "2026-05-28T19:17:37"
   },
   "filtering": {
     "total_rows": 4000,
@@ -18,19 +18,19 @@
     "num_samples": 4000,
     "num_live": 2000,
     "num_spoof": 2000,
-    "cm_true_live_pred_live": 1035,
-    "cm_true_live_pred_spoof": 965,
+    "cm_true_live_pred_live": 1034,
+    "cm_true_live_pred_spoof": 966,
     "cm_true_spoof_pred_live": 367,
     "cm_true_spoof_pred_spoof": 1633,
     "apcer": 0.1835,
-    "bpcer": 0.4825,
-    "acer": 0.33299999999999996,
-    "accuracy": 0.667,
-    "precision_live": 0.7382310984308131,
-    "recall_live": 0.5175,
-    "f1_live": 0.6084656084656084,
-    "precision_spoof": 0.6285604311008468,
+    "bpcer": 0.483,
+    "acer": 0.33325,
+    "accuracy": 0.66675,
+    "precision_live": 0.7380442541042113,
+    "recall_live": 0.517,
+    "f1_live": 0.6080564539841223,
+    "precision_spoof": 0.6283185840707964,
     "recall_spoof": 0.8165,
-    "f1_spoof": 0.7103088299260547
+    "f1_spoof": 0.7101543813872582
   }
 }

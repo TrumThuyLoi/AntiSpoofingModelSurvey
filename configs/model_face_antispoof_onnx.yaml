@@ -1,0 +1,6 @@
+model_id: face_antispoof_onnx_9820
+name: face_antispoof_onnx
+weights_dir: models/face_antispoof_onnx_best_9820.pth
+device: gpu
+input_size: [128, 128]
+threshold: 0.5

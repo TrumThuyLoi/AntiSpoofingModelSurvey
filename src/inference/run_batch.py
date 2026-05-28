@@ -19,6 +19,7 @@ if str(REPO_ROOT) not in sys.path:
 
 from src.models.minifasnet import MiniFASNetWrapper
 from src.models.vit_fas import ViTFASWrapper
+from src.models.face_antispoof_onnx import FaceAntispoofONNXWrapper
 from src.reports.layout import model_report_paths
 
 BASE_FIELDNAMES = (
@@ -188,9 +189,18 @@ def _build_model_wrapper(model_cfg: dict[str, Any], model_config_abs: Path):
         )
         wrapper.load()
         return wrapper
+    if model_name == "face_antispoof_onnx":
+        wrapper = FaceAntispoofONNXWrapper(
+            weights_path=model_cfg["weights_dir"],
+            input_size=tuple(model_cfg.get("input_size", [128, 128])),
+            threshold=float(model_cfg.get("threshold", 0.5)),
+            prefer_cpu=prefer_cpu,
+        )
+        wrapper.load()
+        return wrapper
     raise ValueError(
         f"Model chưa được hỗ trợ trong runner: name={model_name!r}. "
-        "Hỗ trợ: 'minifasnet', 'vit_fas'."
+        "Hỗ trợ: 'minifasnet', 'vit_fas', 'face_antispoof_onnx'."
     )
 
 

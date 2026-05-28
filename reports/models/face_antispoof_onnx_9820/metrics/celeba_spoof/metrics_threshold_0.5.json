@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "face_antispoof_onnx_9820",
+    "source_dataset": "celeba_spoof",
+    "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/celeba_spoof/latest.csv",
+    "evaluated_at": "2026-05-28T19:19:38"
+  },
+  "filtering": {
+    "total_rows": 4000,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 4000,
+    "kept_live_rows": 2000,
+    "kept_spoof_rows": 2000
+  },
+  "metrics": {
+    "threshold": 0.5,
+    "num_samples": 4000,
+    "num_live": 2000,
+    "num_spoof": 2000,
+    "cm_true_live_pred_live": 1748,
+    "cm_true_live_pred_spoof": 252,
+    "cm_true_spoof_pred_live": 382,
+    "cm_true_spoof_pred_spoof": 1618,
+    "apcer": 0.191,
+    "bpcer": 0.126,
+    "acer": 0.1585,
+    "accuracy": 0.8415,
+    "precision_live": 0.8206572769953052,
+    "recall_live": 0.874,
+    "f1_live": 0.8464891041162227,
+    "precision_spoof": 0.8652406417112299,
+    "recall_spoof": 0.809,
+    "f1_spoof": 0.8361757105943153
+  }
+}

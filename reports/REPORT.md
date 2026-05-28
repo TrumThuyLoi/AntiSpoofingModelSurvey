@@ -1,4 +1,4 @@
-# Báo cáo đánh giá Anti-Spoofing (MiniFASNet vs ViT-FAS)
+# Báo cáo đánh giá Anti-Spoofing (MiniFASNet vs ViT-FAS vs FaceAntispoof-ONNX)
 
 > Mẫu báo cáo — điền nội dung vào từng mục. Cập nhật ngày / phiên bản khi hoàn thiện.
 
@@ -14,12 +14,12 @@
 ## 1. Tóm tắt (Executive summary)
 
 - Mục tiêu: đánh giá stage anti-spoofing cho bài toán verify ảnh tài xế trước khi tích hợp service.
-- Model đã đánh giá: **MiniFASNetV2** (`minifasnet_v2_2p7`) và **ViT-FAS** (`vitfas_vitb16_224`).
+- Model đã đánh giá: **MiniFASNetV2** (`minifasnet_v2_2p7`), **ViT-FAS** (`vitfas_vitb16_224`) và **FaceAntispoof-ONNX** (`face_antispoof_onnx_9820`).
 - Dataset đã dùng: 
   - CelebA-Spoof sample (4000 ảnh): chủ yếu là ảnh người phương tây.
   - CASIA-FASD sample (4063 ảnh): chủ yếu là ảnh người Trung Quốc, phù hợp hơn với bài toán này.
-- Kết luận chính: MiniFASNet cho kết quả ổn định và vượt trội rõ rệt trên cả 2 dataset; ViT-FAS hiện tại thấp hơn đáng kể trên cùng pipeline đánh giá.
-- Đề xuất tích hợp service: ưu tiên MiniFASNet làm baseline production, tiếp tục kiểm chứng/căn chỉnh ViT-FAS trước khi đưa vào luồng chính.
+- Kết luận chính: MiniFASNet vẫn là model tốt nhất trên CASIA-FASD. FaceAntispoof-ONNX cho kết quả cạnh tranh trên CelebA-Spoof (ACER thấp nhất @0.5) và xếp thứ hai trên CASIA-FASD.
+- Đề xuất tích hợp service: giữ MiniFASNet làm baseline production; xem FaceAntispoof-ONNX là ứng viên thay thế/backup, tiếp tục tune threshold theo KPI bảo mật và UX.
 
 ---
 
@@ -150,9 +150,11 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 - File predictions:
   - MiniFASNet: `reports/models/minifasnet_v2_2p7/predictions/celeba_spoof/latest.csv`
   - ViT-FAS: `reports/models/vitfas_vitb16_224/predictions/celeba_spoof/latest.csv`
+  - FaceAntispoof-ONNX: `reports/models/face_antispoof_onnx_9820/predictions/celeba_spoof/latest.csv`
 - File metrics:
   - MiniFASNet: `reports/models/minifasnet_v2_2p7/metrics/celeba_spoof/`
   - ViT-FAS: `reports/models/vitfas_vitb16_224/metrics/celeba_spoof/`
+  - FaceAntispoof-ONNX: `reports/models/face_antispoof_onnx_9820/metrics/celeba_spoof/`
 
 | Model | Threshold | Accuracy | APCER | BPCER | ACER | Ghi chú |
 |-------|-----------|----------|-------|-------|------|---------|
@@ -162,6 +164,9 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 | ViT-FAS | 0.3 | 0.6685 | 0.2255 | 0.4375 | 0.3315 | BPCER cao |
 | ViT-FAS | 0.5 | 0.6443 | 0.1830 | 0.5285 | 0.3558 | Kém MiniFASNet |
 | ViT-FAS | 0.7 | 0.6295 | 0.1340 | 0.6070 | 0.3705 | BPCER rất cao |
+| FaceAntispoof-ONNX | 0.3 | 0.8365 | 0.2490 | 0.0780 | 0.1635 | Recall live cao, reject live thấp |
+| FaceAntispoof-ONNX | 0.5 | 0.8415 | 0.1910 | 0.1260 | 0.1585 | ACER tốt nhất trên CelebA |
+| FaceAntispoof-ONNX | 0.7 | 0.8415 | 0.1380 | 0.1790 | 0.1585 | Cân bằng APCER/BPCER tốt |
 
 - Confusion matrix: `confusion_matrix_*.png`
 - MiniFASNet (threshold 0.5):
@@ -170,7 +175,10 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 - ViT-FAS (threshold 0.5):
 ![ViT-FAS CelebA Confusion Matrix](models/vitfas_vitb16_224/metrics/celeba_spoof/confusion_matrix_0.5.png)
 
-- Nhận xét ngắn: MiniFASNet ổn định hơn trên CelebA-Spoof; ViT-FAS có xu hướng reject nhiều live khi tăng threshold.
+- FaceAntispoof-ONNX (threshold 0.5):
+![FaceAntispoof-ONNX CelebA Confusion Matrix](models/face_antispoof_onnx_9820/metrics/celeba_spoof/confusion_matrix_0.5.png)
+
+- Nhận xét ngắn: FaceAntispoof-ONNX cho kết quả vượt trội trên CelebA-Spoof so với hai model còn lại; ViT-FAS vẫn có xu hướng reject nhiều live khi threshold tăng.
 
 ### 7.2 CASIA-FASD
 
@@ -178,9 +186,11 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 - File predictions:
   - MiniFASNet: `reports/models/minifasnet_v2_2p7/predictions/casia_fasd/latest.csv`
   - ViT-FAS: `reports/models/vitfas_vitb16_224/predictions/casia_fasd/latest.csv`
+  - FaceAntispoof-ONNX: `reports/models/face_antispoof_onnx_9820/predictions/casia_fasd/latest.csv`
 - File metrics:
   - MiniFASNet: `reports/models/minifasnet_v2_2p7/metrics/casia_fasd/`
   - ViT-FAS: `reports/models/vitfas_vitb16_224/metrics/casia_fasd/`
+  - FaceAntispoof-ONNX: `reports/models/face_antispoof_onnx_9820/metrics/casia_fasd/`
 
 | Model | Threshold | Accuracy | APCER | BPCER | ACER | Ghi chú |
 |-------|-----------|----------|-------|-------|------|---------|
@@ -190,6 +200,9 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 | ViT-FAS | 0.3 | 0.5843 | 0.4977 | 0.1628 | 0.3303 | APCER cao |
 | ViT-FAS | 0.5 | 0.6215 | 0.4234 | 0.2402 | 0.3318 | Vẫn kém xa |
 | ViT-FAS | 0.7 | 0.6520 | 0.3504 | 0.3407 | 0.3455 | Không đạt mức deploy |
+| FaceAntispoof-ONNX | 0.3 | 0.6638 | 0.4195 | 0.0794 | 0.2494 | Ưu tiên giữ live, lọt spoof cao |
+| FaceAntispoof-ONNX | 0.5 | 0.7061 | 0.3556 | 0.1035 | 0.2296 | Điểm cân bằng hiện tại |
+| FaceAntispoof-ONNX | 0.7 | 0.7413 | 0.2963 | 0.1427 | 0.2195 | Tốt nhất trong 3 ngưỡng đã thử |
 
 - Confusion matrix:
 - MiniFASNet (threshold 0.5):
@@ -198,7 +211,10 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 - ViT-FAS (threshold 0.5):
 ![ViT-FAS CASIA Confusion Matrix](models/vitfas_vitb16_224/metrics/casia_fasd/confusion_matrix_0.5.png)
 
-- Nhận xét ngắn: trên CASIA-FASD, MiniFASNet vượt trội toàn diện; ViT-FAS có tỷ lệ spoof lọt (APCER) còn cao.
+- FaceAntispoof-ONNX (threshold 0.5):
+![FaceAntispoof-ONNX CASIA Confusion Matrix](models/face_antispoof_onnx_9820/metrics/casia_fasd/confusion_matrix_0.5.png)
+
+- Nhận xét ngắn: trên CASIA-FASD, MiniFASNet vẫn vượt trội rõ rệt. FaceAntispoof-ONNX xếp thứ hai, tốt hơn ViT-FAS nhưng APCER còn cao.
 
 ### 7.3 So sánh giữa hai dataset
 
@@ -206,8 +222,10 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 |----------|--------------|------------|
 | MiniFASNet ACER @ 0.5 | 0.3118 | 0.0829 |
 | ViT-FAS ACER @ 0.5 | 0.3558 | 0.3318 |
+| FaceAntispoof-ONNX ACER @ 0.5 | 0.1585 | 0.2296 |
 | MiniFASNet APCER @ 0.5 | 0.2685 | 0.0130 |
 | ViT-FAS APCER @ 0.5 | 0.1830 | 0.4234 |
+| FaceAntispoof-ONNX APCER @ 0.5 | 0.1910 | 0.3556 |
 | Độ khó / domain | CelebA cân bằng sample, phân tách khó hơn | CASIA sample cho MiniFASNet phân tách tốt |
 | Preprocess đầu vào | resize + normalize theo wrapper | resize + normalize theo wrapper |
 
@@ -267,6 +285,7 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 
 - MiniFASNet (`minifasnet_v2_2p7`) hiện là mô hình tốt nhất trong pipeline hiện tại trên cả CelebA-Spoof và CASIA-FASD.
 - ViT-FAS đã chạy end-to-end thành công nhưng quality còn thấp, cần tiếp tục kiểm chứng tương thích kiến trúc/checkpoint và tối ưu thêm trước khi dùng production.
+- FaceAntispoof-ONNX (`face_antispoof_onnx_9820`) đã chạy end-to-end thành công; cho kết quả rất tốt trên CelebA-Spoof và đứng thứ hai trên CASIA-FASD.
 
 ### 10.2 Đề xuất tích hợp service
 
@@ -275,11 +294,12 @@ python3 scripts/run_evaluation.py --dataset casia_fasd
 | Model anti-spoofing | MiniFASNetV2 làm baseline tích hợp |
 | Ngưỡng operating point | Bắt đầu với `0.5`, tune theo mục tiêu APCER/BPCER thực tế |
 | Preprocessing (detect + crop) | Giữ pipeline crop/resize hiện tại, chuẩn hóa đầu vào nhất quán train-test |
-| Bước tiếp theo (fine-tune, data nội bộ) | Thu thập thêm data nội bộ + calibrate threshold theo rủi ro bảo mật |
+| Bước tiếp theo (fine-tune, data nội bộ) | Thu thập thêm data nội bộ + calibrate threshold theo rủi ro bảo mật; benchmark lại MiniFASNet vs FaceAntispoof-ONNX trên tập nội bộ |
 
 ### 10.3 Công việc tiếp theo
 
 - [ ] Kiểm tra sâu nhánh load/checkpoint ViT-FAS và thống nhất class order live/spoof.
+- [ ] Calibrate threshold cho FaceAntispoof-ONNX để giảm APCER trên CASIA-FASD.
 - [ ] Chạy benchmark lặp lại nhiều seed để đo độ ổn định metric.
 - [ ] Bổ sung tập validation nội bộ để chọn threshold theo KPI service.
 
