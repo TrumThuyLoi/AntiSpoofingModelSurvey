@@ -1,7 +1,7 @@
 name: celeba_spoof_sample
 annotation_path: data/sampled/celeba_spoof_sample.csv
 image_root: data/sampled
-source_dataset: celeba-spoof
+source_dataset: celeba_spoof
 default_split: test
 labels:
   live: live

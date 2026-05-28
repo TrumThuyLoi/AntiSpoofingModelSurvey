@@ -5,6 +5,7 @@ from __future__ import annotations
 import sys
 import csv
 import json
+import shutil
 from tqdm import tqdm
 from datetime import datetime
 from pathlib import Path
@@ -252,7 +253,7 @@ def run_batch_inference(
 
     finished_at = datetime.now()
     cfg["output_dir"].mkdir(parents=True, exist_ok=True)
-    out_name = f"run_{started_at.strftime('%Y%m%d_%H%M%S')}.csv"
+    out_name = f"run_{dataset_cfg.get('source_dataset', '')}_{started_at.strftime('%Y%m%d_%H%M%S')}.csv"
     out_path = cfg["output_dir"] / out_name
 
     metadata = {
@@ -283,7 +284,9 @@ def run_batch_inference(
         writer.writeheader()
         writer.writerows(output_rows)
 
-    return out_path
+    latest_path = cfg["output_dir"] / f"{dataset_cfg.get('source_dataset', '')}_latest.csv"
+    shutil.copy2(out_path, latest_path)
+    return latest_path
 
 
 if __name__ == "__main__":

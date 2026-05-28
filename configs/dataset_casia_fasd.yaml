@@ -1,0 +1,9 @@
+name: casia_fasd_sample
+annotation_path: data/sampled/casia_fasd_sample.csv
+image_root: data/sampled
+source_dataset: casia_fasd
+default_split: test
+labels:
+  live: live
+  spoof: spoof
+  unknown: unknown
