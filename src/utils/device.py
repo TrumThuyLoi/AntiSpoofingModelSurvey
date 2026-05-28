@@ -1,4 +1,4 @@
-"""Resolve torch.device từ configs/model.yaml."""
+"""Resolve torch.device từ configs/model_minifasnet.yaml."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ def _project_root() -> Path:
 
 
 def load_model_config(config_path: PathLike | None = None) -> dict[str, Any]:
-    path = Path(config_path) if config_path else _project_root() / "configs" / "model.yaml"
+    path = Path(config_path) if config_path else _project_root() / "configs" / "model_minifasnet.yaml"
     with path.open(encoding="utf-8") as f:
         data = yaml.safe_load(f)
     if not isinstance(data, dict):
@@ -44,7 +44,7 @@ def resolve_torch_device(
         if torch.cuda.is_available():
             return torch.device(f"cuda:{cuda_index}")
         msg = (
-            "configs/model.yaml yêu cầu GPU nhưng torch.cuda.is_available()=False. "
+            "configs/model_minifasnet.yaml yêu cầu GPU nhưng torch.cuda.is_available()=False. "
             "Kiểm tra driver NVIDIA trên Windows, WSL2 GPU, và torch bản CUDA."
         )
         if fail_if_cuda_unavailable:

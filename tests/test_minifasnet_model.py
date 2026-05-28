@@ -17,7 +17,7 @@ if str(ROOT) not in sys.path:
 
 from src.models.minifasnet import MiniFASNetWrapper  # noqa: E402
 
-MODEL_CONFIG = ROOT / "configs" / "model.yaml"
+MODEL_CONFIG = ROOT / "configs" / "model_minifasnet.yaml"
 WEIGHTS_PATH = ROOT / "models" / "minifasnet" / "2.7_80x80_MiniFASNetV2.pth"
 SUBMODULE_UTILITY = (
     ROOT / "third_party" / "Silent-Face-Anti-Spoofing" / "src" / "utility.py"
@@ -27,7 +27,7 @@ SAMPLE_IMAGE = ROOT / "data" / "raw" / "celeba_spoof" / "images" / "test" / "000
 
 def _integration_ready() -> str | None:
     if not MODEL_CONFIG.is_file():
-        return "Thiếu configs/model.yaml"
+        return "Thiếu configs/model_minifasnet.yaml"
     if not WEIGHTS_PATH.is_file():
         return f"Thiếu weight: {WEIGHTS_PATH}"
     if not SUBMODULE_UTILITY.is_file():
@@ -91,11 +91,11 @@ class TestResolveWeightsPath(unittest.TestCase):
 class TestInitFromModelYaml(unittest.TestCase):
     def test_reads_input_size_from_config(self):
         if not MODEL_CONFIG.is_file():
-            self.skipTest("Thiếu configs/model.yaml")
+            self.skipTest("Thiếu configs/model_minifasnet.yaml")
         with MODEL_CONFIG.open(encoding="utf-8") as f:
             cfg = yaml.safe_load(f)
         if "input_size" not in cfg:
-            self.skipTest("configs/model.yaml chưa có input_size")
+            self.skipTest("configs/model_minifasnet.yaml chưa có input_size")
 
         reason = _integration_ready()
         if reason:
@@ -160,7 +160,7 @@ class TestMiniFASNetWrapperIntegration(unittest.TestCase):
 class TestMiniFASNetWrapperBadConfig(unittest.TestCase):
     def test_missing_weights_in_temp_config(self):
         with tempfile.TemporaryDirectory() as tmp:
-            cfg_path = Path(tmp) / "model.yaml"
+            cfg_path = Path(tmp) / "model_minifasnet.yaml"
             cfg_path.write_text(
                 yaml.safe_dump(
                     {

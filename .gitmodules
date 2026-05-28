@@ -1,3 +1,5 @@
 [submodule "third_party/Silent-Face-Anti-Spoofing"]
 	path = third_party/Silent-Face-Anti-Spoofing
 	url = https://github.com/minivision-ai/Silent-Face-Anti-Spoofing.git
+[submodule "third_party/vit-spoof-detection-pda"]
+	path = third_party/vit-spoof-detection-pda

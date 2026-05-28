@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smoke test preprocess MiniFASNet trên một ảnh (theo device trong configs/model.yaml)."""
+"""Smoke test preprocess MiniFASNet trên một ảnh (theo device trong configs/model_minifasnet.yaml)."""
 
 import csv
 import random

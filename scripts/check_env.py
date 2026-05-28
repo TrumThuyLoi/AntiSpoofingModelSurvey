@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Kiểm tra môi trường khởi tạo dự án MiniFASNet Anti-Spoofing Survey."""
+"""Kiểm tra môi trường khởi tạo dự án Face Anti-Spoofing Survey."""
 
 from __future__ import annotations
 
@@ -16,14 +16,10 @@ PROJECT_DIRS = (
     "configs",
     "data/raw",
     "data/sampled",
-    "data/labeled",
-    "data/processed",
     "models",
-    "models/minifasnet",
     "notebooks",
     "reports",
     "reports/predictions",
-    "reports/metrics",
     "reports/models",
     "reports/failure_cases",
     "scripts",
@@ -49,29 +45,25 @@ SUBMODULE_MARKERS = (
 
 PREPROCESSING_MODULE = "src/preprocessing/minifasnet.py"
 
-CONFIG_FILES = (
-    "configs/dataset.yaml",
-    "configs/model.yaml",
-    "configs/inference.yaml",
-    "configs/evaluation.yaml",
-)
-
 REQUIRED_PACKAGES: tuple[tuple[str, str], ...] = (
     ("numpy", "numpy"),
     ("pandas", "pandas"),
     ("yaml", "pyyaml"),
-    ("cv2", "opencv-python-headless"),
     ("PIL", "Pillow"),
     ("torch", "torch"),
-    ("torchvision", "torchvision"),
     ("tqdm", "tqdm"),
     ("sklearn", "scikit-learn"),
-    ("matplotlib", "matplotlib"),
     ("dotenv", "dotenv"),
     ("requests", "requests"),
     ("datasets", "datasets"),
     ("huggingface_hub", "huggingface_hub"),
-    ("label_studio", "label-studio"),
+)
+
+OPTIONAL_PACKAGES: tuple[tuple[str, str, str], ...] = (
+    ("torchvision", "torchvision", "cần cho một số model/pipeline ảnh nâng cao"),
+    ("matplotlib", "matplotlib", "cần khi vẽ biểu đồ/figure báo cáo"),
+    ("cv2", "opencv-python-headless", "cần cho MiniFASNet preprocessing"),
+    ("label_studio", "label-studio", "chỉ cần khi chạy local Label Studio"),
 )
 
 
@@ -148,11 +140,11 @@ def check_submodule(root: Path, result: CheckResult) -> None:
     print("\n[Submodule Silent-Face-Anti-Spoofing]")
     submodule = root / SUBMODULE_REL
     if not submodule.is_dir():
-        result.fail(
+        result.warn(
             f"Thiếu submodule: {SUBMODULE_REL}/ — "
-            "chạy: git submodule update --init --recursive"
+            "cần nếu chạy MiniFASNet (chạy: git submodule update --init --recursive)"
         )
-        print(f"  FAIL  {SUBMODULE_REL}/")
+        print(f"  WARN  {SUBMODULE_REL}/")
         return
 
     git_meta = submodule / ".git"
@@ -170,8 +162,8 @@ def check_submodule(root: Path, result: CheckResult) -> None:
         if marker.exists():
             print(f"  OK  {SUBMODULE_REL}/{rel_marker}")
         else:
-            result.fail(f"Submodule thiếu: {SUBMODULE_REL}/{rel_marker}")
-            print(f"  FAIL  {SUBMODULE_REL}/{rel_marker}")
+            result.warn(f"Submodule thiếu: {SUBMODULE_REL}/{rel_marker}")
+            print(f"  WARN  {SUBMODULE_REL}/{rel_marker}")
 
 
 def _load_yaml(path: Path) -> Any:
@@ -246,7 +238,7 @@ def _check_weights_path(
         if weights_path.suffix.lower() == ".pth":
             print(f"  OK  weight file: {weights_rel}")
         else:
-            result.warn(f"configs/model.yaml: weights_dir không phải .pth: {weights_rel}")
+            result.warn(f"configs/model_minifasnet.yaml: weights_dir không phải .pth: {weights_rel}")
         return
 
     if weights_path.is_dir():
@@ -271,51 +263,60 @@ def _check_weights_path(
 def _validate_input_size(model: dict[str, Any], result: CheckResult) -> None:
     raw = model.get("input_size")
     if raw is None:
-        result.fail("configs/model.yaml thiếu key: input_size")
+        result.fail("configs/model_minifasnet.yaml thiếu key: input_size")
         return
     if not isinstance(raw, (list, tuple)) or len(raw) != 2:
-        result.fail(f"configs/model.yaml: input_size phải là [height, width], nhận {raw!r}")
+        result.fail(f"configs/model_minifasnet.yaml: input_size phải là [height, width], nhận {raw!r}")
         return
     try:
         h, w = int(raw[0]), int(raw[1])
     except (TypeError, ValueError):
-        result.fail(f"configs/model.yaml: input_size không phải số nguyên: {raw!r}")
+        result.fail(f"configs/model_minifasnet.yaml: input_size không phải số nguyên: {raw!r}")
         return
     if h <= 0 or w <= 0:
-        result.fail(f"configs/model.yaml: input_size phải dương: {[h, w]}")
+        result.fail(f"configs/model_minifasnet.yaml: input_size phải dương: {[h, w]}")
 
 
 def check_configs(root: Path, result: CheckResult) -> dict[str, Any] | None:
     print("\n[Config YAML]")
 
-    dataset = check_config_file(root, "configs/dataset.yaml", result)
-    model = check_config_file(root, "configs/model.yaml", result)
+    model = check_config_file(root, "configs/model_minifasnet.yaml", result)
     inference = check_config_file(root, "configs/inference.yaml", result)
     evaluation = check_config_file(root, "configs/evaluation.yaml", result)
     model_data: dict[str, Any] | None = model
 
-    if dataset:
-        for key in ("name", "annotation_path", "image_root", "source_dataset"):
-            if key not in dataset:
-                result.fail(f"configs/dataset.yaml thiếu key: {key}")
-        _check_path_fields(
-            root,
-            "configs/dataset.yaml",
-            dataset,
-            ("annotation_path", "image_root"),
-            result,
-        )
+    dataset_candidates = sorted((root / "configs").glob("dataset*.yaml"))
+    if not dataset_candidates:
+        result.warn("Không tìm thấy dataset config nào trong configs/ (dataset*.yaml)")
+        print("  WARN  configs/dataset*.yaml")
+    else:
+        print(f"  OK  tìm thấy {len(dataset_candidates)} dataset config")
+        for ds_path in dataset_candidates:
+            rel = str(ds_path.relative_to(root))
+            ds = check_config_file(root, rel, result)
+            if not ds:
+                continue
+            for key in ("name", "annotation_path", "image_root", "source_dataset"):
+                if key not in ds:
+                    result.warn(f"{rel} thiếu key: {key}")
+            _check_path_fields(
+                root,
+                rel,
+                ds,
+                ("annotation_path", "image_root"),
+                result,
+            )
 
     if model:
         for key in ("name", "weights_dir", "device", "threshold", "input_size"):
             if key not in model:
-                result.fail(f"configs/model.yaml thiếu key: {key}")
+                result.fail(f"configs/model_minifasnet.yaml thiếu key: {key}")
         _validate_input_size(model, result)
         weights_dir = model.get("weights_dir")
         if isinstance(weights_dir, str):
             _check_path_fields(
                 root,
-                "configs/model.yaml",
+                "configs/model_minifasnet.yaml",
                 model,
                 ("weights_dir",),
                 result,
@@ -329,7 +330,7 @@ def check_configs(root: Path, result: CheckResult) -> dict[str, Any] | None:
         for ref_key in ("dataset_config", "model_config"):
             ref = inference.get(ref_key)
             if isinstance(ref, str) and not (root / ref).is_file():
-                result.fail(
+                result.warn(
                     f"configs/inference.yaml: {ref_key} trỏ tới file không tồn tại: {ref}"
                 )
         _check_path_fields(
@@ -375,7 +376,7 @@ def check_device_config(model: dict[str, Any] | None, result: CheckResult) -> No
 
     print("\n[Device vs CUDA]")
     device = str(model.get("device", "")).strip().lower()
-    print(f"  configs/model.yaml device = {device!r}")
+    print(f"  configs/model_minifasnet.yaml device = {device!r}")
 
     if device not in ("gpu", "cuda"):
         print("  OK  device không yêu cầu CUDA")
@@ -391,8 +392,8 @@ def check_device_config(model: dict[str, Any] | None, result: CheckResult) -> No
     print(f"  torch.cuda.is_available() = {cuda_ok}")
     if not cuda_ok:
         result.warn(
-            "configs/model.yaml: device=gpu nhưng CUDA không khả dụng — "
-            "đổi device: cpu trong configs/model.yaml hoặc cài driver/CUDA"
+            "configs/model_minifasnet.yaml: device=gpu nhưng CUDA không khả dụng — "
+            "đổi device: cpu trong configs/model_minifasnet.yaml hoặc cài driver/CUDA"
         )
         print("  WARN  GPU được cấu hình nhưng CUDA không sẵn sàng")
     else:
@@ -427,6 +428,16 @@ def check_imports(result: CheckResult) -> None:
             result.fail(f"Thiếu package: {pip_name} (import {module_name})")
             print(f"  FAIL  {module_name} — cài: pip install {pip_name}")
 
+    print("\n[Import packages — tùy chọn]")
+    for module_name, pip_name, reason in OPTIONAL_PACKAGES:
+        try:
+            mod = importlib.import_module(module_name)
+            version = getattr(mod, "__version__", "unknown")
+            print(f"  OK  {module_name} ({pip_name}) — {version}")
+        except ImportError:
+            result.warn(f"Thiếu package tùy chọn: {pip_name} ({reason})")
+            print(f"  WARN  {module_name} — tùy chọn, cài nếu cần: pip install {pip_name}")
+
 
 def print_summary(result: CheckResult) -> int:
     print("\n" + "=" * 60)
@@ -452,7 +463,7 @@ def print_summary(result: CheckResult) -> int:
 def main() -> int:
     result = CheckResult()
 
-    print("MiniFASNet Anti-Spoofing Survey — Environment Check")
+    print("Face Anti-Spoofing Survey — Environment Check")
     print(f"Platform: {platform.platform()}")
 
     try:

@@ -27,8 +27,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-config",
         type=Path,
-        default=REPO_ROOT / "configs/model.yaml",
-        help="Đường dẫn model config (mặc định: configs/model.yaml).",
+        default=REPO_ROOT / "configs/model_minifasnet.yaml",
+        help="Đường dẫn model config (mặc định: configs/model_minifasnet.yaml).",
     )
     parser.add_argument(
         "--inference-config",

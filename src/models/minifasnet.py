@@ -28,7 +28,7 @@ class MiniFASNetWrapper:
         self.model_config_path = (
             Path(model_config_path)
             if model_config_path is not None
-            else self.repo_root / "configs" / "model.yaml"
+            else self.repo_root / "configs" / "model_minifasnet.yaml"
         )
         self.prefer_cpu = prefer_cpu
 

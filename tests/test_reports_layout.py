@@ -49,9 +49,9 @@ class TestModelReportPaths(unittest.TestCase):
         )
 
     def test_from_model_yaml(self) -> None:
-        model_yaml = ROOT / "configs/model.yaml"
+        model_yaml = ROOT / "configs/model_minifasnet.yaml"
         if not model_yaml.is_file():
-            self.skipTest("Thiếu configs/model.yaml")
+            self.skipTest("Thiếu configs/model_minifasnet.yaml")
         import yaml
 
         with model_yaml.open(encoding="utf-8") as f:

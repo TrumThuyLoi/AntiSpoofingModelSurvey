@@ -32,8 +32,8 @@ def _project_root() -> Path:
 def load_input_size_from_model_config(
     config_path: PathLike | None = None,
 ) -> SizeHW:
-    """Đọc input_size [height, width] từ configs/model.yaml."""
-    path = Path(config_path) if config_path else _project_root() / "configs" / "model.yaml"
+    """Đọc input_size [height, width] từ configs/model_minifasnet.yaml."""
+    path = Path(config_path) if config_path else _project_root() / "configs" / "model_minifasnet.yaml"
     with path.open(encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
     raw = cfg.get("input_size", [80, 80])
@@ -106,7 +106,7 @@ def preprocess_path(
     """
     Đọc ảnh từ disk → preprocess.
 
-    Nếu ``input_size`` None, đọc từ ``configs/model.yaml`` (hoặc ``config_path``).
+    Nếu ``input_size`` None, đọc từ ``configs/model_minifasnet.yaml`` (hoặc ``config_path``).
     ``add_batch_dim=True`` → shape (1, C, H, W).
     ``device`` — nếu set, tensor được ``.to(device)`` (vd. cuda:0).
     """
