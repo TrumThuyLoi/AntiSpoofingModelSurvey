@@ -1,0 +1,16 @@
+<View>
+  <Image name="image" value="$image" zoom="true"/>
+  <Header value="Dataset / split"/>
+  <Text name="source_dataset" value="$source_dataset"/>
+  <Text name="split" value="$split"/>
+  <Header value="Original label"/>
+  <Text name="label_original" value="$label_original"/>
+  <Header value="Path"/>
+  <Text name="image_path" value="$image_path"/>
+  <Header value="Corrected label"/>
+  <Choices name="label" toName="image" choice="single" showInline="true">
+    <Choice value="live"/>
+    <Choice value="spoof"/>
+    <Choice value="unknown"/>
+  </Choices>
+</View>

@@ -1,0 +1,4468 @@
+[
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002619.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002619.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000456.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000456.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000102.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000102.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003037.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003037.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001126.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001126.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001003.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001003.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000914.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000914.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000571.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000571.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003016.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003016.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000419.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000419.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002771.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002771.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003033.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003033.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003654.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003654.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002233.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002233.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000356.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000356.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002418.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002418.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001728.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001728.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000130.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000130.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000122.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000122.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000383.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000383.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000895.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000895.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000952.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000952.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002069.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002069.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002465.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002465.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000108.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000108.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002298.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002298.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000814.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000814.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002932.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002932.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002661.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002661.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002872.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002872.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002232.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002232.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001718.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001718.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000902.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000902.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001839.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001839.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002413.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002413.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001139.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001139.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003315.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003315.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003560.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003560.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000026.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000026.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003108.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003108.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003300.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003300.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000653.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000653.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002859.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002859.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001731.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001731.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001393.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001393.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001138.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001138.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000636.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000636.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000881.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000881.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003920.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003920.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003127.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003127.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001378.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001378.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000418.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000418.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000379.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000379.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001556.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001556.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000396.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000396.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001470.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001470.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003471.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003471.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001408.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001408.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002472.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002472.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001083.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001083.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003305.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003305.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000177.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000177.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002988.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002988.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001881.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001881.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002196.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002196.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000511.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000511.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003985.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003985.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003777.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003777.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001550.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001550.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000322.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000322.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002261.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002261.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001200.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001200.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003397.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003397.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002574.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002574.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002533.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002533.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003626.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003626.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003529.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003529.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001481.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001481.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002364.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002364.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000787.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000787.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002885.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002885.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000284.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000284.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000187.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000187.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002708.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002708.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000933.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000933.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003166.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003166.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001185.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001185.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000326.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000326.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003503.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003503.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000953.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000953.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003549.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003549.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000413.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000413.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004009.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004009.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004017.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004017.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001857.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001857.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002603.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002603.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003416.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003416.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001494.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001494.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000666.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000666.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001516.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001516.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001455.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001455.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000858.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000858.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002745.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002745.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001093.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001093.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002874.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002874.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003836.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003836.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002799.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002799.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002654.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002654.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000292.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000292.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002495.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002495.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002600.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002600.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000700.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000700.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002187.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002187.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002986.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002986.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001002.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001002.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000669.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000669.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001893.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001893.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001554.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001554.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001105.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001105.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003790.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003790.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002621.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002621.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002818.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002818.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002281.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002281.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000899.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000899.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002804.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002804.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001328.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001328.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003452.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003452.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003147.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003147.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003178.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003178.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000229.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000229.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000938.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000938.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003366.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003366.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000131.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000131.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003297.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003297.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001292.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001292.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001643.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001643.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001096.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001096.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000271.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000271.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000864.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000864.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003740.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003740.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003862.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003862.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002323.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002323.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003589.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003589.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002940.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002940.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001288.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001288.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000870.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000870.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002684.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002684.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002044.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002044.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001620.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001620.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003623.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003623.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003745.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003745.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002633.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002633.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001879.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001879.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000585.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000585.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001084.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001084.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004055.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004055.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001010.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001010.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003051.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003051.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002299.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002299.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002207.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002207.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001076.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001076.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003059.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003059.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002394.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002394.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001754.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001754.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003677.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003677.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002390.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002390.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001635.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001635.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001482.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001482.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000898.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000898.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000566.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000566.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002087.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002087.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002021.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002021.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000372.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000372.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003095.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003095.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000192.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000192.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003527.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003527.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000449.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000449.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000626.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000626.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002570.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002570.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000655.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000655.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003244.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003244.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002787.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002787.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001729.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001729.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002442.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002442.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000260.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000260.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001576.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001576.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001563.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001563.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002440.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002440.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001917.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001917.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002167.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002167.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001029.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001029.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002266.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002266.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003525.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003525.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003860.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003860.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000047.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000047.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002786.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002786.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002952.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002952.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000469.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000469.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002792.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002792.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003624.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003624.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002199.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002199.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003075.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003075.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001092.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001092.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003148.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003148.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002625.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002625.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004018.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004018.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004061.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004061.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001202.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001202.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001780.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001780.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000647.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000647.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001858.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001858.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000013.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000013.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002957.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002957.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003587.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003587.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002947.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002947.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001078.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001078.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002050.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002050.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003120.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003120.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000731.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000731.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002079.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002079.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003738.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003738.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000435.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000435.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003565.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003565.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002561.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002561.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001222.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001222.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003447.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003447.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002617.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002617.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003843.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003843.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002494.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002494.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004036.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004036.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003885.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003885.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001531.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001531.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003123.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003123.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000661.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000661.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002209.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002209.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003189.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003189.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003778.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003778.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002172.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002172.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003762.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003762.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000002.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000002.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002453.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002453.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001327.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001327.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002001.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002001.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000079.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000079.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000458.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000458.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003805.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003805.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001486.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001486.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003599.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003599.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003406.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003406.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003304.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003304.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001259.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001259.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000980.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000980.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000237.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000237.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000986.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000986.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003596.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003596.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003921.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003921.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003993.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003993.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000350.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000350.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002997.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002997.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001990.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001990.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003342.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003342.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000283.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000283.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003115.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003115.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002181.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002181.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003136.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003136.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000515.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000515.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000525.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000525.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002702.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002702.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001946.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001946.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002251.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002251.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000676.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000676.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001085.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001085.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002161.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002161.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003573.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003573.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002484.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002484.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001733.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001733.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000867.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000867.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002208.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002208.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003093.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003093.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002989.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002989.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002825.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002825.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000823.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000823.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002920.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002920.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001276.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001276.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001634.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001634.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002751.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002751.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004034.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004034.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001529.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001529.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001794.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001794.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003684.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003684.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002119.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002119.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001849.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001849.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000495.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000495.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001015.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001015.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000920.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000920.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000262.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000262.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001384.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001384.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000086.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000086.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002409.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002409.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002268.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002268.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000942.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000942.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002410.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002410.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004030.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004030.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000029.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000029.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000290.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000290.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002899.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002899.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002584.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002584.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000241.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000241.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000937.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000937.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000276.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000276.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003708.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003708.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000128.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000128.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003521.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003521.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001353.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001353.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003758.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003758.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002105.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002105.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000974.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000974.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001140.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001140.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002740.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002740.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001988.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001988.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000877.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000877.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003785.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003785.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000541.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000541.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002962.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002962.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003614.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003614.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002338.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002338.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002360.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002360.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001936.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001936.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000995.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000995.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003213.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003213.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001937.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001937.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003307.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003307.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001667.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001667.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000779.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000779.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000386.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000386.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000397.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000397.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002699.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002699.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001765.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001765.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001451.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001451.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001734.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001734.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001683.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001683.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001912.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001912.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003538.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003538.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003949.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003949.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000221.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000221.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002758.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002758.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002676.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002676.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002646.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002646.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000403.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000403.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000248.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000248.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001649.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001649.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002982.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002982.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001389.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001389.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003279.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003279.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003986.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003986.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000447.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000447.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001018.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001018.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000784.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000784.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003729.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003729.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003998.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003998.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001837.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001837.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000574.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000574.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/004046.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/004046.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000751.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000751.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003912.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003912.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001894.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001894.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001023.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001023.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003581.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003581.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000308.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000308.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001815.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001815.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003309.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003309.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003528.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003528.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003506.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003506.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002254.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002254.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000401.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000401.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000207.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000207.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002671.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002671.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002214.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002214.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003424.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003424.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000060.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000060.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000382.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000382.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003086.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003086.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003476.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003476.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000968.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000968.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000681.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000681.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001664.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001664.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001989.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001989.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001971.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001971.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000875.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000875.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003541.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003541.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001642.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001642.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000240.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000240.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000674.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000674.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001552.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001552.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/000008.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/000008.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001599.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001599.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001086.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001086.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003211.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003211.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003215.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003215.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001863.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001863.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001168.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001168.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/001732.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/001732.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002853.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002853.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002992.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002992.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/003208.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/003208.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/casia_fasd/images/test/002276.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/casia_fasd/images/test/002276.jpg",
+      "source_dataset": "casia_fasd",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  }
+]

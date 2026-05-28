@@ -1,11 +1,16 @@
 import argparse
 import csv
 import json
+import random
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+
+# Label Studio strips only the leading "$" from value="$source_dataset | $split"
+# and then requires this literal key in task.data (see label_studio/core/label_config.py).
+SOURCE_DATASET_SPLIT_KEY = "source_dataset | $split"
 
 
 def _dataset_spec(dataset: str) -> Tuple[Path, Path]:
@@ -88,6 +93,11 @@ def build_tasks_from_rows(rows: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         task = {
             "data": {
                 "image": _image_url_from_image_path(image_path),
+                "image_path": image_path,
+                "source_dataset": source_dataset,
+                "split": split,
+                SOURCE_DATASET_SPLIT_KEY: f"{source_dataset} | {split}",
+                "label_original": label_original,
             },
             "meta": {
                 "image_path": image_path,
@@ -134,6 +144,35 @@ def generate_unknown_tasks_for_dataset(dataset: str, limit: int | None = None) -
     return out_json_path
 
 
+def generate_sampled_tasks_for_dataset(dataset: str, sample_ratio: float = 0.1, seed: int = 42) -> Path:
+    """
+    Generate Label Studio tasks from data/sampled/<dataset>_sample.csv with random sampling.
+
+    - sample_ratio mặc định 10% (0.1)
+    - output mỗi dataset: label-studio/import/<dataset>_task.json
+    """
+    if dataset not in {"celeba_spoof", "casia_fasd"}:
+        raise ValueError(f"Unsupported dataset '{dataset}'. Expected 'celeba_spoof' or 'casia_fasd'.")
+    if not (0 < sample_ratio <= 1):
+        raise ValueError("sample_ratio must be in range (0, 1].")
+
+    sampled_csv_path = REPO_ROOT / "data" / "sampled" / f"{dataset}_sample.csv"
+    out_json_path = REPO_ROOT / "label-studio" / "import" / f"{dataset}_10pct_task.json"
+
+    rows = load_raw_annotations(sampled_csv_path)
+    if not rows:
+        write_tasks([], out_json_path)
+        return out_json_path
+
+    rng = random.Random(seed)
+    sample_size = max(1, int(len(rows) * sample_ratio))
+    sampled_rows = rng.sample(rows, k=min(sample_size, len(rows)))
+
+    tasks = build_tasks_from_rows(sampled_rows)
+    write_tasks(tasks, out_json_path)
+    return out_json_path
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Generate Label Studio tasks from raw.csv and optionally validate them."
@@ -159,6 +198,14 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help='Only generate tasks for rows with label "unknown" (writes {dataset}_unknown_tasks.json).',
     )
+    parser.add_argument(
+        "--sampled-10pct",
+        action="store_true",
+        help=(
+            "Generate tasks from data/sampled/<dataset>_sample.csv using 10% random sample "
+            "(writes {dataset}_task.json)."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -174,7 +221,12 @@ def main() -> None:
         raise SystemExit("Please specify --dataset {celeba_spoof,casia_fasd} or --all.")
 
     for ds in datasets:
-        if args.unknown_only:
+        if args.unknown_only and args.sampled_10pct:
+            raise SystemExit("Please use only one of --unknown-only or --sampled-10pct.")
+
+        if args.sampled_10pct:
+            out_path = generate_sampled_tasks_for_dataset(ds, sample_ratio=0.1, seed=42)
+        elif args.unknown_only:
             out_path = generate_unknown_tasks_for_dataset(ds, limit=args.limit)
         else:
             out_path = generate_tasks_for_dataset(ds, limit=args.limit)

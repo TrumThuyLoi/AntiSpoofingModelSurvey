@@ -1,0 +1,4402 @@
+[
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064585.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064585.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036313.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036313.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064959.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064959.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040101.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040101.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/006862.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/006862.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/003891.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/003891.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/013245.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/013245.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/000647.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/000647.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/051186.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/051186.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/059517.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/059517.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/043277.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/043277.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032856.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032856.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/001878.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/001878.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/053686.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/053686.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037072.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037072.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/056484.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/056484.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048238.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048238.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037855.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037855.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/051952.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/051952.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/039313.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/039313.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/057198.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/057198.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/065189.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/065189.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018961.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018961.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/001520.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/001520.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/015163.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/015163.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050326.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050326.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/000261.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/000261.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/063115.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/063115.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/014552.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/014552.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060721.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060721.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018967.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018967.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032902.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032902.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/057575.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/057575.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018699.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018699.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004882.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004882.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/059672.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/059672.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/029026.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/029026.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/039965.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/039965.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030931.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030931.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/019911.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/019911.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060272.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060272.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004433.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004433.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032625.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032625.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008127.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008127.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009531.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009531.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/026113.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/026113.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018099.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018099.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036681.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036681.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032205.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032205.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011740.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011740.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008411.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008411.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/044363.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/044363.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/039779.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/039779.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048836.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048836.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/029594.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/029594.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009097.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009097.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/025480.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/025480.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/056770.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/056770.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018420.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018420.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009756.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009756.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/022401.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/022401.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/044291.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/044291.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/041580.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/041580.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/049964.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/049964.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064688.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064688.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/019493.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/019493.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040415.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040415.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/026594.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/026594.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/038791.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/038791.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037114.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037114.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005685.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005685.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/006513.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/006513.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/065887.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/065887.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050193.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050193.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/016361.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/016361.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/020883.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/020883.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/031506.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/031506.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/052197.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/052197.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009166.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009166.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037937.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037937.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/020547.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/020547.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/002265.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/002265.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/025141.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/025141.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/053564.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/053564.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048710.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048710.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/015868.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/015868.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/031771.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/031771.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030740.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030740.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064462.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064462.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011588.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011588.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030977.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030977.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/034916.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/034916.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009315.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009315.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/053610.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/053610.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/054980.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/054980.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018356.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018356.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027993.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027993.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040292.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040292.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040321.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040321.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/051395.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/051395.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/063972.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/063972.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018850.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018850.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030253.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030253.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/015500.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/015500.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/017558.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/017558.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/039198.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/039198.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/006964.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/006964.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027357.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027357.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050791.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050791.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/029507.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/029507.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061821.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061821.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011183.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011183.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/038965.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/038965.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060113.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060113.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048294.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048294.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/021046.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/021046.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040928.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040928.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061977.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061977.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/051946.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/051946.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/046933.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/046933.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060446.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060446.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060124.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060124.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045917.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045917.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050292.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050292.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/017138.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/017138.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/047365.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/047365.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060807.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060807.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/006695.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/006695.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/021260.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/021260.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/015860.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/015860.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/001157.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/001157.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/012106.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/012106.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/059469.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/059469.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/012482.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/012482.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040142.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040142.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/053485.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/053485.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060255.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060255.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/019418.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/019418.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036161.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036161.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/057660.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/057660.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050937.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050937.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/029379.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/029379.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011800.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011800.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/065044.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/065044.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008504.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008504.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/029751.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/029751.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005218.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005218.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/020619.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/020619.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/035495.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/035495.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030605.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030605.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/013371.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/013371.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/043175.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/043175.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032823.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032823.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/025671.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/025671.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/010898.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/010898.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030356.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030356.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036837.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036837.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/042654.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/042654.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004268.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004268.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009027.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009027.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005451.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005451.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/044206.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/044206.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009579.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009579.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/028209.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/028209.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/047695.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/047695.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/043034.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/043034.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/051333.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/051333.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064914.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064914.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004973.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004973.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032056.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032056.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/016273.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/016273.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/054533.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/054533.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/024413.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/024413.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/001123.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/001123.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036732.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036732.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/026531.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/026531.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/044628.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/044628.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/059120.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/059120.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/046381.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/046381.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/067042.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/067042.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030502.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030502.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030172.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030172.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050582.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050582.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030289.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030289.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/022136.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/022136.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/022456.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/022456.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011708.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011708.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030351.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030351.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008522.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008522.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/006918.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/006918.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/013217.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/013217.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/042051.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/042051.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/014536.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/014536.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/055886.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/055886.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/000034.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/000034.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/056032.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/056032.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/053953.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/053953.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027667.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027667.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045868.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045868.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/055757.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/055757.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/015617.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/015617.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040946.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040946.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/021397.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/021397.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011705.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011705.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/046758.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/046758.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/038625.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/038625.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027027.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027027.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/033078.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/033078.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/010199.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/010199.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/017474.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/017474.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/023383.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/023383.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064981.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064981.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048871.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048871.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011527.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011527.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/063937.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/063937.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/034069.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/034069.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/022452.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/022452.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/000125.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/000125.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/012573.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/012573.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/025762.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/025762.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064082.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064082.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/044579.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/044579.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/034919.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/034919.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/035969.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/035969.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005065.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005065.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/017308.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/017308.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/006213.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/006213.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037249.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037249.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004089.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004089.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009433.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009433.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/001386.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/001386.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/035024.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/035024.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/012596.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/012596.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/022111.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/022111.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/024505.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/024505.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030561.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030561.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/043663.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/043663.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005697.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005697.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/019132.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/019132.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/024339.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/024339.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032905.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032905.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005675.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005675.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030171.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030171.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018828.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018828.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040989.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040989.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/028262.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/028262.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/065546.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/065546.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/051391.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/051391.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050795.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050795.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045447.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045447.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050171.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050171.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037759.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037759.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027882.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027882.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/025749.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/025749.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/003439.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/003439.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/024662.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/024662.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008639.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008639.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/054180.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/054180.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061236.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061236.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060908.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060908.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061987.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061987.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/049078.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/049078.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064204.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064204.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/056612.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/056612.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048131.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048131.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048302.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048302.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036365.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036365.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008226.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008226.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060658.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060658.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045797.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045797.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040393.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040393.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/049039.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/049039.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/056746.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/056746.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045743.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045743.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045805.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045805.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/000994.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/000994.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050503.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050503.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/059923.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/059923.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045589.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045589.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032454.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032454.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027328.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027328.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005306.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005306.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/059901.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/059901.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061635.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061635.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045669.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045669.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037204.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037204.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004920.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004920.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027222.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027222.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004982.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004982.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/001517.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/001517.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/046979.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/046979.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/046376.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/046376.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/029698.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/029698.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/034790.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/034790.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/039703.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/039703.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/056501.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/056501.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008768.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008768.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/038141.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/038141.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/046932.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/046932.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/013070.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/013070.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036432.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036432.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/004028.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/004028.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061223.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061223.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061315.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061315.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/064923.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/064923.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/059578.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/059578.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/023445.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/023445.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/000851.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/000851.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/016723.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/016723.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/030134.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/030134.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/042371.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/042371.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/014845.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/014845.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/055697.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/055697.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/016242.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/016242.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037051.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037051.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/031445.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/031445.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008350.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008350.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/060467.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/060467.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/021854.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/021854.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/037694.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/037694.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/038760.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/038760.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/012947.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/012947.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/044143.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/044143.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011642.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011642.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/014083.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/014083.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/022940.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/022940.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/019412.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/019412.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/054658.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/054658.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/017062.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/017062.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/017543.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/017543.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/053615.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/053615.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/029024.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/029024.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009772.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009772.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/057043.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/057043.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/044217.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/044217.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/066333.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/066333.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/054897.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/054897.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/063993.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/063993.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/051855.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/051855.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/035257.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/035257.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040384.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040384.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/054877.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/054877.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/022121.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/022121.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018421.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018421.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/002208.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/002208.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061183.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061183.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/036145.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/036145.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/039695.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/039695.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/061338.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/061338.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/047897.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/047897.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032662.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032662.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/016409.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/016409.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/035022.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/035022.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/063771.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/063771.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/010172.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/010172.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/043294.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/043294.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/018114.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/018114.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/025334.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/025334.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/052682.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/052682.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/017556.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/017556.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/027160.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/027160.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/026229.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/026229.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/014333.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/014333.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/065264.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/065264.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040704.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040704.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/005839.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/005839.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/066671.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/066671.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/052864.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/052864.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/052235.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/052235.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/014496.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/014496.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/025267.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/025267.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050348.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050348.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050740.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050740.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/010971.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/010971.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/011162.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/011162.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/008823.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/008823.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/054774.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/054774.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/063588.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/063588.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009351.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009351.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/014619.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/014619.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/026972.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/026972.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/040969.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/040969.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/038678.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/038678.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/002065.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/002065.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/058062.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/058062.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/049126.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/049126.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/053658.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/053658.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/052059.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/052059.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009395.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009395.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/016063.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/016063.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/046158.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/046158.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/009517.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/009517.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/035985.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/035985.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/048737.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/048737.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/050552.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/050552.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/045090.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/045090.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "live"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/032627.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/032627.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/052998.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/052998.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/041454.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/041454.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  },
+  {
+    "data": {
+      "image": "/data/local-files/?d=raw/celeba_spoof/images/test/002992.jpg"
+    },
+    "meta": {
+      "image_path": "data/raw/celeba_spoof/images/test/002992.jpg",
+      "source_dataset": "celeba_spoof",
+      "split": "test",
+      "label_original": "spoof"
+    }
+  }
+]
