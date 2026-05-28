@@ -16,6 +16,14 @@ from typing import Any
 import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from src.reports.layout import (  # noqa: E402
+    ModelReportPaths,
+    resolve_model_id,
+    sanitize_model_id,
+)
 
 VALID_LABELS = {"live", "spoof"}
 _RUN_STEM_RE = re.compile(r"^run_(.+)_\d{8}_\d{6}$")
@@ -69,6 +77,11 @@ def resolve_dataset_slug(predictions_path: Path, override: str | None = None) ->
         return override.strip()
 
     stem = predictions_path.stem
+    if stem == "latest":
+        parent = predictions_path.parent
+        if parent.parent.name == "predictions":
+            return parent.name
+
     if stem.endswith("_latest"):
         return stem[: -len("_latest")]
 
@@ -85,6 +98,28 @@ def resolve_dataset_slug(predictions_path: Path, override: str | None = None) ->
         "Dùng --dataset, file <dataset>_latest.csv, run_<dataset>_YYYYMMDD_HHMMSS.csv, "
         "hoặc CSV có dòng # source_dataset=...",
     )
+
+
+def resolve_model_id_for_eval(
+    *,
+    predictions_path: Path | None,
+    eval_cfg: dict[str, Any],
+    cli_model_id: str | None,
+) -> str | None:
+    """model_id: CLI → eval config → metadata CSV → derive từ model_config."""
+    if cli_model_id and cli_model_id.strip():
+        return sanitize_model_id(cli_model_id)
+    if eval_cfg.get("model_id") and str(eval_cfg["model_id"]).strip():
+        return sanitize_model_id(str(eval_cfg["model_id"]))
+    if predictions_path is not None and predictions_path.is_file():
+        meta = parse_predictions_metadata(predictions_path)
+        if meta.get("model_id"):
+            return sanitize_model_id(meta["model_id"])
+    model_config = eval_cfg.get("model_config")
+    if model_config:
+        model_cfg = _load_yaml(_resolve_path(str(model_config)))
+        return resolve_model_id(model_cfg, REPO_ROOT)
+    return None
 
 
 def _repo_relative_path(path: Path) -> str:
@@ -332,6 +367,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Ghi thẳng vào metrics_output_dir (không tạo subfolder theo dataset).",
     )
+    parser.add_argument(
+        "--model-id",
+        type=str,
+        default=None,
+        help="Namespace metrics theo model (override config / metadata predictions).",
+    )
     return parser.parse_args()
 
 
@@ -339,29 +380,60 @@ def main() -> int:
     args = parse_args()
     cfg = _load_yaml(args.config)
 
-    predictions_path = args.predictions if args.predictions else _resolve_path(str(cfg["predictions_path"]))
-    if not predictions_path.is_absolute():
-        predictions_path = _resolve_path(str(predictions_path))
-
-    metrics_base = _resolve_path(str(cfg["metrics_output_dir"]))
+    dataset_override = args.dataset or cfg.get("dataset")
     thresholds_raw = cfg.get("thresholds", [])
     thresholds = [float(t) for t in thresholds_raw]
-    dataset_override = args.dataset or cfg.get("dataset")
     flat_output = args.flat_output or bool(cfg.get("flat_output"))
+
+    predictions_path: Path | None = None
+    if args.predictions:
+        predictions_path = args.predictions if args.predictions.is_absolute() else _resolve_path(str(args.predictions))
+    elif cfg.get("predictions_path"):
+        predictions_path = _resolve_path(str(cfg["predictions_path"]))
+
+    model_id = resolve_model_id_for_eval(
+        predictions_path=predictions_path,
+        eval_cfg=cfg,
+        cli_model_id=args.model_id,
+    )
+
+    if predictions_path is None:
+        if not model_id or not dataset_override:
+            raise ValueError(
+                "Cần --predictions, hoặc model_id + dataset trong config/CLI "
+                "(vd. model_config + dataset: celeba_spoof).",
+            )
+        predictions_path = ModelReportPaths(model_id, REPO_ROOT).predictions_latest(str(dataset_override))
+
+    if not predictions_path.is_absolute():
+        predictions_path = _resolve_path(str(predictions_path))
 
     if not predictions_path.is_file():
         raise FileNotFoundError(
             f"Không tìm thấy predictions file: {predictions_path}. "
-            "Dùng --predictions để chỉ đúng file cần đánh giá.",
+            "Chạy inference trước hoặc dùng --predictions.",
         )
     if not thresholds:
         raise ValueError("Cấu hình thresholds rỗng.")
 
+    if model_id is None:
+        meta = parse_predictions_metadata(predictions_path)
+        if meta.get("model_id"):
+            model_id = sanitize_model_id(meta["model_id"])
+
     dataset_slug = resolve_dataset_slug(predictions_path, dataset_override)
-    output_dir = metrics_base if flat_output else metrics_base / dataset_slug
+
+    if model_id:
+        report_paths = ModelReportPaths(model_id, REPO_ROOT)
+        output_dir = report_paths.model_root / "metrics" if flat_output else report_paths.metrics_dir(dataset_slug)
+    else:
+        metrics_base = _resolve_path(str(cfg.get("metrics_output_dir", "reports/metrics")))
+        output_dir = metrics_base if flat_output else metrics_base / dataset_slug
+
     output_dir.mkdir(parents=True, exist_ok=True)
 
     provenance = {
+        "model_id": model_id or "",
         "source_dataset": dataset_slug,
         "predictions_path": _repo_relative_path(predictions_path),
         "evaluated_at": datetime.now().isoformat(timespec="seconds"),
@@ -391,6 +463,7 @@ def main() -> int:
         _plot_confusion_matrix(cm_path, result, threshold=threshold)
         saved_cm_paths.append(cm_path)
 
+    print(f"model_id: {model_id or '(legacy)'}")
     print(f"dataset: {dataset_slug}")
     print(f"output_dir: {output_dir}")
     print(f"predictions: {predictions_path}")

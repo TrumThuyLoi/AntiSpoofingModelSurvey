@@ -1,5 +1,5 @@
-# Đổi theo file *_latest.csv sau inference, hoặc truyền --predictions
-predictions_path: reports/predictions/celeba_spoof_latest.csv
-metrics_output_dir: reports/metrics
+# model_id: lấy từ model_config (hoặc # model_id= trong predictions CSV)
+model_config: configs/model.yaml
+# dataset: celeba_spoof  # bắt buộc nếu không truyền --predictions
 thresholds: [0.3, 0.5, 0.7]
-# dataset: celeba_spoof  # optional — override auto-detect
+# predictions_path: reports/models/<model_id>/predictions/<dataset>/latest.csv

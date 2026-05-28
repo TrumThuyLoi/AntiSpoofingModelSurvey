@@ -43,6 +43,12 @@ class TestResolveDatasetSlug(unittest.TestCase):
         _write_predictions_csv(p, source_dataset=None)
         self.assertEqual(resolve_dataset_slug(p), "casia_fasd")
 
+    def test_from_models_namespace_latest(self) -> None:
+        p = self.tmp / "predictions" / "celeba_spoof" / "latest.csv"
+        p.parent.mkdir(parents=True)
+        _write_predictions_csv(p, source_dataset=None)
+        self.assertEqual(resolve_dataset_slug(p), "celeba_spoof")
+
     def test_from_run_timestamp_filename(self) -> None:
         p = self.tmp / "run_celeba_spoof_20260115_120000.csv"
         _write_predictions_csv(p, source_dataset=None)

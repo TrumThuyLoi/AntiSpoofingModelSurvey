@@ -20,6 +20,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from src.models.minifasnet import MiniFASNetWrapper
+from src.reports.layout import model_report_paths
 
 BASE_FIELDNAMES = (
     "image_path",
@@ -217,6 +218,13 @@ def run_batch_inference(
     dataset_cfg: dict[str, Any] = cfg["dataset"]
     inference_cfg: dict[str, Any] = cfg["inference"]
 
+    source_dataset = str(dataset_cfg.get("source_dataset", "")).strip()
+    if not source_dataset:
+        raise ValueError("dataset config thiếu source_dataset")
+
+    report_paths = model_report_paths(model_cfg, root)
+    cfg["output_dir"] = report_paths.predictions_dir(source_dataset)
+
     model_config_abs = _resolve_path(root, str(model_config_path))
     device_cfg = str(model_cfg.get("device", "cpu")).strip().lower()
     prefer_cpu = device_cfg == "cpu"
@@ -257,6 +265,7 @@ def run_batch_inference(
     out_path = cfg["output_dir"] / out_name
 
     metadata = {
+        "model_id": report_paths.model_id,
         "model_name": model_cfg.get("name", ""),
         "weights_path": str(wrapper.weights_path),
         "threshold": model_cfg.get("threshold", ""),
@@ -277,6 +286,19 @@ def run_batch_inference(
         "finished_at": finished_at.isoformat(timespec="seconds"),
     }
 
+    report_paths.write_manifest(
+        {
+            "model_id": report_paths.model_id,
+            "model_name": metadata["model_name"],
+            "weights_path": metadata["weights_path"],
+            "threshold": metadata["threshold"],
+            "device": metadata["device"],
+            "source_dataset": source_dataset,
+            "last_run_csv": out_name,
+            "updated_at": metadata["finished_at"],
+        }
+    )
+
     with out_path.open("w", newline="", encoding="utf-8") as f:
         for line in _metadata_lines(metadata):
             f.write(line + "\n")
@@ -284,7 +306,7 @@ def run_batch_inference(
         writer.writeheader()
         writer.writerows(output_rows)
 
-    latest_path = cfg["output_dir"] / f"{dataset_cfg.get('source_dataset', '')}_latest.csv"
+    latest_path = report_paths.predictions_latest(source_dataset)
     shutil.copy2(out_path, latest_path)
     return latest_path
 

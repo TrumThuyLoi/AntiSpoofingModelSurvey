@@ -1,3 +1,4 @@
+model_id: minifasnet_v2_2p7
 name: minifasnet
 weights_dir: models/minifasnet/2.7_80x80_MiniFASNetV2.pth
 device: gpu

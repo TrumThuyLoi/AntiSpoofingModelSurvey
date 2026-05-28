@@ -24,6 +24,7 @@ PROJECT_DIRS = (
     "reports",
     "reports/predictions",
     "reports/metrics",
+    "reports/models",
     "reports/failure_cases",
     "scripts",
     "src",
@@ -340,16 +341,26 @@ def check_configs(root: Path, result: CheckResult) -> dict[str, Any] | None:
         )
 
     if evaluation:
-        for key in ("predictions_path", "metrics_output_dir", "thresholds"):
-            if key not in evaluation:
-                result.fail(f"configs/evaluation.yaml thiếu key: {key}")
-        _check_path_fields(
-            root,
-            "configs/evaluation.yaml",
-            evaluation,
-            ("predictions_path", "metrics_output_dir"),
-            result,
-        )
+        if "thresholds" not in evaluation:
+            result.fail("configs/evaluation.yaml thiếu key: thresholds")
+        if not evaluation.get("model_config") and not evaluation.get("predictions_path"):
+            result.fail(
+                "configs/evaluation.yaml: cần model_config hoặc predictions_path",
+            )
+        if evaluation.get("predictions_path"):
+            _check_path_fields(
+                root,
+                "configs/evaluation.yaml",
+                evaluation,
+                ("predictions_path",),
+                result,
+            )
+        if evaluation.get("model_config"):
+            ref = evaluation.get("model_config")
+            if isinstance(ref, str) and not (root / ref).is_file():
+                result.fail(
+                    f"configs/evaluation.yaml: model_config không tồn tại: {ref}",
+                )
         thresholds = evaluation.get("thresholds")
         if thresholds is not None and not isinstance(thresholds, list):
             result.fail("configs/evaluation.yaml: 'thresholds' phải là list")
