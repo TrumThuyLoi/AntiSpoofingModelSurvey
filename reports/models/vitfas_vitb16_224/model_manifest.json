@@ -4,7 +4,7 @@
   "weights_path": "/home/DVX/AntiSpoofingModelSurvey/models/vitfas_vitb16_224x224.pth",
   "threshold": 0.5,
   "device": "cuda:0",
-  "source_dataset": "casia_fasd",
-  "last_run_csv": "run_casia_fasd_20260529_140905.csv",
-  "updated_at": "2026-05-29T14:10:16"
+  "source_dataset": "face_antispoofing_vn",
+  "last_run_csv": "run_face_antispoofing_vn_20260529_180114.csv",
+  "updated_at": "2026-05-29T18:02:11"
 }
