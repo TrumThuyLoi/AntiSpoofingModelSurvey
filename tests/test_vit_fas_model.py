@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import importlib.util
+import os
 import sys
 import tempfile
 import unittest
@@ -17,19 +19,37 @@ if str(ROOT) not in sys.path:
 
 from src.models.vit_fas import ViTFASWrapper  # noqa: E402
 
-
-class _DummyBinaryModel(torch.nn.Module):
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # Trả logits [spoof, live] theo quy ước wrapper.
-        batch = x.shape[0]
-        return torch.tensor([[-1.0, 1.0]], dtype=x.dtype, device=x.device).repeat(batch, 1)
+REPO_TEST_PY = ROOT / "third_party" / "vit-spoof-detection-pda" / "test.py"
 
 
-def _create_torchscript_checkpoint(path: Path) -> None:
-    model = _DummyBinaryModel().eval()
-    example = torch.zeros((1, 3, 224, 224), dtype=torch.float32)
-    scripted = torch.jit.trace(model, example)
-    scripted.save(str(path))
+def _load_vit_repo_module():
+    """Import test.py upstream (cwd tạm để tránh test_log_*.log ở repo root)."""
+    if not REPO_TEST_PY.is_file():
+        raise FileNotFoundError(f"Thiếu submodule: {REPO_TEST_PY}")
+
+    spec = importlib.util.spec_from_file_location("vit_spoof_detection_test", REPO_TEST_PY)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Không load được {REPO_TEST_PY}")
+
+    mod = importlib.util.module_from_spec(spec)
+    with tempfile.TemporaryDirectory() as tmp:
+        prev = os.getcwd()
+        os.chdir(tmp)
+        try:
+            spec.loader.exec_module(mod)
+        finally:
+            os.chdir(prev)
+    return mod
+
+
+def _create_repo_format_checkpoint(path: Path) -> None:
+    """Checkpoint dict giống repo gốc — khớp _load_model_from_checkpoint trong vit_fas."""
+    mod = _load_vit_repo_module()
+    cfg = mod.TestConfig()
+    cfg.num_classes = 2
+    cfg.img_size = 224
+    model = mod.ViTFaceAntiSpoofing(cfg)
+    torch.save({"model_state_dict": model.state_dict()}, str(path))
 
 
 def _create_sample_image(path: Path) -> None:
@@ -40,13 +60,14 @@ def _create_sample_image(path: Path) -> None:
     Image.fromarray(arr, mode="RGB").save(path)
 
 
+@unittest.skipUnless(REPO_TEST_PY.is_file(), "Thiếu third_party/vit-spoof-detection-pda")
 class TestViTFASWrapperBasic(unittest.TestCase):
     def setUp(self) -> None:
         self.tmp_dir = tempfile.TemporaryDirectory()
         self.tmp = Path(self.tmp_dir.name)
         self.ckpt = self.tmp / "vitfas_vitb16_224x224.pth"
         self.img = self.tmp / "sample.jpg"
-        _create_torchscript_checkpoint(self.ckpt)
+        _create_repo_format_checkpoint(self.ckpt)
         _create_sample_image(self.img)
         self.wrapper = ViTFASWrapper(
             weights_path=self.ckpt,
@@ -76,8 +97,6 @@ class TestViTFASWrapperBasic(unittest.TestCase):
             self.assertIn(key, out)
         self.assertIn(out["label_pred"], ("live", "spoof"))
         self.assertEqual(len(out["raw_output"]), 2)
-        self.assertGreater(out["live_score"], out["spoof_score"])
-        self.assertEqual(out["label_pred"], "live")
 
     def test_predict_batch_length(self) -> None:
         outs = self.wrapper.predict_batch([self.img, self.img])
@@ -90,11 +109,12 @@ class TestViTFASWrapperValidation(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             ViTFASWrapper(weights_path=ROOT / "models" / "not_exist_vitfas.pth", prefer_cpu=True)
 
+    @unittest.skipUnless(REPO_TEST_PY.is_file(), "Thiếu third_party/vit-spoof-detection-pda")
     def test_invalid_ndarray_shape_raises(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             ckpt = tmp_path / "dummy.pth"
-            _create_torchscript_checkpoint(ckpt)
+            _create_repo_format_checkpoint(ckpt)
             wrapper = ViTFASWrapper(weights_path=ckpt, prefer_cpu=True)
             bad_input = np.zeros((224, 224), dtype=np.uint8)  # thiếu channel dim
             with self.assertRaises(ValueError):
@@ -103,4 +123,3 @@ class TestViTFASWrapperValidation(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,4 +1,4 @@
-dataset_config: configs/dataset.yaml
+dataset_config: configs/dataset_celeba_spoof.yaml
 model_config: configs/model_minifasnet.yaml
 output_dir: reports/predictions
 batch_size: 32

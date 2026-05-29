@@ -3,6 +3,7 @@
 	url = https://github.com/minivision-ai/Silent-Face-Anti-Spoofing.git
 [submodule "third_party/vit-spoof-detection-pda"]
 	path = third_party/vit-spoof-detection-pda
+	url = https://github.com/ArchitRastogi20/vit-spoof-detection-pda.git
 [submodule "third_party/face-antispoof-onnx"]
 	path = third_party/face-antispoof-onnx
 	url = https://github.com/facenox/face-antispoof-onnx

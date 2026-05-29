@@ -53,10 +53,31 @@ CASIA_FASD_SPEC = HFRawDatasetSpec(
         "spoof": "spoof",
         "1spoof": "spoof",
     },
-    token_env_var="HUGGINGFACE_CASIA_FASD_TOKEN",
+    token_env_var="HUGGINGFACE_PRIVATE_DATASET_TOKEN",
+)
+
+FACE_ANTI_SPOOFING_VN_SPEC = HFRawDatasetSpec(
+    source_dataset="face_antispoofing_vn",
+    repo_id="vu-hong-quang/face_antispoofing_vn",
+    dataset_page="https://huggingface.co/datasets/vu-hong-quang/face_antispoofing_vn",
+    hf_split="test",
+    default_raw_rel_dir="data/raw/face_antispoofing_vn",
+    label_field="labels",
+    label_name_field="labelNames",
+    label_aliases={
+        "live": "live",
+        "0live": "live",
+        "spoof": "spoof",
+        "1spoof": "spoof",
+        "not_live": "spoof",
+        "0": "live",
+        "1": "spoof",
+    },
+    token_env_var="HUGGINGFACE_PRIVATE_DATASET_TOKEN",
 )
 
 DATASET_SPECS: dict[str, HFRawDatasetSpec] = {
     "celeba_spoof": CELEBA_SPOOF_SPEC,
     "casia_fasd": CASIA_FASD_SPEC,
+    "face_antispoofing_vn": FACE_ANTI_SPOOFING_VN_SPEC,
 }

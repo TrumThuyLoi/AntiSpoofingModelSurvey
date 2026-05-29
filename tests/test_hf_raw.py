@@ -194,7 +194,7 @@ class TestHFRawDownloadSkipped(unittest.TestCase):
     @patch.dict("os.environ", {}, clear=True)
     def test_casia_iter_hf_rows_requires_token_env(self):
         spec = CASIA_FASD_SPEC
-        self.assertEqual(spec.token_env_var, "HUGGINGFACE_TOKEN")
+        self.assertEqual(spec.token_env_var, "HUGGINGFACE_PRIVATE_DATASET_TOKEN")
         with self.assertRaises(ValueError):
             hf_raw._iter_hf_rows(spec)
 

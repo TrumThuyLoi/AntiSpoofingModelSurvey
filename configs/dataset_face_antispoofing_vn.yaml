@@ -1,0 +1,9 @@
+name: face_antispoofing_vn_sample
+annotation_path: data/sampled/face_antispoofing_vn_sample.csv
+image_root: data/sampled
+source_dataset: face_antispoofing_vn
+default_split: test
+labels:
+  live: live
+  spoof: spoof
+  unknown: unknown

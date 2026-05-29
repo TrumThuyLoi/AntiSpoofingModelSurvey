@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tạo file <dataset>_sample.csv cho celeba_spoof và casia_fasd."""
+"""Tạo file <dataset>_sample.csv cho celeba_spoof, casia_fasd và face_antispoofing_vn."""
 
 from __future__ import annotations
 
@@ -38,6 +38,11 @@ def _sample_casia(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     return [r for r in rows if _is_valid_true(r)]
 
 
+def _sample_face_antispoofing_vn(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Toàn bộ dòng is_valid=true từ raw test (hf_raw → data/raw/face_antispoofing_vn/)."""
+    return _sample_casia(rows)
+
+
 def _write_rows(dataset: str, rows: list[dict[str, str]]) -> Path:
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
     out_path = OUT_ROOT / f"{dataset}_sample.csv"
@@ -54,15 +59,19 @@ def main() -> None:
 
     celeba_rows = _read_rows("celeba_spoof")
     casia_rows = _read_rows("casia_fasd")
+    vn_rows = _read_rows("face_antispoofing_vn")
 
     celeba_sample = _sample_celeba(celeba_rows, k=2000)
     casia_sample = _sample_casia(casia_rows)
+    vn_sample = _sample_face_antispoofing_vn(vn_rows)
 
     celeba_out = _write_rows("celeba_spoof", celeba_sample)
     casia_out = _write_rows("casia_fasd", casia_sample)
+    vn_out = _write_rows("face_antispoofing_vn", vn_sample)
 
     print(f"[OK] celeba_spoof: {len(celeba_sample)} -> {celeba_out}")
     print(f"[OK] casia_fasd: {len(casia_sample)} -> {casia_out}")
+    print(f"[OK] face_antispoofing_vn: {len(vn_sample)} -> {vn_out}")
 
 
 if __name__ == "__main__":

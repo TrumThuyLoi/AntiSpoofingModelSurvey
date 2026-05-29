@@ -16,13 +16,36 @@ pip install -r requirements.txt
 ```
 
 - **CelebA-Spoof** (`celeba_spoof`): repo public, không bắt buộc token.
-- **CASIA-FASD** (`casia_fasd`): repo private — thêm vào file `.env` ở thư mục gốc repo:
+- **CASIA-FASD** (`casia_fasd`) và **Face Anti-Spoofing VN** (`face_antispoofing_vn`): repo private — thêm vào `.env` ở thư mục gốc repo:
 
 ```env
-HUGGINGFACE_CASIA_FASD_TOKEN=hf_...
+HUGGINGFACE_PRIVATE_DATASET_TOKEN=hf_...
 ```
 
-**Chạy tải dữ liệu** (từ thư mục gốc DVX):
+**Đưa dữ liệu lên Hugging Face (lần đầu)** — chỉ khi bạn là người publish repo private. Cần token **write** trên huggingface.co và repo dataset đã tạo sẵn (private). Script push đọc `HUGGINGFACE_TOKEN` (có thể đặt cùng giá trị với `HUGGINGFACE_PRIVATE_DATASET_TOKEN`).
+
+**CASIA-FASD** → `vu-hong-quang/casia_fasd` (split `test`):
+
+- Ảnh local: `data/raw/kaggle/casia_fasd/test_img/color/` và `train_img/color/` (tên file `*_real.*` = live, `*_fake.*` = spoof).
+- Nếu split `test` trên HF đã có ≥ 4063 mẫu, script thoát và không push lại.
+
+```bash
+python3 scripts/create_casia_fasd_hf_dataset.py
+```
+
+**Face Anti-Spoofing VN** → `vu-hong-quang/face_antispoofing_vn` (split `train` + `test`):
+
+- Ảnh gốc: `data/face_antispoofing_vn/train_photo|test_photo/{live,not_live}/`.
+- Submodule detector (RetinaFace): `git submodule update --init third_party/Silent-Face-Anti-Spoofing` và đủ file trong `third_party/Silent-Face-Anti-Spoofing/resources/detection_model/`.
+- Một lệnh: crop mặt → ghi `data/face_antispoofing_vn_cropped/` → push HF; in `Crop: images=... fail_detect=...`.
+
+```bash
+python3 scripts/create_vietnam_hf_dataset.py
+```
+
+Chi tiết schema / checklist: `hf_face_antispoofingvn.md`.
+
+**Chạy tải dữ liệu** (từ thư mục gốc repo, sau khi HF đã có dữ liệu):
 
 ```bash
 # CelebA-Spoof (~67k ảnh, có thể mất lâu)
@@ -31,14 +54,18 @@ python -m src.datasets.hf_raw --dataset celeba_spoof
 # CASIA-FASD
 python -m src.datasets.hf_raw --dataset casia_fasd
 
+# Face Anti-Spoofing VN (private)
+python -m src.datasets.hf_raw --dataset face_antispoofing_vn
+
 # Tải lại dù đã có dữ liệu
 python -m src.datasets.hf_raw --dataset casia_fasd --force
+python -m src.datasets.hf_raw --dataset face_antispoofing_vn --force
 ```
 
 Kết quả mẫu:
 
 ```text
-data/raw/celeba_spoof/   hoặc   data/raw/casia_fasd/
+data/raw/celeba_spoof/   hoặc   data/raw/casia_fasd/   hoặc   data/raw/face_antispoofing_vn/
   images/test/000000.jpg ...
   annotations/raw.csv
   meta/download_manifest.json
@@ -48,10 +75,11 @@ Gọi từ Python:
 
 ```python
 from src.datasets.hf_raw import download_raw_dataset
-from src.datasets.specs import CELEBA_SPOOF_SPEC, CASIA_FASD_SPEC
+from src.datasets.specs import CELEBA_SPOOF_SPEC, CASIA_FASD_SPEC, FACE_ANTI_SPOOFING_VN_SPEC
 
 download_raw_dataset(CELEBA_SPOOF_SPEC)
 download_raw_dataset(CASIA_FASD_SPEC)
+download_raw_dataset(FACE_ANTI_SPOOFING_VN_SPEC)
 ```
 
 ## Label Studio
@@ -87,30 +115,106 @@ python3 scripts/create_label_studio_task.py --all --sampled-10pct
 
 **Sau khi label:** Save trong UI → Export project → đặt file vào `data/labeled/` để merge vào CSV test.
 
-## Batch inference
+## Pretrained weights
 
 ```bash
-# CelebA-Spoof
+python3 scripts/download_pretrained_weights.py
+```
+
+Tải 3 file `.pth` vào `models/` (theo `configs/model_*.yaml`). File đã có thì bỏ qua.
+
+## Sample cho inference (`data/sampled/`)
+
+`configs/dataset_celeba_spoof.yaml`, `configs/dataset_casia_fasd.yaml` và `configs/dataset_face_antispoofing_vn.yaml` trỏ tới `data/sampled/*_sample.csv`. Tạo các file này **sau khi** đã có `data/raw/<dataset>/annotations/raw.csv` (bước HF ở trên):
+
+```bash
+python3 scripts/create_test_sample_annotation.py
+```
+
+Kết quả:
+
+- `data/sampled/celeba_spoof_sample.csv` — 2000 live + 2000 spoof (random, seed 42)
+- `data/sampled/casia_fasd_sample.csv` — toàn bộ dòng `is_valid=true` từ raw CASIA
+- `data/sampled/face_antispoofing_vn_sample.csv` — sample từ raw VN (sau khi script sample hỗ trợ dataset này)
+
+## Batch inference
+
+Chạy từ thư mục gốc repo. Cần có weights (`download_pretrained_weights.py`), submodule (`git submodule update --init --recursive`), và `data/sampled/*_sample.csv`.
+
+**Tham số CLI**
+
+| Tham số | Mặc định | Ý nghĩa |
+|---------|----------|---------|
+| `--dataset-config` | `configs/dataset.yaml` | Dataset + `source_dataset` (đặt thư mục predictions) |
+| `--model-config` | `configs/model_minifasnet.yaml` | Model + weight + `model_id` |
+| `--inference-config` | `configs/inference.yaml` | `batch_size`, `save_raw_output`, … |
+| `--annotation-csv` | *(từ dataset config)* | Ghi đè file CSV ảnh cần chạy; metadata vẫn theo `--dataset-config` |
+
+**Dataset** (`--dataset-config`)
+
+| File | `source_dataset` | Annotation mặc định |
+|------|------------------|---------------------|
+| `configs/dataset_celeba_spoof.yaml` | `celeba_spoof` | `data/sampled/celeba_spoof_sample.csv` |
+| `configs/dataset_casia_fasd.yaml` | `casia_fasd` | `data/sampled/casia_fasd_sample.csv` |
+| `configs/dataset_face_antispoofing_vn.yaml` | `face_antispoofing_vn` | `data/sampled/face_antispoofing_vn_sample.csv` |
+
+**Model** (`--model-config`)
+
+| File | `model_id` | Weight |
+|------|------------|--------|
+| `configs/model_minifasnet.yaml` | `minifasnet_v2_2p7` | `models/2.7_80x80_MiniFASNetV2.pth` |
+| `configs/model_vit_fas.yaml` | `vitfas_vitb16_224` | `models/vitfas_vitb16_224x224.pth` |
+| `configs/model_face_antispoof_onnx.yaml` | `face_antispoof_onnx_9820` | `models/face_antispoof_onnx_best_9820.pth` |
+
+**Ví dụ** (ghép tùy ý dataset + model):
+
+```bash
+# MiniFASNet — CelebA (mặc định cả dataset lẫn model)
 python3 scripts/run_inference.py \
   --dataset-config configs/dataset_celeba_spoof.yaml
 
-# CASIA-FASD
+# MiniFASNet — CASIA
 python3 scripts/run_inference.py \
   --dataset-config configs/dataset_casia_fasd.yaml
 
-# Override nhanh annotation CSV (metadata vẫn theo dataset-config đã chọn)
+# MiniFASNet — Face Anti-Spoofing VN
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_face_antispoofing_vn.yaml
+
+# ViT-FAS — CelebA
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_celeba_spoof.yaml \
+  --model-config configs/model_vit_fas.yaml
+
+# ViT-FAS — CASIA
 python3 scripts/run_inference.py \
   --dataset-config configs/dataset_casia_fasd.yaml \
-  --annotation-csv data/sampled/casia_fasd_sample.csv
+  --model-config configs/model_vit_fas.yaml
+
+# Face antispoof ONNX — CelebA
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_celeba_spoof.yaml \
+  --model-config configs/model_face_antispoof_onnx.yaml
+
+# Face antispoof ONNX — CASIA
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_casia_fasd.yaml \
+  --model-config configs/model_face_antispoof_onnx.yaml
+
+# Ghi đè CSV ảnh (metadata vẫn theo dataset-config)
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_celeba_spoof.yaml \
+  --model-config configs/model_minifasnet.yaml \
+  --annotation-csv data/sampled/celeba_spoof_sample.csv
 ```
 
-Kết quả (theo `model_id` trong `configs/model_minifasnet.yaml`, mặc định `minifasnet_v2_2p7`):
+**Output** (theo `model_id` + `source_dataset`):
 
-- `reports/models/<model_id>/predictions/<dataset>/run_<dataset>_YYYYMMDD_HHMMSS.csv`
-- `reports/models/<model_id>/predictions/<dataset>/latest.csv` (chỉ ghi đè khi chạy lại **cùng model**)
+- `reports/models/<model_id>/predictions/<source_dataset>/run_<source_dataset>_YYYYMMDD_HHMMSS.csv`
+- `reports/models/<model_id>/predictions/<source_dataset>/latest.csv` (ghi đè khi chạy lại **cùng model** + cùng dataset)
 - `reports/models/<model_id>/model_manifest.json`
 
-Model khác → thư mục `<model_id>` khác, không đè lẫn nhau.
+Mỗi model một thư mục `<model_id>` riêng, không đè predictions của model khác.
 
 ## Evaluation
 
@@ -124,8 +228,7 @@ python3 scripts/run_evaluation.py \
   --predictions reports/models/minifasnet_v2_2p7/predictions/casia_fasd/latest.csv
 
 python3 scripts/run_evaluation.py \
-  --predictions reports/models/vitfas_vitb16_224/predictions/celeba_spoof/latest.c
-sv
+  --predictions reports/models/vitfas_vitb16_224/predictions/celeba_spoof/latest.csv
 ```
 
 `model_id`: khai báo trong `configs/model_minifasnet.yaml` (A) hoặc tự sinh từ `name` + tên weight (B).
@@ -134,10 +237,20 @@ sv
 
 ## Chạy test
 
+Từ thư mục gốc repo (đã activate `.venv`):
+
 ```bash
+# Tất cả test trong tests/
+python3 -m unittest discover -s tests -v; rm -f test_log_*.log
+
+# Từng module
+python3 -m unittest tests.test_create_vietnam_hf_dataset -v
 python3 -m unittest tests.test_hf_raw -v
 python3 -m unittest tests.test_label_studio_tasks -v
 python3 -m unittest tests.test_run_evaluation -v
 python3 -m unittest tests.test_reports_layout -v
-python3 -m unittest discover -s tests -v
+python3 -m unittest tests.test_minifasnet_preprocess -v
+python3 -m unittest tests.test_minifasnet_model -v
+python3 -m unittest tests.test_vit_fas_model -v; rm -f test_log_*.log
+python3 -m unittest tests.test_face_antispoof_onnx_model -v
 ```
