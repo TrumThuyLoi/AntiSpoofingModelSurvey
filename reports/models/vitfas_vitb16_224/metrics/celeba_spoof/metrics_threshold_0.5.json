@@ -3,7 +3,7 @@
     "model_id": "vitfas_vitb16_224",
     "source_dataset": "celeba_spoof",
     "predictions_path": "reports/models/vitfas_vitb16_224/predictions/celeba_spoof/latest.csv",
-    "evaluated_at": "2026-05-28T17:22:13"
+    "evaluated_at": "2026-05-29T14:21:33"
   },
   "filtering": {
     "total_rows": 4000,

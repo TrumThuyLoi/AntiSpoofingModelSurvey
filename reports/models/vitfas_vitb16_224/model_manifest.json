@@ -1,10 +1,10 @@
 {
   "model_id": "vitfas_vitb16_224",
   "model_name": "vit_fas",
-  "weights_path": "/mnt/d/ThucTap/DVX/models/vitfas_vitb16_224x224.pth",
+  "weights_path": "/home/DVX/AntiSpoofingModelSurvey/models/vitfas_vitb16_224x224.pth",
   "threshold": 0.5,
   "device": "cuda:0",
-  "source_dataset": "celeba_spoof",
-  "last_run_csv": "run_celeba_spoof_20260528_171828.csv",
-  "updated_at": "2026-05-28T17:20:55"
+  "source_dataset": "casia_fasd",
+  "last_run_csv": "run_casia_fasd_20260529_140905.csv",
+  "updated_at": "2026-05-29T14:10:16"
 }
