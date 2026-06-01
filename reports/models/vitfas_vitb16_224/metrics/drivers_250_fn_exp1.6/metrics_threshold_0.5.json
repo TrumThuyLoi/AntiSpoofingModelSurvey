@@ -3,7 +3,7 @@
     "model_id": "vitfas_vitb16_224",
     "source_dataset": "drivers_250_fn_exp1.6",
     "predictions_path": "reports/models/vitfas_vitb16_224/predictions/drivers_250_fn_exp1.6/latest.csv",
-    "evaluated_at": "2026-06-01T12:43:33"
+    "evaluated_at": "2026-06-01T14:31:32"
   },
   "filtering": {
     "total_rows": 291,

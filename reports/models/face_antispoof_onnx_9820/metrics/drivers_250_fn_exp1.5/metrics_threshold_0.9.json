@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "face_antispoof_onnx_9820",
+    "source_dataset": "drivers_250_fn_exp1.5",
+    "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/drivers_250_fn_exp1.5/latest.csv",
+    "evaluated_at": "2026-06-01T14:31:14"
+  },
+  "filtering": {
+    "total_rows": 291,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 291,
+    "kept_live_rows": 291,
+    "kept_spoof_rows": 0
+  },
+  "metrics": {
+    "threshold": 0.9,
+    "num_samples": 291,
+    "num_live": 291,
+    "num_spoof": 0,
+    "cm_true_live_pred_live": 199,
+    "cm_true_live_pred_spoof": 92,
+    "cm_true_spoof_pred_live": 0,
+    "cm_true_spoof_pred_spoof": 0,
+    "apcer": 0.0,
+    "bpcer": 0.3161512027491409,
+    "acer": 0.15807560137457044,
+    "accuracy": 0.6838487972508591,
+    "precision_live": 1.0,
+    "recall_live": 0.6838487972508591,
+    "f1_live": 0.8122448979591836,
+    "precision_spoof": 0.0,
+    "recall_spoof": 0.0,
+    "f1_spoof": 0.0
+  }
+}

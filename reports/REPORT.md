@@ -15,8 +15,8 @@
 
 - Mục tiêu: đánh giá stage anti-spoofing cho bài toán verify ảnh tài xế trước khi tích hợp service.
 - Model đã đánh giá: **MiniFASNetV2** (`minifasnet_v2_2p7`), **ViT-FAS** (`vitfas_vitb16_224`) và **FaceAntispoof-ONNX** (`face_antispoof_onnx_9820`).
-- Dataset đã dùng: ma trận **3 model × 7 dataset** (CelebA, CASIA, Face VN, drivers × 4 SFAS expansion); benchmark `run_inference.py --all` + `run_evaluation.py --all`.
-- Kết luận chính: MiniFASNet vẫn là model tốt nhất trên CASIA-FASD. FaceAntispoof-ONNX cho kết quả cạnh tranh trên CelebA-Spoof (ACER thấp nhất @0.5) và xếp thứ hai trên CASIA-FASD. Trên **face_antispoofing_vn**, FaceAntispoof-ONNX tốt nhất về accuracy/APCER @0.5 nhưng BPCER cao. Trên **drivers_250_fn @ SFAS exp 1.0**, cả 3 model đều NO-GO (BPCER cao). Sau ablation expansion, **MiniFASNet @ exp 1.6** đạt **BPCER 0.0481 @0.5** (14/291 live bị reject) — dưới ngưỡng acceptance gate đề xuất (≤ 0.10), cần xác nhận thêm trước rollout.
+- Dataset đã dùng: ma trận **3 model × 10 dataset** (CelebA, CASIA, Face VN, drivers × 7 SFAS expansion); benchmark `run_inference.py --all` + `run_evaluation.py --all`.
+- Kết luận chính: MiniFASNet vẫn là model tốt nhất trên CASIA-FASD. FaceAntispoof-ONNX cho kết quả cạnh tranh trên CelebA-Spoof (ACER thấp nhất @0.5) và xếp thứ hai trên CASIA-FASD. Trên **face_antispoofing_vn**, FaceAntispoof-ONNX tốt nhất về accuracy/APCER @0.5 nhưng BPCER cao. Trên **drivers_250_fn @ SFAS exp 1.0**, cả 3 model đều NO-GO (BPCER cao). Ablation SFAS expansion (1.0–4.0): **MiniFASNet @ exp 1.6** vẫn tốt nhất — **BPCER 0.0481 @0.5** (14/291 FN); exp 1.5 (0.065), 2.7/4.0 (0.055) kém hơn nhẹ. Dưới gate BPCER ≤ 0.10; cần validation spoof trước rollout.
 - Đề xuất tích hợp service: ưu tiên metric vận hành theo **BPCER trên live thực tế**; giữ MiniFASNet làm baseline; dùng ONNX khi cần ưu tiên chống spoof và có calibrate threshold theo production.
 
 ---
@@ -353,9 +353,9 @@ python3 scripts/run_evaluation.py \
 
 ### 7.4 Drivers 250 FN (SFAS expansion)
 
-291 mẫu **live** (GT không có spoof → **APCER = 0** mọi threshold). Crop SFAS `bbox_expansion` ∈ {1.0, 1.2, 1.4, 1.6}. Metric: `live_score` = **y_prob**; threshold 0.1–0.9 trong `configs/evaluation.yaml`.
+291 mẫu **live** (GT không có spoof → **APCER = 0** mọi threshold). Crop SFAS `bbox_expansion` ∈ {1.0, 1.2, 1.4, 1.5, 1.6, 2.7, 4.0} (thêm 1.5, 2.7, 4.0 theo scale train SFAS). Metric: `live_score` = **y_prob**; threshold 0.1–0.9 trong `configs/evaluation.yaml`.
 
-#### SFAS exp 1.0 (`drivers_250_fn`)
+#### SFAS exp 1 (`drivers_250_fn`)
 
 | Model | Threshold | Accuracy | APCER | BPCER | ACER |
 |-------|-----------|----------|-------|-------|------|
@@ -463,6 +463,42 @@ python3 scripts/run_evaluation.py \
 |:---:|:---:|:---:|
 | ![](./models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.4/apcer_bpcer_vs_threshold.png) | ![](./models/vitfas_vitb16_224/metrics/drivers_250_fn_exp1.4/apcer_bpcer_vs_threshold.png) | ![](./models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.4/apcer_bpcer_vs_threshold.png) |
 
+#### SFAS exp 1.5 (`drivers_250_fn_exp1.5`)
+
+| Model | Threshold | Accuracy | APCER | BPCER | ACER |
+|-------|-----------|----------|-------|-------|------|
+| MiniFASNet | 0.1 | 0.9897 | 0.0000 | 0.0103 | 0.0052 |
+| MiniFASNet | 0.2 | 0.9794 | 0.0000 | 0.0206 | 0.0103 |
+| MiniFASNet | 0.3 | 0.9588 | 0.0000 | 0.0412 | 0.0206 |
+| MiniFASNet | 0.4 | 0.9381 | 0.0000 | 0.0619 | 0.0309 |
+| MiniFASNet | 0.5 | 0.9347 | 0.0000 | 0.0653 | 0.0326 |
+| MiniFASNet | 0.6 | 0.9210 | 0.0000 | 0.0790 | 0.0395 |
+| MiniFASNet | 0.7 | 0.9038 | 0.0000 | 0.0962 | 0.0481 |
+| MiniFASNet | 0.8 | 0.8935 | 0.0000 | 0.1065 | 0.0533 |
+| MiniFASNet | 0.9 | 0.8763 | 0.0000 | 0.1237 | 0.0619 |
+| ViT-FAS | 0.1 | 0.9038 | 0.0000 | 0.0962 | 0.0481 |
+| ViT-FAS | 0.2 | 0.8763 | 0.0000 | 0.1237 | 0.0619 |
+| ViT-FAS | 0.3 | 0.8488 | 0.0000 | 0.1512 | 0.0756 |
+| ViT-FAS | 0.4 | 0.8179 | 0.0000 | 0.1821 | 0.0911 |
+| ViT-FAS | 0.5 | 0.7938 | 0.0000 | 0.2062 | 0.1031 |
+| ViT-FAS | 0.6 | 0.7560 | 0.0000 | 0.2440 | 0.1220 |
+| ViT-FAS | 0.7 | 0.7113 | 0.0000 | 0.2887 | 0.1443 |
+| ViT-FAS | 0.8 | 0.6564 | 0.0000 | 0.3436 | 0.1718 |
+| ViT-FAS | 0.9 | 0.5704 | 0.0000 | 0.4296 | 0.2148 |
+| ONNX | 0.1 | 0.9244 | 0.0000 | 0.0756 | 0.0378 |
+| ONNX | 0.2 | 0.8832 | 0.0000 | 0.1168 | 0.0584 |
+| ONNX | 0.3 | 0.8591 | 0.0000 | 0.1409 | 0.0704 |
+| ONNX | 0.4 | 0.8316 | 0.0000 | 0.1684 | 0.0842 |
+| ONNX | 0.5 | 0.8076 | 0.0000 | 0.1924 | 0.0962 |
+| ONNX | 0.6 | 0.7766 | 0.0000 | 0.2234 | 0.1117 |
+| ONNX | 0.7 | 0.7423 | 0.0000 | 0.2577 | 0.1289 |
+| ONNX | 0.8 | 0.7148 | 0.0000 | 0.2852 | 0.1426 |
+| ONNX | 0.9 | 0.6838 | 0.0000 | 0.3162 | 0.1581 |
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![](./models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) | ![](./models/vitfas_vitb16_224/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) | ![](./models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) |
+
 #### SFAS exp 1.6 (`drivers_250_fn_exp1.6`)
 
 | Model | Threshold | Accuracy | APCER | BPCER | ACER |
@@ -499,19 +535,94 @@ python3 scripts/run_evaluation.py \
 |:---:|:---:|:---:|
 | ![](./models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.6/apcer_bpcer_vs_threshold.png) | ![](./models/vitfas_vitb16_224/metrics/drivers_250_fn_exp1.6/apcer_bpcer_vs_threshold.png) | ![](./models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.6/apcer_bpcer_vs_threshold.png) |
 
+#### SFAS exp 2.7 (`drivers_250_fn_exp2.7`)
+
+| Model | Threshold | Accuracy | APCER | BPCER | ACER |
+|-------|-----------|----------|-------|-------|------|
+| MiniFASNet | 0.1 | 0.9966 | 0.0000 | 0.0034 | 0.0017 |
+| MiniFASNet | 0.2 | 0.9794 | 0.0000 | 0.0206 | 0.0103 |
+| MiniFASNet | 0.3 | 0.9725 | 0.0000 | 0.0275 | 0.0137 |
+| MiniFASNet | 0.4 | 0.9553 | 0.0000 | 0.0447 | 0.0223 |
+| MiniFASNet | 0.5 | 0.9450 | 0.0000 | 0.0550 | 0.0275 |
+| MiniFASNet | 0.6 | 0.9381 | 0.0000 | 0.0619 | 0.0309 |
+| MiniFASNet | 0.7 | 0.9347 | 0.0000 | 0.0653 | 0.0326 |
+| MiniFASNet | 0.8 | 0.9244 | 0.0000 | 0.0756 | 0.0378 |
+| MiniFASNet | 0.9 | 0.8969 | 0.0000 | 0.1031 | 0.0515 |
+| ViT-FAS | 0.1 | 0.9107 | 0.0000 | 0.0893 | 0.0447 |
+| ViT-FAS | 0.2 | 0.8935 | 0.0000 | 0.1065 | 0.0533 |
+| ViT-FAS | 0.3 | 0.8660 | 0.0000 | 0.1340 | 0.0670 |
+| ViT-FAS | 0.4 | 0.8591 | 0.0000 | 0.1409 | 0.0704 |
+| ViT-FAS | 0.5 | 0.8316 | 0.0000 | 0.1684 | 0.0842 |
+| ViT-FAS | 0.6 | 0.8007 | 0.0000 | 0.1993 | 0.0997 |
+| ViT-FAS | 0.7 | 0.7698 | 0.0000 | 0.2302 | 0.1151 |
+| ViT-FAS | 0.8 | 0.7216 | 0.0000 | 0.2784 | 0.1392 |
+| ViT-FAS | 0.9 | 0.6564 | 0.0000 | 0.3436 | 0.1718 |
+| ONNX | 0.1 | 0.8488 | 0.0000 | 0.1512 | 0.0756 |
+| ONNX | 0.2 | 0.8213 | 0.0000 | 0.1787 | 0.0893 |
+| ONNX | 0.3 | 0.8076 | 0.0000 | 0.1924 | 0.0962 |
+| ONNX | 0.4 | 0.7732 | 0.0000 | 0.2268 | 0.1134 |
+| ONNX | 0.5 | 0.7457 | 0.0000 | 0.2543 | 0.1271 |
+| ONNX | 0.6 | 0.7148 | 0.0000 | 0.2852 | 0.1426 |
+| ONNX | 0.7 | 0.6804 | 0.0000 | 0.3196 | 0.1598 |
+| ONNX | 0.8 | 0.6392 | 0.0000 | 0.3608 | 0.1804 |
+| ONNX | 0.9 | 0.6082 | 0.0000 | 0.3918 | 0.1959 |
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![](./models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp2.7/apcer_bpcer_vs_threshold.png) | ![](./models/vitfas_vitb16_224/metrics/drivers_250_fn_exp2.7/apcer_bpcer_vs_threshold.png) | ![](./models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp2.7/apcer_bpcer_vs_threshold.png) |
+
+#### SFAS exp 4 (`drivers_250_fn_exp4`)
+
+| Model | Threshold | Accuracy | APCER | BPCER | ACER |
+|-------|-----------|----------|-------|-------|------|
+| MiniFASNet | 0.1 | 0.9931 | 0.0000 | 0.0069 | 0.0034 |
+| MiniFASNet | 0.2 | 0.9725 | 0.0000 | 0.0275 | 0.0137 |
+| MiniFASNet | 0.3 | 0.9553 | 0.0000 | 0.0447 | 0.0223 |
+| MiniFASNet | 0.4 | 0.9485 | 0.0000 | 0.0515 | 0.0258 |
+| MiniFASNet | 0.5 | 0.9450 | 0.0000 | 0.0550 | 0.0275 |
+| MiniFASNet | 0.6 | 0.9313 | 0.0000 | 0.0687 | 0.0344 |
+| MiniFASNet | 0.7 | 0.9278 | 0.0000 | 0.0722 | 0.0361 |
+| MiniFASNet | 0.8 | 0.9107 | 0.0000 | 0.0893 | 0.0447 |
+| MiniFASNet | 0.9 | 0.8729 | 0.0000 | 0.1271 | 0.0636 |
+| ViT-FAS | 0.1 | 0.9107 | 0.0000 | 0.0893 | 0.0447 |
+| ViT-FAS | 0.2 | 0.8832 | 0.0000 | 0.1168 | 0.0584 |
+| ViT-FAS | 0.3 | 0.8625 | 0.0000 | 0.1375 | 0.0687 |
+| ViT-FAS | 0.4 | 0.8488 | 0.0000 | 0.1512 | 0.0756 |
+| ViT-FAS | 0.5 | 0.8213 | 0.0000 | 0.1787 | 0.0893 |
+| ViT-FAS | 0.6 | 0.7938 | 0.0000 | 0.2062 | 0.1031 |
+| ViT-FAS | 0.7 | 0.7629 | 0.0000 | 0.2371 | 0.1186 |
+| ViT-FAS | 0.8 | 0.7251 | 0.0000 | 0.2749 | 0.1375 |
+| ViT-FAS | 0.9 | 0.6564 | 0.0000 | 0.3436 | 0.1718 |
+| ONNX | 0.1 | 0.8247 | 0.0000 | 0.1753 | 0.0876 |
+| ONNX | 0.2 | 0.7835 | 0.0000 | 0.2165 | 0.1082 |
+| ONNX | 0.3 | 0.7663 | 0.0000 | 0.2337 | 0.1168 |
+| ONNX | 0.4 | 0.7388 | 0.0000 | 0.2612 | 0.1306 |
+| ONNX | 0.5 | 0.7079 | 0.0000 | 0.2921 | 0.1460 |
+| ONNX | 0.6 | 0.6701 | 0.0000 | 0.3299 | 0.1649 |
+| ONNX | 0.7 | 0.6254 | 0.0000 | 0.3746 | 0.1873 |
+| ONNX | 0.8 | 0.5876 | 0.0000 | 0.4124 | 0.2062 |
+| ONNX | 0.9 | 0.5533 | 0.0000 | 0.4467 | 0.2234 |
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![](./models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp4/apcer_bpcer_vs_threshold.png) | ![](./models/vitfas_vitb16_224/metrics/drivers_250_fn_exp4/apcer_bpcer_vs_threshold.png) | ![](./models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp4/apcer_bpcer_vs_threshold.png) |
+
 ### 7.5 Ma trận benchmark — tóm tắt @0.5
 
 `run_inference.py --all` + `run_evaluation.py --all`. Bảng đầy đủ threshold: §7.1–7.4.
 
 | Dataset | MiniFASNet BPCER / APCER | ViT-FAS | ONNX |
 |---------|-------------------------|---------|------|
-| celeba_spoof | 0.355 / 0.269 | 0.528 / 0.183 | **0.126** / 0.191 |
-| casia_fasd | 0.153 / **0.013** | 0.240 / 0.423 | 0.104 / 0.356 |
-| face_antispoofing_vn | 0.405 / 0.159 | 0.645 / 0.308 | 0.509 / **0.068** |
-| drivers_250_fn (exp 1.0) | 0.436 / 0 | 0.577 / 0 | 0.636 / 0 |
-| drivers_250_fn_exp1.2 | 0.213 / 0 | 0.430 / 0 | 0.354 / 0 |
-| drivers_250_fn_exp1.4 | 0.103 / 0 | 0.282 / 0 | 0.237 / 0 |
-| drivers_250_fn_exp1.6 | **0.048** / 0 | 0.186 / 0 | 0.189 / 0 |
+| celeba_spoof | 0.355 / 0.269 | 0.528 / 0.183 | 0.126 / 0.191 |
+| casia_fasd | 0.153 / 0.013 | 0.240 / 0.423 | 0.104 / 0.356 |
+| face_antispoofing_vn | 0.405 / 0.159 | 0.645 / 0.308 | 0.509 / 0.068 |
+| drivers_250_fn (exp 1) | 0.436 / 0.000 | 0.577 / 0.000 | 0.636 / 0.000 |
+| drivers_250_fn_exp1.2 | 0.213 / 0.000 | 0.430 / 0.000 | 0.354 / 0.000 |
+| drivers_250_fn_exp1.4 | 0.103 / 0.000 | 0.282 / 0.000 | 0.237 / 0.000 |
+| drivers_250_fn_exp1.5 | 0.065 / 0.000 | 0.206 / 0.000 | 0.192 / 0.000 |
+| drivers_250_fn_exp1.6 | **0.048 / 0.000** | 0.186 / 0.000 | 0.189 / 0.000 |
+| drivers_250_fn_exp2.7 | 0.055 / 0.000 | 0.168 / 0.000 | 0.254 / 0.000 |
+| drivers_250_fn_exp4 | 0.055 / 0.000 | 0.179 / 0.000 | 0.292 / 0.000 |
 
 #### 7.5.1 Dataset × dự đoán @0.5 (`True` / `False`)
 
@@ -519,19 +630,22 @@ python3 scripts/run_evaluation.py \
 
 | Dataset | MiniFASNet | ViT-FAS | ONNX |
 |---------|------------|---------|------|
-| celeba_spoof (4000) | 1827 / 2173 | 1309 / 2691 | 2130 / 1870 |
-| casia_fasd (4063) | 883 / 3180 | 2055 / 2008 | 1983 / 2080 |
-| face_antispoofing_vn (2118) | 677 / 1441 | 689 / 1429 | 475 / 1643 |
-| drivers_250_fn (291 live) | 164 / 127 | 123 / 168 | 106 / 185 |
-| drivers_250_fn_exp1.2 | 229 / 62 | 166 / 125 | 188 / 103 |
-| drivers_250_fn_exp1.4 | 261 / 30 | 209 / 82 | 222 / 69 |
-| drivers_250_fn_exp1.6 | 277 / 14 | 237 / 54 | 236 / 55 |
+| celeba_spoof (4000) | 1290 / 710 | 943 / 1057 | 1748 / 252 |
+| casia_fasd (4063) | 843 / 152 | 756 / 239 | 892 / 103 |
+| face_antispoofing_vn (2118) | 465 / 317 | 278 / 504 | 384 / 398 |
+| drivers_250_fn (exp 1, 291 live) | 164 / 127 | 123 / 168 | 106 / 185 |
+| drivers_250_fn_exp1.2 (291 live) | 229 / 62 | 166 / 125 | 188 / 103 |
+| drivers_250_fn_exp1.4 (291 live) | 261 / 30 | 209 / 82 | 222 / 69 |
+| drivers_250_fn_exp1.5 (291 live) | 272 / 19 | 231 / 60 | 235 / 56 |
+| drivers_250_fn_exp1.6 (291 live) | 277 / 14 | 237 / 54 | 236 / 55 |
+| drivers_250_fn_exp2.7 (291 live) | 275 / 16 | 242 / 49 | 217 / 74 |
+| drivers_250_fn_exp4 (291 live) | 275 / 16 | 239 / 52 | 206 / 85 |
 
 #### 7.5.2 Phân phối `y_prob` @0.5 (nhóm True / False)
 
-`live_score` = **y_prob**; ngưỡng **0.5**. **True** = pass (pred live); **False** = reject (pred spoof). GT toàn tập live (291). Nguồn: `reports/models/*/predictions/drivers_250_fn*/latest.csv`.
+`live_score` = **y_prob**; ngưỡng **0.5**. Nguồn: `reports/models/*/predictions/drivers_250_fn*/latest.csv`.
 
-**Drivers exp 1.0** (`drivers_250_fn`, 291 live):
+**Drivers exp 1** (`drivers_250_fn`, 291 live):
 
 | Model | Nhóm | n | mean | p10 | p50 | p90 |
 |-------|------|---:|-----:|----:|----:|----:|
@@ -594,6 +708,27 @@ Histogram toàn tập:
 | [0.6, 0.8) | 14 | 27 | 13 |
 | [0.8, 1.0] | 243 | 171 | 196 |
 
+**Drivers exp 1.5** (`drivers_250_fn_exp1.5`, 291 live):
+
+| Model | Nhóm | n | mean | p10 | p50 | p90 |
+|-------|------|---:|-----:|----:|----:|----:|
+| MiniFASNet | True | 272 | 0.974 | 0.947 | 0.999 | 1.000 |
+| MiniFASNet | False | 19 | 0.246 | 0.080 | 0.251 | 0.391 |
+| ViT-FAS | True | 231 | 0.911 | 0.686 | 0.982 | 0.995 |
+| ViT-FAS | False | 60 | 0.171 | 0.010 | 0.134 | 0.421 |
+| ONNX | True | 235 | 0.946 | 0.751 | 0.999 | 1.000 |
+| ONNX | False | 56 | 0.182 | 0.003 | 0.147 | 0.435 |
+
+Histogram toàn tập:
+
+| Bin | MiniFASNet | ViT-FAS | ONNX |
+|-----|----------:|--------:|-----:|
+| [0, 0.2) | 6 | 36 | 34 |
+| [0.2, 0.4) | 12 | 17 | 15 |
+| [0.4, 0.6) | 5 | 18 | 16 |
+| [0.6, 0.8) | 8 | 29 | 18 |
+| [0.8, 1.0] | 260 | 191 | 208 |
+
 **Drivers exp 1.6** (`drivers_250_fn_exp1.6`, 291 live):
 
 | Model | Nhóm | n | mean | p10 | p50 | p90 |
@@ -615,8 +750,49 @@ Histogram toàn tập:
 | [0.6, 0.8) | 7 | 28 | 18 |
 | [0.8, 1.0] | 269 | 203 | 209 |
 
-- **Xu hướng:** SFAS expansion ↑ → nhóm **True** tăng (MiniFASNet: 164 → 277), **False** giảm (127 → 14); histogram dồn về [0.8, 1.0]. Khớp BPCER §7.4–7.5. MiniFASNet @ exp 1.6: BPCER 4.8% @0.5. Crop: `drivers_250_fn_sfas_crop_and_evaluation.md`.
+**Drivers exp 2.7** (`drivers_250_fn_exp2.7`, 291 live):
 
+| Model | Nhóm | n | mean | p10 | p50 | p90 |
+|-------|------|---:|-----:|----:|----:|----:|
+| MiniFASNet | True | 275 | 0.982 | 0.968 | 0.999 | 1.000 |
+| MiniFASNet | False | 16 | 0.277 | 0.151 | 0.278 | 0.468 |
+| ViT-FAS | True | 242 | 0.928 | 0.750 | 0.987 | 0.995 |
+| ViT-FAS | False | 49 | 0.157 | 0.008 | 0.092 | 0.419 |
+| ONNX | True | 217 | 0.937 | 0.719 | 0.998 | 1.000 |
+| ONNX | False | 74 | 0.146 | 0.001 | 0.064 | 0.401 |
+
+Histogram toàn tập:
+
+| Bin | MiniFASNet | ViT-FAS | ONNX |
+|-----|----------:|--------:|-----:|
+| [0, 0.2) | 6 | 31 | 52 |
+| [0.2, 0.4) | 7 | 10 | 14 |
+| [0.4, 0.6) | 5 | 17 | 17 |
+| [0.6, 0.8) | 4 | 23 | 22 |
+| [0.8, 1.0] | 269 | 210 | 186 |
+
+**Drivers exp 4** (`drivers_250_fn_exp4`, 291 live):
+
+| Model | Nhóm | n | mean | p10 | p50 | p90 |
+|-------|------|---:|-----:|----:|----:|----:|
+| MiniFASNet | True | 275 | 0.975 | 0.939 | 0.999 | 1.000 |
+| MiniFASNet | False | 16 | 0.211 | 0.100 | 0.185 | 0.336 |
+| ViT-FAS | True | 239 | 0.932 | 0.768 | 0.986 | 0.995 |
+| ViT-FAS | False | 52 | 0.166 | 0.008 | 0.098 | 0.415 |
+| ONNX | True | 206 | 0.924 | 0.688 | 0.997 | 1.000 |
+| ONNX | False | 85 | 0.136 | 0.001 | 0.060 | 0.399 |
+
+Histogram toàn tập:
+
+| Bin | MiniFASNet | ViT-FAS | ONNX |
+|-----|----------:|--------:|-----:|
+| [0, 0.2) | 8 | 34 | 63 |
+| [0.2, 0.4) | 7 | 10 | 13 |
+| [0.4, 0.6) | 5 | 16 | 20 |
+| [0.6, 0.8) | 6 | 20 | 24 |
+| [0.8, 1.0] | 265 | 211 | 171 |
+
+- **Xu hướng (MiniFASNet @0.5):** BPCER giảm 0.436 (exp 1.0) → **0.048 (exp 1.6, tốt nhất)**; exp 1.5 (0.065), 2.7/4.0 (0.055, 16 FN). Scale train SFAS (2.7, 4.0) không vượt exp 1.6 trên tập drivers. Crop: `drivers_250_fn_sfas_crop_and_evaluation.md`.
 ### 7.6 So sánh giữa các dataset
 
 | Tiêu chí | CelebA-Spoof | CASIA-FASD | Face Anti-Spoofing VN | Drivers 250 FN |
@@ -627,9 +803,9 @@ Histogram toàn tập:
 | MiniFASNet BPCER @ 0.5 | 0.3550 | 0.1528 | 0.4054 | 0.4364 (exp 1.0) → **0.0481** (exp 1.6) |
 | ViT-FAS BPCER @ 0.5 | 0.5285 | 0.2402 | 0.6445 | 0.5773 (exp 1.0) → 0.1856 (exp 1.6) |
 | FaceAntispoof-ONNX BPCER @ 0.5 | 0.1260 | 0.1035 | 0.5090 | 0.6357 (exp 1.0) → 0.1890 (exp 1.6) |
-| Số mẫu (test/sample) | 4000 | 4063 | 2118 (782 live / 1336 spoof) | 291 (291 live / 0 spoof) × 4 expansion |
+| Số mẫu (test/sample) | 4000 | 4063 | 2118 (782 live / 1336 spoof) | 291 (291 live / 0 spoof) × 7 expansion |
 | Độ khó / domain | CelebA cân bằng, phân tách khó | CASIA khớp train MiniFASNet | VN OOD; ONNX hơn MiniFASNet theo accuracy | Production FN; BPCER phụ thuộc mạnh SFAS bbox expansion |
-| Preprocess đầu vào | resize + normalize theo wrapper | resize + normalize theo wrapper | crop SFAS + resize theo wrapper | crop SFAS (exp 1.0–1.6) + resize theo wrapper |
+| Preprocess đầu vào | resize + normalize theo wrapper | resize + normalize theo wrapper | crop SFAS + resize theo wrapper | crop SFAS (exp 1.0–4.0) + resize theo wrapper |
 
 ### 7.7 Artifact minh họa
 
@@ -687,7 +863,7 @@ Histogram toàn tập:
 
 - Với dữ liệu thực tế `drivers_250_fn` (291 mẫu live), tiêu chí quyết định là **BPCER** (tỷ lệ live bị reject).
 - **SFAS crop exp 1.0 (baseline):** @0.5 — MiniFASNet BPCER 0.4364 > ViT-FAS 0.5773 > ONNX 0.6357 → **NO-GO** cả 3 model.
-- **SFAS crop exp 1.6:** @0.5 — MiniFASNet **BPCER 0.0481** (14 FN); @0.3 — **BPCER 0.0309** (9 FN). ViT-FAS / ONNX ~0.19 @0.5 → vẫn **NO-GO**.
+- **SFAS crop exp 1.6 (tốt nhất):** @0.5 — MiniFASNet **BPCER 0.0481** (14 FN). exp 1.5: 0.0653 (19 FN); exp 2.7/4.0: 0.0550 (16 FN). ViT-FAS / ONNX ~0.17–0.19 @0.5 trên exp 1.6 → **NO-GO**.
 - **MiniFASNet + SFAS exp 1.6** là cấu hình duy nhất trong benchmark hiện tại **đạt acceptance gate đề xuất (BPCER ≤ 0.10)** trên tập `drivers_250_fn`; cần validation thêm (ảnh hưởng APCER trên tập có spoof, đồng bộ pipeline production, A/B vận hành) trước khi chuyển **GO**.
 - Kết luận triển khai: **NO-GO @ exp 1.0**; **conditional / pilot GO** chỉ cho **MiniFASNet @ SFAS bbox expansion 1.6** sau khi ops phê duyệt ngưỡng và kiểm tra bảo mật trên tập spoof.
 
@@ -761,3 +937,4 @@ data/
 | 01/06/2026 | v0.7 | Ma trận 3×7 (`--all`); bảng True/False + phân phối y_prob; nhúng PNG `apcer_bpcer_vs_threshold` (thay mermaid) |
 | 01/06/2026 | v0.8 | Metric đầy đủ threshold 0.1–0.9 (HF + drivers); biểu đồ APCER/BPCER nhúng trong §7.1–7.4 |
 | 01/06/2026 | v0.9 | §7.5.2: phân phối `y_prob` @0.5 cho cả 4 SFAS expansion (1.0–1.6), tính từ `latest.csv` |
+| 01/06/2026 | v1.0 | Expansion 1.5, 2.7, 4.0; cập nhật §7.4–7.5, §10 từ evaluation mới |

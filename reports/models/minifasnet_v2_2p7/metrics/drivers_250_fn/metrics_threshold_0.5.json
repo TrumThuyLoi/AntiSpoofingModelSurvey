@@ -3,7 +3,7 @@
     "model_id": "minifasnet_v2_2p7",
     "source_dataset": "drivers_250_fn",
     "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/drivers_250_fn/latest.csv",
-    "evaluated_at": "2026-06-01T12:43:25"
+    "evaluated_at": "2026-06-01T14:31:20"
   },
   "filtering": {
     "total_rows": 291,
