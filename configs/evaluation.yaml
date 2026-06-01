@@ -1,5 +1,5 @@
 # model_id: lấy từ model_config (hoặc # model_id= trong predictions CSV)
 model_config: configs/model_minifasnet.yaml
 # dataset: celeba_spoof  # bắt buộc nếu không truyền --predictions
-thresholds: [0.3, 0.5, 0.7]
+thresholds: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 # predictions_path: reports/models/<model_id>/predictions/<dataset>/latest.csv

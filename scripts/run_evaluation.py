@@ -52,6 +52,18 @@ def _resolve_path(value: str) -> Path:
     return p if p.is_absolute() else REPO_ROOT / p
 
 
+def discover_config_paths(repo_root: Path, prefix: str) -> list[Path]:
+    """Liệt kê configs/<prefix>_*.yaml (sorted)."""
+    return sorted((repo_root / "configs").glob(f"{prefix}_*.yaml"))
+
+
+def source_dataset_from_config(dataset_config: Path) -> str:
+    slug = _load_yaml(dataset_config).get("source_dataset")
+    if not slug or not str(slug).strip():
+        raise ValueError(f"{dataset_config}: thiếu source_dataset")
+    return str(slug).strip()
+
+
 def parse_predictions_metadata(path: Path) -> dict[str, str]:
     """Đọc dòng comment `# key=value` ở đầu predictions CSV (giống run_batch)."""
     meta: dict[str, str] = {}
@@ -338,6 +350,42 @@ def _plot_confusion_matrix(path: Path, result: dict[str, float | int], threshold
     plt.close(fig)
 
 
+def _plot_apcer_bpcer_curve(
+    path: Path,
+    results: list[dict[str, float | int]],
+    *,
+    dataset_slug: str,
+    model_id: str | None = None,
+) -> None:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    ordered = sorted(results, key=lambda r: float(r["threshold"]))
+    thresholds = [float(r["threshold"]) for r in ordered]
+    apcer = [float(r["apcer"]) for r in ordered]
+    bpcer = [float(r["bpcer"]) for r in ordered]
+
+    fig, ax = plt.subplots(figsize=(7, 5))
+    ax.plot(thresholds, apcer, marker="o", label="APCER")
+    ax.plot(thresholds, bpcer, marker="s", label="BPCER")
+    ax.set_xlabel("Threshold")
+    ax.set_ylabel("Error rate")
+    ax.set_ylim(0.0, 1.0)
+    ax.grid(True, alpha=0.3)
+    ax.legend(loc="best")
+
+    title = f"APCER / BPCER vs threshold — {dataset_slug}"
+    if model_id:
+        title += f" ({model_id})"
+    ax.set_title(title)
+
+    fig.tight_layout()
+    fig.savefig(path, dpi=150)
+    plt.close(fig)
+
+
 def _threshold_suffix(threshold: float) -> str:
     return f"{threshold:g}"
 
@@ -373,17 +421,149 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Namespace metrics theo model (override config / metadata predictions).",
     )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Đánh giá mọi cặp model_*.yaml × dataset_*.yaml (predictions/latest.csv đã có).",
+    )
     return parser.parse_args()
+
+
+def evaluate_predictions(
+    *,
+    predictions_path: Path,
+    dataset_override: str | None,
+    model_id: str | None,
+    cfg: dict[str, Any],
+    thresholds: list[float],
+    flat_output: bool,
+    repo_root: Path,
+) -> None:
+    if not predictions_path.is_file():
+        raise FileNotFoundError(
+            f"Không tìm thấy predictions file: {predictions_path}. "
+            "Chạy inference trước hoặc dùng --predictions.",
+        )
+    if not thresholds:
+        raise ValueError("Cấu hình thresholds rỗng.")
+
+    resolved_model_id = model_id
+    if resolved_model_id is None:
+        meta = parse_predictions_metadata(predictions_path)
+        if meta.get("model_id"):
+            resolved_model_id = sanitize_model_id(meta["model_id"])
+
+    dataset_slug = resolve_dataset_slug(predictions_path, dataset_override)
+
+    if resolved_model_id:
+        report_paths = ModelReportPaths(resolved_model_id, repo_root)
+        output_dir = (
+            report_paths.model_root / "metrics"
+            if flat_output
+            else report_paths.metrics_dir(dataset_slug)
+        )
+    else:
+        metrics_base = _resolve_path(str(cfg.get("metrics_output_dir", "reports/metrics")))
+        output_dir = metrics_base if flat_output else metrics_base / dataset_slug
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    provenance = {
+        "model_id": resolved_model_id or "",
+        "source_dataset": dataset_slug,
+        "predictions_path": _repo_relative_path(predictions_path),
+        "evaluated_at": datetime.now().isoformat(timespec="seconds"),
+    }
+
+    stats = EvalStats()
+    rows = _load_prediction_rows(predictions_path, stats)
+    if not rows:
+        raise ValueError("Không còn dữ liệu hợp lệ sau khi lọc.")
+
+    results = [_evaluate_threshold(rows, t) for t in thresholds]
+
+    summary_path = output_dir / "metrics_summary.csv"
+    _write_summary_csv(summary_path, stats, results)
+
+    curve_path = output_dir / "apcer_bpcer_vs_threshold.png"
+    _plot_apcer_bpcer_curve(
+        curve_path,
+        results,
+        dataset_slug=dataset_slug,
+        model_id=resolved_model_id,
+    )
+
+    saved_json_paths: list[Path] = []
+    saved_cm_paths: list[Path] = []
+    for result in results:
+        threshold = float(result["threshold"])
+        suffix = _threshold_suffix(threshold)
+
+        json_path = output_dir / f"metrics_threshold_{suffix}.json"
+        _write_threshold_json(json_path, result, stats, provenance)
+        saved_json_paths.append(json_path)
+
+        cm_path = output_dir / f"confusion_matrix_{suffix}.png"
+        _plot_confusion_matrix(cm_path, result, threshold=threshold)
+        saved_cm_paths.append(cm_path)
+
+    print(f"model_id: {resolved_model_id or '(legacy)'}")
+    print(f"dataset: {dataset_slug}")
+    print(f"output_dir: {output_dir}")
+    print(f"predictions: {predictions_path}")
+    print(f"kept_rows: {stats.kept_rows}")
+    print(f"dropped_error_rows: {stats.dropped_error_rows}")
+    print(f"dropped_invalid_label_rows: {stats.dropped_invalid_label_rows}")
+    print(f"saved: {summary_path}")
+    print(f"saved: {curve_path}")
+    for path in saved_json_paths:
+        print(f"saved: {path}")
+    for path in saved_cm_paths:
+        print(f"saved: {path}")
 
 
 def main() -> int:
     args = parse_args()
     cfg = _load_yaml(args.config)
 
-    dataset_override = args.dataset or cfg.get("dataset")
     thresholds_raw = cfg.get("thresholds", [])
     thresholds = [float(t) for t in thresholds_raw]
     flat_output = args.flat_output or bool(cfg.get("flat_output"))
+
+    if args.all:
+        if args.predictions:
+            raise ValueError("--all không dùng cùng --predictions.")
+        model_configs = discover_config_paths(REPO_ROOT, "model")
+        dataset_configs = discover_config_paths(REPO_ROOT, "dataset")
+        if not model_configs:
+            raise ValueError(f"Không tìm thấy configs/model_*.yaml trong {REPO_ROOT / 'configs'}")
+        if not dataset_configs:
+            raise ValueError(f"Không tìm thấy configs/dataset_*.yaml trong {REPO_ROOT / 'configs'}")
+
+        for model_config in model_configs:
+            model_id = resolve_model_id(_load_yaml(model_config), REPO_ROOT)
+            for dataset_config in dataset_configs:
+                dataset_slug = source_dataset_from_config(dataset_config)
+                predictions_path = ModelReportPaths(model_id, REPO_ROOT).predictions_latest(dataset_slug)
+                if not predictions_path.is_file():
+                    print(
+                        f"\n=== skip {model_config.name} × {dataset_config.name} "
+                        f"(thiếu {predictions_path}) ===",
+                    )
+                    continue
+                print(f"\n=== {model_config.name} × {dataset_config.name} ===")
+                evaluate_predictions(
+                    predictions_path=predictions_path,
+                    dataset_override=dataset_slug,
+                    model_id=model_id,
+                    cfg=cfg,
+                    thresholds=thresholds,
+                    flat_output=flat_output,
+                    repo_root=REPO_ROOT,
+                )
+        return 0
+
+    dataset_override = args.dataset or cfg.get("dataset")
 
     predictions_path: Path | None = None
     if args.predictions:
@@ -408,73 +588,15 @@ def main() -> int:
     if not predictions_path.is_absolute():
         predictions_path = _resolve_path(str(predictions_path))
 
-    if not predictions_path.is_file():
-        raise FileNotFoundError(
-            f"Không tìm thấy predictions file: {predictions_path}. "
-            "Chạy inference trước hoặc dùng --predictions.",
-        )
-    if not thresholds:
-        raise ValueError("Cấu hình thresholds rỗng.")
-
-    if model_id is None:
-        meta = parse_predictions_metadata(predictions_path)
-        if meta.get("model_id"):
-            model_id = sanitize_model_id(meta["model_id"])
-
-    dataset_slug = resolve_dataset_slug(predictions_path, dataset_override)
-
-    if model_id:
-        report_paths = ModelReportPaths(model_id, REPO_ROOT)
-        output_dir = report_paths.model_root / "metrics" if flat_output else report_paths.metrics_dir(dataset_slug)
-    else:
-        metrics_base = _resolve_path(str(cfg.get("metrics_output_dir", "reports/metrics")))
-        output_dir = metrics_base if flat_output else metrics_base / dataset_slug
-
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    provenance = {
-        "model_id": model_id or "",
-        "source_dataset": dataset_slug,
-        "predictions_path": _repo_relative_path(predictions_path),
-        "evaluated_at": datetime.now().isoformat(timespec="seconds"),
-    }
-
-    stats = EvalStats()
-    rows = _load_prediction_rows(predictions_path, stats)
-    if not rows:
-        raise ValueError("Không còn dữ liệu hợp lệ sau khi lọc.")
-
-    results = [_evaluate_threshold(rows, t) for t in thresholds]
-
-    summary_path = output_dir / "metrics_summary.csv"
-    _write_summary_csv(summary_path, stats, results)
-
-    saved_json_paths: list[Path] = []
-    saved_cm_paths: list[Path] = []
-    for result in results:
-        threshold = float(result["threshold"])
-        suffix = _threshold_suffix(threshold)
-
-        json_path = output_dir / f"metrics_threshold_{suffix}.json"
-        _write_threshold_json(json_path, result, stats, provenance)
-        saved_json_paths.append(json_path)
-
-        cm_path = output_dir / f"confusion_matrix_{suffix}.png"
-        _plot_confusion_matrix(cm_path, result, threshold=threshold)
-        saved_cm_paths.append(cm_path)
-
-    print(f"model_id: {model_id or '(legacy)'}")
-    print(f"dataset: {dataset_slug}")
-    print(f"output_dir: {output_dir}")
-    print(f"predictions: {predictions_path}")
-    print(f"kept_rows: {stats.kept_rows}")
-    print(f"dropped_error_rows: {stats.dropped_error_rows}")
-    print(f"dropped_invalid_label_rows: {stats.dropped_invalid_label_rows}")
-    print(f"saved: {summary_path}")
-    for path in saved_json_paths:
-        print(f"saved: {path}")
-    for path in saved_cm_paths:
-        print(f"saved: {path}")
+    evaluate_predictions(
+        predictions_path=predictions_path,
+        dataset_override=str(dataset_override) if dataset_override else None,
+        model_id=model_id,
+        cfg=cfg,
+        thresholds=thresholds,
+        flat_output=flat_output,
+        repo_root=REPO_ROOT,
+    )
     return 0
 
 

@@ -84,6 +84,34 @@ class TestIterVietnamImageRecords(unittest.TestCase):
             self.assertEqual(list(vn.iter_vietnam_image_records(root)), [])
 
 
+class TestCropBgrFaceSfasExpanded(unittest.TestCase):
+    def test_expansion_1_matches_tight_crop(self):
+        img = np.zeros((100, 100, 3), dtype=np.uint8)
+        img[25:75, 25:75] = 255
+        bbox = [25, 25, 50, 50]
+        tight = vn._crop_bgr_face(img, bbox)
+        expanded = vn._crop_bgr_face_sfas_expanded(img, bbox, 1.0)
+        self.assertIsNotNone(tight)
+        self.assertIsNotNone(expanded)
+        np.testing.assert_array_equal(tight, expanded)
+
+    def test_expansion_larger_than_1_increases_patch(self):
+        sfas_patches = ROOT / "third_party/Silent-Face-Anti-Spoofing/src/generate_patches.py"
+        if not sfas_patches.is_file():
+            self.skipTest("Thiếu SFAS submodule")
+
+        img = np.zeros((200, 200, 3), dtype=np.uint8)
+        img[50:150, 50:150] = 255
+        bbox = [50, 50, 100, 100]
+        tight = vn._crop_bgr_face(img, bbox)
+        assert tight is not None
+        expanded = vn._crop_bgr_face_sfas_expanded(img, bbox, 1.4)
+        self.assertIsNotNone(expanded)
+        assert expanded is not None
+        self.assertGreater(expanded.shape[0], tight.shape[0])
+        self.assertGreater(expanded.shape[1], tight.shape[1])
+
+
 class TestCropBgrFace(unittest.TestCase):
     def test_crops_center_region(self):
         img = np.zeros((100, 100, 3), dtype=np.uint8)
@@ -143,6 +171,17 @@ class TestDetectAndCropRgb(unittest.TestCase):
             path = Path(tmp) / "face.jpg"
             _write_bgr(path)
             self.assertIsNone(vn.detect_and_crop_rgb(path, _mock_detector([0, 0, 0, 0])))
+
+    @patch.object(vn, "_crop_bgr_face_sfas_expanded")
+    def test_passes_bbox_expansion_to_crop(self, mock_crop):
+        mock_crop.return_value = np.zeros((10, 10, 3), dtype=np.uint8)
+        with TemporaryDirectory() as tmp:
+            path = Path(tmp) / "face.jpg"
+            _write_bgr(path)
+            out = vn.detect_and_crop_rgb(path, _mock_detector(), bbox_expansion=1.4)
+            self.assertIsInstance(out, Image.Image)
+            mock_crop.assert_called_once()
+            self.assertEqual(mock_crop.call_args[0][2], 1.4)
 
 
 class TestProcessAndSaveCrops(unittest.TestCase):

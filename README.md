@@ -43,8 +43,6 @@ python3 scripts/create_casia_fasd_hf_dataset.py
 python3 scripts/create_vietnam_hf_dataset.py
 ```
 
-**Drivers 250 FN** — crop: `python3 scripts/crop_drivers_250_fn.py`; annotation + kiểm thử 3 model: `evaluation_on_drivers250fn_crop.md`.
-
 **Chạy tải dữ liệu** (từ thư mục gốc repo, sau khi HF đã có dữ liệu):
 
 ```bash
@@ -81,6 +79,44 @@ download_raw_dataset(CELEBA_SPOOF_SPEC)
 download_raw_dataset(CASIA_FASD_SPEC)
 download_raw_dataset(FACE_ANTI_SPOOFING_VN_SPEC)
 ```
+
+## Drivers 250 FN — crop SFAS
+
+Ảnh gốc: `data/drivers_250_FN/` (291 ca live). Metric chính: **BPCER** (chỉ live → APCER = 0). Chi tiết: `drivers_250_fn_sfas_crop_and_evaluation.md`.
+
+```bash
+git submodule update --init third_party/Silent-Face-Anti-Spoofing
+python3 scripts/download_pretrained_weights.py
+
+# 1) Crop — một lệnh → bốn thư mục (exp 1.0 / 1.2 / 1.4 / 1.6)
+python3 scripts/crop_drivers_250_fn.py
+
+# 2) Sample CSV + dataset config
+python3 scripts/create_test_sample_annotation.py --dataset drivers_250_fn
+python3 scripts/create_drivers_250_fn_dataset_configs.py
+```
+
+| Expansion | Thư mục crop | `source_dataset` | `dataset-config` |
+|-----------|--------------|------------------|------------------|
+| 1.0 | `data/drivers_250_fn_cropped/` | `drivers_250_fn` | `configs/dataset_drivers_250_fn.yaml` |
+| 1.2 | `data/drivers_250_fn_cropped_sfas_exp1.2/` | `drivers_250_fn_exp1.2` | `configs/dataset_drivers_250_fn_exp1.2.yaml` |
+| 1.4 | `data/drivers_250_fn_cropped_sfas_exp1.4/` | `drivers_250_fn_exp1.4` | `configs/dataset_drivers_250_fn_exp1.4.yaml` |
+| 1.6 | `data/drivers_250_fn_cropped_sfas_exp1.6/` | `drivers_250_fn_exp1.6` | `configs/dataset_drivers_250_fn_exp1.6.yaml` |
+
+**Bước 3 — inference + evaluation** (xem [Inference + evaluation](#inference--evaluation); gồm cả ma trận toàn repo qua `--all` nếu đã crop):
+
+- **A (chuẩn, một model × 4 expansion):**
+
+```bash
+MODEL=configs/model_minifasnet.yaml
+MID=minifasnet_v2_2p7
+for DS in drivers_250_fn drivers_250_fn_exp1.2 drivers_250_fn_exp1.4 drivers_250_fn_exp1.6; do
+  PRED=$(python3 scripts/run_inference.py --dataset-config configs/dataset_${DS}.yaml --model-config "$MODEL")
+  python3 scripts/run_evaluation.py --predictions "$PRED" --dataset "$DS" --model-id "$MID"
+done
+```
+
+- **B (tiện):** `python3 scripts/run_drivers_250_fn_expansion_benchmark.py --model-config configs/model_minifasnet.yaml` — macro lặp 4 expansion (cùng hai script bên trong).
 
 ## Label Studio
 
@@ -125,32 +161,65 @@ Tải 3 file `.pth` vào `models/` (theo `configs/model_*.yaml`). File đã có 
 
 ## Sample cho inference (`data/sampled/`)
 
-`configs/dataset_celeba_spoof.yaml`, `configs/dataset_casia_fasd.yaml`, `configs/dataset_face_antispoofing_vn.yaml` và `configs/dataset_drivers_250_fn.yaml` trỏ tới `data/sampled/*_sample.csv`. Tạo các file HF **sau khi** đã có `data/raw/<dataset>/annotations/raw.csv`; bộ `drivers_250_fn` **sau khi** đã crop (`data/drivers_250_fn_cropped/`):
+`configs/dataset_*.yaml` trỏ tới `data/sampled/*_sample.csv`. HF: tạo sau khi có `data/raw/<dataset>/annotations/raw.csv`. **Drivers 250 FN:** xem mục [Drivers 250 FN](#drivers-250-fn--crop-sfas) (crop trước, rồi `create_test_sample_annotation.py --dataset drivers_250_fn`).
 
 ```bash
-python3 scripts/create_test_sample_annotation.py
-python3 scripts/create_test_sample_annotation.py --dataset drivers_250_fn
+python3 scripts/create_test_sample_annotation.py   # celeba + casia + face_vn (+ drivers nếu đã crop)
 ```
 
-Kết quả:
+- `celeba_spoof_sample.csv` — 2000 live + 2000 spoof
+- `casia_fasd_sample.csv`, `face_antispoofing_vn_sample.csv` — toàn bộ `is_valid=true`
+- `drivers_250_fn*_sample.csv` — 4 file (một expansion một CSV), nhãn `live`
 
-- `data/sampled/celeba_spoof_sample.csv` — 2000 live + 2000 spoof (random, seed 42)
-- `data/sampled/casia_fasd_sample.csv` — toàn bộ dòng `is_valid=true` từ raw CASIA
-- `data/sampled/face_antispoofing_vn_sample.csv` — toàn bộ dòng `is_valid=true` từ raw VN test
-- `data/sampled/drivers_250_fn_sample.csv` — toàn bộ ảnh crop, nhãn `live` (bộ FN)
+## Inference + evaluation
+
+### Một model, một dataset
+
+Hai lệnh nối tiếp (`run_inference.py` in đường dẫn `latest.csv` ra stdout):
+
+```bash
+PRED=$(python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_casia_fasd.yaml \
+  --model-config configs/model_minifasnet.yaml)
+python3 scripts/run_evaluation.py \
+  --predictions "$PRED" \
+  --dataset casia_fasd \
+  --model-id minifasnet_v2_2p7
+```
+
+- `--dataset` = `source_dataset` trong dataset config; `--model-id` = `model_id` trong model config.
+
+### Ma trận toàn repo (mọi `model_*.yaml` × mọi `dataset_*.yaml`)
+
+Sau khi có `data/sampled/*_sample.csv` (và đã crop drivers nếu dùng tập FN):
+
+```bash
+python3 scripts/run_inference.py --all
+python3 scripts/run_evaluation.py --all
+```
+
+- Inference: quét `configs/model_*.yaml` × `configs/dataset_*.yaml` (hiện **3 × 7 = 21** cặp).
+- Evaluation: cùng ma trận; **bỏ qua** cặp chưa có `reports/models/<model_id>/predictions/<source_dataset>/latest.csv` (chạy inference trước hoặc sau từng cặp thiếu).
+
+**Output:** `reports/models/<model_id>/predictions/<source_dataset>/latest.csv` và `metrics/<source_dataset>/` (`metrics_summary.csv`, `apcer_bpcer_vs_threshold.png`, `confusion_matrix_*.png`, …).
+
+**Drivers (chỉ 4 expansion, một model):** vòng `for` ở mục [Drivers 250 FN](#drivers-250-fn--crop-sfas) hoặc `run_drivers_250_fn_expansion_benchmark.py` (inference + evaluation, không gồm CelebA/CASIA/VN).
 
 ## Batch inference
 
-Chạy từ thư mục gốc repo. Cần có weights (`download_pretrained_weights.py`), submodule (`git submodule update --init --recursive`), và `data/sampled/*_sample.csv`.
+Chỉ inference. Luồng đủ + ma trận `--all`: mục [Inference + evaluation](#inference--evaluation).
+
+Cần weights, submodule, `data/sampled/*_sample.csv`.
 
 **Tham số CLI**
 
 | Tham số | Mặc định | Ý nghĩa |
 |---------|----------|---------|
-| `--dataset-config` | `configs/dataset.yaml` | Dataset + `source_dataset` (đặt thư mục predictions) |
-| `--model-config` | `configs/model_minifasnet.yaml` | Model + weight + `model_id` |
+| `--dataset-config` | `configs/dataset.yaml` | Một dataset (`source_dataset` → thư mục predictions) |
+| `--model-config` | `configs/model_minifasnet.yaml` | Model + `model_id` |
 | `--inference-config` | `configs/inference.yaml` | `batch_size`, `save_raw_output`, … |
-| `--annotation-csv` | *(từ dataset config)* | Ghi đè file CSV ảnh cần chạy; metadata vẫn theo `--dataset-config` |
+| `--annotation-csv` | *(từ dataset config)* | Ghi đè CSV ảnh |
+| `--all` | — | Mọi `configs/model_*.yaml` × `configs/dataset_*.yaml` |
 
 **Dataset** (`--dataset-config`)
 
@@ -160,6 +229,11 @@ Chạy từ thư mục gốc repo. Cần có weights (`download_pretrained_weigh
 | `configs/dataset_casia_fasd.yaml` | `casia_fasd` | `data/sampled/casia_fasd_sample.csv` |
 | `configs/dataset_face_antispoofing_vn.yaml` | `face_antispoofing_vn` | `data/sampled/face_antispoofing_vn_sample.csv` |
 | `configs/dataset_drivers_250_fn.yaml` | `drivers_250_fn` | `data/sampled/drivers_250_fn_sample.csv` |
+| `configs/dataset_drivers_250_fn_exp1.2.yaml` | `drivers_250_fn_exp1.2` | `data/sampled/drivers_250_fn_exp1.2_sample.csv` |
+| `configs/dataset_drivers_250_fn_exp1.4.yaml` | `drivers_250_fn_exp1.4` | `data/sampled/drivers_250_fn_exp1.4_sample.csv` |
+| `configs/dataset_drivers_250_fn_exp1.6.yaml` | `drivers_250_fn_exp1.6` | `data/sampled/drivers_250_fn_exp1.6_sample.csv` |
+
+*(Drivers: cần crop + `create_drivers_250_fn_dataset_configs.py` trước; xem mục Drivers 250 FN.)*
 
 **Model** (`--model-config`)
 
@@ -169,46 +243,12 @@ Chạy từ thư mục gốc repo. Cần có weights (`download_pretrained_weigh
 | `configs/model_vit_fas.yaml` | `vitfas_vitb16_224` | `models/vitfas_vitb16_224x224.pth` |
 | `configs/model_face_antispoof_onnx.yaml` | `face_antispoof_onnx_9820` | `models/face_antispoof_onnx_best_9820.pth` |
 
-**Ví dụ** (ghép tùy ý dataset + model):
+**Ví dụ** (một cặp; ma trận đủ: `--all`):
 
 ```bash
-# MiniFASNet — CelebA (mặc định cả dataset lẫn model)
-python3 scripts/run_inference.py \
-  --dataset-config configs/dataset_celeba_spoof.yaml
-
-# MiniFASNet — CASIA
-python3 scripts/run_inference.py \
-  --dataset-config configs/dataset_casia_fasd.yaml
-
-# MiniFASNet — Face Anti-Spoofing VN
-python3 scripts/run_inference.py \
-  --dataset-config configs/dataset_face_antispoofing_vn.yaml
-
-# ViT-FAS — CelebA
 python3 scripts/run_inference.py \
   --dataset-config configs/dataset_celeba_spoof.yaml \
   --model-config configs/model_vit_fas.yaml
-
-# ViT-FAS — CASIA
-python3 scripts/run_inference.py \
-  --dataset-config configs/dataset_casia_fasd.yaml \
-  --model-config configs/model_vit_fas.yaml
-
-# Face antispoof ONNX — CelebA
-python3 scripts/run_inference.py \
-  --dataset-config configs/dataset_celeba_spoof.yaml \
-  --model-config configs/model_face_antispoof_onnx.yaml
-
-# Face antispoof ONNX — CASIA
-python3 scripts/run_inference.py \
-  --dataset-config configs/dataset_casia_fasd.yaml \
-  --model-config configs/model_face_antispoof_onnx.yaml
-
-# Ghi đè CSV ảnh (metadata vẫn theo dataset-config)
-python3 scripts/run_inference.py \
-  --dataset-config configs/dataset_celeba_spoof.yaml \
-  --model-config configs/model_minifasnet.yaml \
-  --annotation-csv data/sampled/celeba_spoof_sample.csv
 ```
 
 **Output** (theo `model_id` + `source_dataset`):
@@ -221,22 +261,23 @@ Mỗi model một thư mục `<model_id>` riêng, không đè predictions của 
 
 ## Evaluation
 
-Chạy sau **batch inference**. Mặc định đọc `latest.csv` của model trong `configs/evaluation.yaml` (`model_config` + `dataset`).
+Chạy sau inference — xem [Inference + evaluation](#inference--evaluation). Ngưỡng: `configs/evaluation.yaml` (`thresholds`).
+
+| Tham số | Ý nghĩa |
+|---------|---------|
+| `--predictions` | Đường dẫn `latest.csv` (khuyến nghị kèm `--dataset`, `--model-id`) |
+| `--dataset` | `source_dataset` (thư mục metrics) |
+| `--model-id` | Namespace `reports/models/<model_id>/` |
+| `--all` | Ma trận model×dataset; skip cặp thiếu predictions |
 
 ```bash
-# Sau inference CelebA — cần dataset trong evaluation.yaml hoặc --dataset
-python3 scripts/run_evaluation.py --dataset celeba_spoof
-
 python3 scripts/run_evaluation.py \
-  --predictions reports/models/minifasnet_v2_2p7/predictions/casia_fasd/latest.csv
-
-python3 scripts/run_evaluation.py \
-  --predictions reports/models/vitfas_vitb16_224/predictions/celeba_spoof/latest.csv
+  --predictions reports/models/minifasnet_v2_2p7/predictions/casia_fasd/latest.csv \
+  --dataset casia_fasd \
+  --model-id minifasnet_v2_2p7
 ```
 
-`model_id`: khai báo trong `configs/model_minifasnet.yaml` (A) hoặc tự sinh từ `name` + tên weight (B).
-
-**Output:** `reports/models/<model_id>/metrics/<dataset>/` (`metrics_summary.csv`, `metrics_threshold_*.json`, `confusion_matrix_*.png`).
+Hoặc `python3 scripts/run_evaluation.py --dataset celeba_spoof` khi `evaluation.yaml` đã khớp model + dataset.
 
 ## Chạy test
 
@@ -248,12 +289,28 @@ python3 -m unittest discover -s tests -v; rm -f test_log_*.log
 
 # Từng module
 python3 -m unittest tests.test_create_vietnam_hf_dataset -v
+python3 -m unittest tests.test_drivers_250_fn_expansions -v
+python3 -m unittest tests.test_crop_drivers_250_fn -v
+python3 -m unittest tests.test_create_test_sample_annotation_drivers -v
+python3 -m unittest tests.test_create_drivers_250_fn_dataset_configs -v
+python3 -m unittest tests.test_run_drivers_250_fn_expansion_benchmark -v
 python3 -m unittest tests.test_hf_raw -v
 python3 -m unittest tests.test_label_studio_tasks -v
-python3 -m unittest tests.test_run_evaluation -v
+python3 -m unittest tests.test_run_evaluation tests.test_run_inference -v
 python3 -m unittest tests.test_reports_layout -v
 python3 -m unittest tests.test_minifasnet_preprocess -v
 python3 -m unittest tests.test_minifasnet_model -v
 python3 -m unittest tests.test_vit_fas_model -v; rm -f test_log_*.log
 python3 -m unittest tests.test_face_antispoof_onnx_model -v
+
+# drivers_250_FN (SFAS expansion) — gom một lệnh
+python3 -m unittest \
+  tests.test_drivers_250_fn_expansions \
+  tests.test_crop_drivers_250_fn \
+  tests.test_create_test_sample_annotation_drivers \
+  tests.test_create_drivers_250_fn_dataset_configs \
+  tests.test_run_drivers_250_fn_expansion_benchmark \
+  tests.test_create_vietnam_hf_dataset.TestCropBgrFaceSfasExpanded \
+  tests.test_create_vietnam_hf_dataset.TestDetectAndCropRgb \
+  -v
 ```

@@ -98,9 +98,42 @@ def _crop_bgr_face(img: np.ndarray, bbox: list[int]) -> np.ndarray | None:
     return patch if patch.size else None
 
 
+def _crop_bgr_face_sfas_expanded(
+    img: np.ndarray,
+    bbox: list[int],
+    bbox_expansion: float,
+) -> np.ndarray | None:
+    """Crop theo SFAS CropImage._get_new_box (scale = bbox expansion). Không resize."""
+    if bbox_expansion == 1.0:
+        return _crop_bgr_face(img, bbox)
+
+    src_h, src_w = img.shape[:2]
+    sfas_src = str(SFAS_ROOT)
+    if sfas_src not in sys.path:
+        sys.path.insert(0, sfas_src)
+
+    prev_cwd = os.getcwd()
+    os.chdir(SFAS_ROOT)
+    try:
+        from src.generate_patches import CropImage
+    finally:
+        os.chdir(prev_cwd)
+
+    left_top_x, left_top_y, right_bottom_x, right_bottom_y = CropImage._get_new_box(
+        src_w,
+        src_h,
+        bbox,
+        bbox_expansion,
+    )
+    patch = img[left_top_y : right_bottom_y + 1, left_top_x : right_bottom_x + 1]
+    return patch if patch.size else None
+
+
 def detect_and_crop_rgb(
     image_path: Path,
     detector: Any,
+    *,
+    bbox_expansion: float = 1.0,
 ) -> Image.Image | None:
     """Bước 2: detect + crop (không resize về input MiniFASNet)."""
     img = cv2.imread(str(image_path))
@@ -111,7 +144,7 @@ def detect_and_crop_rgb(
     if not bbox or bbox[2] <= 0 or bbox[3] <= 0:
         return None
 
-    patch = _crop_bgr_face(img, bbox)
+    patch = _crop_bgr_face_sfas_expanded(img, bbox, bbox_expansion)
     if patch is None:
         return None
 

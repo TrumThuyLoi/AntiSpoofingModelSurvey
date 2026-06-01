@@ -12,10 +12,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from run_evaluation import (  # noqa: E402
     _evaluate_threshold,
+    _plot_apcer_bpcer_curve,
     _write_summary_csv,
     _write_threshold_json,
+    discover_config_paths,
     parse_predictions_metadata,
     resolve_dataset_slug,
+    source_dataset_from_config,
 )
 from run_evaluation import EvalStats  # noqa: E402
 
@@ -71,6 +74,21 @@ class TestResolveDatasetSlug(unittest.TestCase):
             resolve_dataset_slug(p)
 
 
+class TestDiscoverConfigPaths(unittest.TestCase):
+    def test_discovers_repo_configs(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        self.assertGreaterEqual(len(discover_config_paths(root, "model")), 3)
+        self.assertGreaterEqual(len(discover_config_paths(root, "dataset")), 7)
+
+
+class TestSourceDatasetFromConfig(unittest.TestCase):
+    def test_reads_source_dataset(self) -> None:
+        with TemporaryDirectory() as tmp:
+            path = Path(tmp) / "dataset_x.yaml"
+            path.write_text("source_dataset: casia_fasd\n", encoding="utf-8")
+            self.assertEqual(source_dataset_from_config(path), "casia_fasd")
+
+
 class TestParsePredictionsMetadata(unittest.TestCase):
     def test_reads_comment_header(self) -> None:
         with TemporaryDirectory() as tmp:
@@ -116,6 +134,80 @@ class TestMetricsOutputLayout(unittest.TestCase):
             _write_summary_csv(out, stats, results)
             self.assertTrue(out.is_file())
             self.assertIn("threshold", out.read_text(encoding="utf-8"))
+
+    def test_apcer_bpcer_curve_png_written(self) -> None:
+        rows = [
+            {"label_true": "live", "live_score": "0.9"},
+            {"label_true": "spoof", "live_score": "0.2"},
+        ]
+        results = [_evaluate_threshold(rows, t) for t in (0.3, 0.5, 0.7)]
+        with TemporaryDirectory() as tmp:
+            out = Path(tmp) / "apcer_bpcer_vs_threshold.png"
+            _plot_apcer_bpcer_curve(out, results, dataset_slug="celeba_spoof", model_id="test_model")
+            self.assertTrue(out.is_file())
+            self.assertGreater(out.stat().st_size, 500)
+
+
+class TestRunEvaluationAll(unittest.TestCase):
+    def test_all_evaluates_existing_pairs_only(self) -> None:
+        from unittest.mock import MagicMock, patch
+
+        import run_evaluation as mod
+
+        with TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            configs = repo / "configs"
+            configs.mkdir()
+            (configs / "evaluation.yaml").write_text("thresholds: [0.5]\n", encoding="utf-8")
+            (configs / "model_a.yaml").write_text("model_id: model_a\n", encoding="utf-8")
+            (configs / "model_b.yaml").write_text("model_id: model_b\n", encoding="utf-8")
+            (configs / "dataset_x.yaml").write_text("source_dataset: dataset_x\n", encoding="utf-8")
+            (configs / "dataset_y.yaml").write_text("source_dataset: dataset_y\n", encoding="utf-8")
+
+            pred_root = repo / "reports" / "models"
+            for mid, ds in (("model_a", "dataset_x"), ("model_b", "dataset_y")):
+                pdir = pred_root / mid / "predictions" / ds
+                pdir.mkdir(parents=True)
+                _write_predictions_csv(pdir / "latest.csv", source_dataset=ds)
+
+            with patch.object(mod, "REPO_ROOT", repo):
+                with patch.object(mod, "parse_args") as mock_parse:
+                    mock_parse.return_value = MagicMock(
+                        all=True,
+                        predictions=None,
+                        config=repo / "configs/evaluation.yaml",
+                        dataset=None,
+                        flat_output=False,
+                        model_id=None,
+                    )
+                    with patch.object(mod, "evaluate_predictions") as mock_eval:
+                        rc = mod.main()
+
+            self.assertEqual(rc, 0)
+            self.assertEqual(mock_eval.call_count, 2)
+
+    def test_all_raises_without_configs(self) -> None:
+        from unittest.mock import MagicMock, patch
+
+        import run_evaluation as mod
+
+        with TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            (repo / "configs").mkdir()
+            (repo / "configs/evaluation.yaml").write_text("thresholds: [0.5]\n", encoding="utf-8")
+
+            with patch.object(mod, "REPO_ROOT", repo):
+                with patch.object(mod, "parse_args") as mock_parse:
+                    mock_parse.return_value = MagicMock(
+                        all=True,
+                        predictions=None,
+                        config=repo / "configs/evaluation.yaml",
+                        dataset=None,
+                        flat_output=False,
+                        model_id=None,
+                    )
+                    with self.assertRaises(ValueError):
+                        mod.main()
 
 
 if __name__ == "__main__":

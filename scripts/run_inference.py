@@ -14,6 +14,12 @@ if str(REPO_ROOT) not in sys.path:
 from src.inference.run_batch import run_batch_inference
 
 
+def discover_config_paths(repo_root: Path, prefix: str) -> list[Path]:
+    """Liệt kê configs/<prefix>_*.yaml (sorted)."""
+    configs_dir = repo_root / "configs"
+    return sorted(configs_dir.glob(f"{prefix}_*.yaml"))
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Chạy batch inference trên annotation CSV và ghi run_YYYYMMDD_HHMMSS.csv.",
@@ -42,15 +48,64 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Override annotation_path trong dataset config.",
     )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Chạy inference cho mọi configs/model_*.yaml × configs/dataset_*.yaml.",
+    )
     return parser.parse_args()
+
+
+def _run_one(
+    *,
+    dataset_config: Path,
+    model_config: Path,
+    inference_config: Path,
+    annotation_csv: Path | None,
+    repo_root: Path,
+) -> Path:
+    return run_batch_inference(
+        dataset_config_path=dataset_config,
+        model_config_path=model_config,
+        inference_config_path=inference_config,
+        annotation_csv=annotation_csv,
+        repo_root=repo_root,
+    )
 
 
 def main() -> int:
     args = parse_args()
-    out_path = run_batch_inference(
-        dataset_config_path=args.dataset_config,
-        model_config_path=args.model_config,
-        inference_config_path=args.inference_config,
+    inference_config = (
+        args.inference_config
+        if args.inference_config.is_absolute()
+        else REPO_ROOT / args.inference_config
+    )
+
+    if args.all:
+        model_configs = discover_config_paths(REPO_ROOT, "model")
+        dataset_configs = discover_config_paths(REPO_ROOT, "dataset")
+        if not model_configs:
+            raise ValueError(f"Không tìm thấy configs/model_*.yaml trong {REPO_ROOT / 'configs'}")
+        if not dataset_configs:
+            raise ValueError(f"Không tìm thấy configs/dataset_*.yaml trong {REPO_ROOT / 'configs'}")
+
+        for model_config in model_configs:
+            for dataset_config in dataset_configs:
+                print(f"\n=== {model_config.name} × {dataset_config.name} ===")
+                out_path = _run_one(
+                    dataset_config=dataset_config,
+                    model_config=model_config,
+                    inference_config=inference_config,
+                    annotation_csv=args.annotation_csv,
+                    repo_root=REPO_ROOT,
+                )
+                print(out_path)
+        return 0
+
+    out_path = _run_one(
+        dataset_config=args.dataset_config,
+        model_config=args.model_config,
+        inference_config=inference_config,
         annotation_csv=args.annotation_csv,
         repo_root=REPO_ROOT,
     )
