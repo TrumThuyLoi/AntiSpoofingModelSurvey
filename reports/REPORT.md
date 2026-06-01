@@ -529,7 +529,72 @@ python3 scripts/run_evaluation.py \
 
 #### 7.5.2 Phân phối `y_prob` @0.5 (nhóm True / False)
 
-**Drivers exp 1.6** (291 live):
+`live_score` = **y_prob**; ngưỡng **0.5**. **True** = pass (pred live); **False** = reject (pred spoof). GT toàn tập live (291). Nguồn: `reports/models/*/predictions/drivers_250_fn*/latest.csv`.
+
+**Drivers exp 1.0** (`drivers_250_fn`, 291 live):
+
+| Model | Nhóm | n | mean | p10 | p50 | p90 |
+|-------|------|---:|-----:|----:|----:|----:|
+| MiniFASNet | True | 164 | 0.863 | 0.606 | 0.928 | 0.999 |
+| MiniFASNet | False | 127 | 0.159 | 0.005 | 0.095 | 0.433 |
+| ViT-FAS | True | 123 | 0.830 | 0.628 | 0.877 | 0.988 |
+| ViT-FAS | False | 168 | 0.112 | 0.004 | 0.041 | 0.317 |
+| ONNX | True | 106 | 0.881 | 0.612 | 0.956 | 1.000 |
+| ONNX | False | 185 | 0.102 | 0.000 | 0.037 | 0.319 |
+
+Histogram toàn tập:
+
+| Bin | MiniFASNet | ViT-FAS | ONNX |
+|-----|----------:|--------:|-----:|
+| [0, 0.2) | 86 | 126 | 145 |
+| [0.2, 0.4) | 23 | 34 | 33 |
+| [0.4, 0.6) | 33 | 18 | 18 |
+| [0.6, 0.8) | 33 | 36 | 17 |
+| [0.8, 1.0] | 116 | 77 | 78 |
+
+**Drivers exp 1.2** (`drivers_250_fn_exp1.2`, 291 live):
+
+| Model | Nhóm | n | mean | p10 | p50 | p90 |
+|-------|------|---:|-----:|----:|----:|----:|
+| MiniFASNet | True | 229 | 0.912 | 0.700 | 0.978 | 1.000 |
+| MiniFASNet | False | 62 | 0.176 | 0.007 | 0.170 | 0.404 |
+| ViT-FAS | True | 166 | 0.874 | 0.605 | 0.942 | 0.993 |
+| ViT-FAS | False | 125 | 0.137 | 0.006 | 0.080 | 0.342 |
+| ONNX | True | 188 | 0.930 | 0.707 | 0.995 | 1.000 |
+| ONNX | False | 103 | 0.139 | 0.003 | 0.080 | 0.385 |
+
+Histogram toàn tập:
+
+| Bin | MiniFASNet | ViT-FAS | ONNX |
+|-----|----------:|--------:|-----:|
+| [0, 0.2) | 37 | 89 | 74 |
+| [0.2, 0.4) | 18 | 28 | 21 |
+| [0.4, 0.6) | 20 | 25 | 16 |
+| [0.6, 0.8) | 27 | 25 | 21 |
+| [0.8, 1.0] | 189 | 124 | 159 |
+
+**Drivers exp 1.4** (`drivers_250_fn_exp1.4`, 291 live):
+
+| Model | Nhóm | n | mean | p10 | p50 | p90 |
+|-------|------|---:|-----:|----:|----:|----:|
+| MiniFASNet | True | 261 | 0.963 | 0.883 | 0.998 | 1.000 |
+| MiniFASNet | False | 30 | 0.251 | 0.084 | 0.237 | 0.403 |
+| ViT-FAS | True | 209 | 0.904 | 0.694 | 0.974 | 0.995 |
+| ViT-FAS | False | 82 | 0.177 | 0.006 | 0.140 | 0.418 |
+| ONNX | True | 222 | 0.940 | 0.739 | 0.998 | 1.000 |
+| ONNX | False | 69 | 0.166 | 0.005 | 0.118 | 0.424 |
+
+Histogram toàn tập:
+
+| Bin | MiniFASNet | ViT-FAS | ONNX |
+|-----|----------:|--------:|-----:|
+| [0, 0.2) | 8 | 50 | 42 |
+| [0.2, 0.4) | 18 | 20 | 17 |
+| [0.4, 0.6) | 8 | 23 | 23 |
+| [0.6, 0.8) | 14 | 27 | 13 |
+| [0.8, 1.0] | 243 | 171 | 196 |
+
+**Drivers exp 1.6** (`drivers_250_fn_exp1.6`, 291 live):
 
 | Model | Nhóm | n | mean | p10 | p50 | p90 |
 |-------|------|---:|-----:|----:|----:|----:|
@@ -540,7 +605,7 @@ python3 scripts/run_evaluation.py \
 | ONNX | True | 236 | 0.948 | 0.779 | 0.999 | 1.000 |
 | ONNX | False | 55 | 0.179 | 0.004 | 0.137 | 0.402 |
 
-Histogram toàn tập @ exp 1.6:
+Histogram toàn tập:
 
 | Bin | MiniFASNet | ViT-FAS | ONNX |
 |-----|----------:|--------:|-----:|
@@ -550,7 +615,7 @@ Histogram toàn tập @ exp 1.6:
 | [0.6, 0.8) | 7 | 28 | 18 |
 | [0.8, 1.0] | 269 | 203 | 209 |
 
-- **Drivers:** SFAS expansion ↑ → BPCER ↓; MiniFASNet @ exp 1.6 đạt BPCER 4.8% @0.5. Biểu đồ đường cong: §7.1–7.4 (mỗi dataset). Crop: `drivers_250_fn_sfas_crop_and_evaluation.md`.
+- **Xu hướng:** SFAS expansion ↑ → nhóm **True** tăng (MiniFASNet: 164 → 277), **False** giảm (127 → 14); histogram dồn về [0.8, 1.0]. Khớp BPCER §7.4–7.5. MiniFASNet @ exp 1.6: BPCER 4.8% @0.5. Crop: `drivers_250_fn_sfas_crop_and_evaluation.md`.
 
 ### 7.6 So sánh giữa các dataset
 
@@ -695,3 +760,4 @@ data/
 | 01/06/2026 | v0.6 | Ablation SFAS bbox expansion (1.0–1.6); bảng dataset×pred True/False; phân phối `live_score`; đường cong BPCER vs threshold (mermaid); cập nhật kết luận MiniFASNet @ exp 1.6 |
 | 01/06/2026 | v0.7 | Ma trận 3×7 (`--all`); bảng True/False + phân phối y_prob; nhúng PNG `apcer_bpcer_vs_threshold` (thay mermaid) |
 | 01/06/2026 | v0.8 | Metric đầy đủ threshold 0.1–0.9 (HF + drivers); biểu đồ APCER/BPCER nhúng trong §7.1–7.4 |
+| 01/06/2026 | v0.9 | §7.5.2: phân phối `y_prob` @0.5 cho cả 4 SFAS expansion (1.0–1.6), tính từ `latest.csv` |
