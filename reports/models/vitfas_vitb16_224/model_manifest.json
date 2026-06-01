@@ -4,7 +4,7 @@
   "weights_path": "/home/DVX/AntiSpoofingModelSurvey/models/vitfas_vitb16_224x224.pth",
   "threshold": 0.5,
   "device": "cuda:0",
-  "source_dataset": "face_antispoofing_vn",
-  "last_run_csv": "run_face_antispoofing_vn_20260529_180114.csv",
-  "updated_at": "2026-05-29T18:02:11"
+  "source_dataset": "drivers_250_fn",
+  "last_run_csv": "run_drivers_250_fn_20260531_100933.csv",
+  "updated_at": "2026-05-31T10:09:53"
 }

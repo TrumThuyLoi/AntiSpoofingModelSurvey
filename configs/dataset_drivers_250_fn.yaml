@@ -1,0 +1,9 @@
+name: drivers_250_fn_sample
+annotation_path: data/sampled/drivers_250_fn_sample.csv
+image_root: data/drivers_250_fn_cropped
+source_dataset: drivers_250_fn
+default_split: all
+labels:
+  live: live
+  spoof: spoof
+  unknown: unknown

@@ -15,12 +15,13 @@
 
 - Mục tiêu: đánh giá stage anti-spoofing cho bài toán verify ảnh tài xế trước khi tích hợp service.
 - Model đã đánh giá: **MiniFASNetV2** (`minifasnet_v2_2p7`), **ViT-FAS** (`vitfas_vitb16_224`) và **FaceAntispoof-ONNX** (`face_antispoof_onnx_9820`).
-- Dataset đã dùng: 
+- Dataset đã dùng:
   - CelebA-Spoof sample (4000 ảnh): chủ yếu là ảnh người phương tây.
   - CASIA-FASD sample (4063 ảnh): chủ yếu là ảnh người Trung Quốc, phù hợp hơn với bài toán này.
   - Face Anti-Spoofing VN (`face_antispoofing_vn`, 2118 ảnh test): dữ liệu nội bộ Việt Nam, crop mặt RetinaFace (SFAS).
-- Kết luận chính: MiniFASNet vẫn là model tốt nhất trên CASIA-FASD. FaceAntispoof-ONNX cho kết quả cạnh tranh trên CelebA-Spoof (ACER thấp nhất @0.5) và xếp thứ hai trên CASIA-FASD. Trên **face_antispoofing_vn**, FaceAntispoof-ONNX tốt nhất về accuracy/APCER @0.5; MiniFASNet xếp thứ hai; ViT-FAS chưa đạt mức deploy.
-- Đề xuất tích hợp service: giữ MiniFASNet làm baseline trên domain châu Á (CASIA); cân nhắc FaceAntispoof-ONNX cho tập người Việt hoặc CelebA; calibrate threshold riêng theo từng dataset.
+  - Drivers 250 FN (`drivers_250_fn`, 291 ảnh live đã crop): dữ liệu thực tế các ca false-negative trong vận hành.
+- Kết luận chính: MiniFASNet vẫn là model tốt nhất trên CASIA-FASD. FaceAntispoof-ONNX cho kết quả cạnh tranh trên CelebA-Spoof (ACER thấp nhất @0.5) và xếp thứ hai trên CASIA-FASD. Trên **face_antispoofing_vn**, FaceAntispoof-ONNX tốt nhất về accuracy/APCER @0.5 nhưng BPCER cao. Trên **drivers_250_fn** (tập live thực tế), MiniFASNet cho BPCER thấp nhất, FaceAntispoof-ONNX cho BPCER cao nhất.
+- Đề xuất tích hợp service: ưu tiên metric vận hành theo **BPCER trên live thực tế**; giữ MiniFASNet làm baseline; dùng ONNX khi cần ưu tiên chống spoof và có calibrate threshold theo production.
 
 ---
 
@@ -70,6 +71,7 @@
 | CelebA-Spoof | |Chủ yêu là hình ảnh người phương Tây|
 | CASIA-FASD | |Chủ yếu là hình ảnh người Trung Quốc, nên phù hợp hơn với bài toán này|
 | Face Anti-Spoofing VN | `vu-hong-quang/face_antispoofing_vn` (HF private) | Ảnh tài xế VN, crop SFAS, split `test` |
+| Drivers 250 FN | `data/drivers_250_fn_cropped` (local) | Ảnh thực tế false-negative, toàn bộ nhãn live, split `all` |
 
 ### 4.2 Số lượng ảnh (sample / test)
 
@@ -78,6 +80,7 @@
 | celeba_spoof | 4000 | 2000 | 2000 | 0 |
 | casia_fasd | 4063 | 995 | 3068 | 0 |
 | face_antispoofing_vn | 2118 | 782 | 1336 | 0 |
+| drivers_250_fn | 291 | 291 | 0 | 0 |
 
 *(Đường dẫn CSV: `data/sampled/`, `data/raw/.../annotations/raw.csv`.)*
 
@@ -101,6 +104,7 @@
 | Dataset CelebA | `configs/dataset_celeba_spoof.yaml` |
 | Dataset CASIA (raw / cropped) | `configs/dataset_casia_fasd.yaml` / `dataset_casia_fasd_cropped.yaml` |
 | Dataset Face VN | `configs/dataset_face_antispoofing_vn.yaml` |
+| Dataset Drivers FN | `configs/dataset_drivers_250_fn.yaml` |
 | Evaluation | `configs/evaluation.yaml` |
 
 ### 6.2 Preprocessing
@@ -144,6 +148,27 @@ python3 scripts/run_inference.py \
   --model-config configs/model_minifasnet.yaml
 
 python3 scripts/run_evaluation.py --dataset face_antispoofing_vn
+
+# Inference / evaluation — Drivers 250 FN (dữ liệu thực tế)
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_drivers_250_fn.yaml \
+  --model-config configs/model_minifasnet.yaml
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_drivers_250_fn.yaml \
+  --model-config configs/model_vit_fas.yaml
+python3 scripts/run_inference.py \
+  --dataset-config configs/dataset_drivers_250_fn.yaml \
+  --model-config configs/model_face_antispoof_onnx.yaml
+
+python3 scripts/run_evaluation.py \
+  --predictions reports/models/minifasnet_v2_2p7/predictions/drivers_250_fn/latest.csv \
+  --dataset drivers_250_fn
+python3 scripts/run_evaluation.py \
+  --predictions reports/models/vitfas_vitb16_224/predictions/drivers_250_fn/latest.csv \
+  --dataset drivers_250_fn
+python3 scripts/run_evaluation.py \
+  --predictions reports/models/face_antispoof_onnx_9820/predictions/drivers_250_fn/latest.csv \
+  --dataset drivers_250_fn
 ```
 
 ### 6.4 Metric báo cáo
@@ -180,15 +205,13 @@ python3 scripts/run_evaluation.py --dataset face_antispoofing_vn
 | FaceAntispoof-ONNX | 0.5 | 0.8415 | 0.1910 | 0.1260 | 0.1585 | ACER tốt nhất trên CelebA |
 | FaceAntispoof-ONNX | 0.7 | 0.8415 | 0.1380 | 0.1790 | 0.1585 | Cân bằng APCER/BPCER tốt |
 
-- Confusion matrix: `confusion_matrix_*.png`
-- MiniFASNet (threshold 0.5):
-![MiniFASNet CelebA Confusion Matrix](models/minifasnet_v2_2p7/metrics/celeba_spoof/confusion_matrix_0.5.png)
+- Confusion matrix @ threshold 0.5 (dạng bảng):
 
-- ViT-FAS (threshold 0.5):
-![ViT-FAS CelebA Confusion Matrix](models/vitfas_vitb16_224/metrics/celeba_spoof/confusion_matrix_0.5.png)
-
-- FaceAntispoof-ONNX (threshold 0.5):
-![FaceAntispoof-ONNX CelebA Confusion Matrix](models/face_antispoof_onnx_9820/metrics/celeba_spoof/confusion_matrix_0.5.png)
+| Model | TP (live→live) | FN (live→spoof) | FP (spoof→live) | TN (spoof→spoof) |
+|-------|-----------------|-----------------|-----------------|------------------|
+| MiniFASNet | 1290 | 710 | 537 | 1463 |
+| ViT-FAS | 943 | 1057 | 366 | 1634 |
+| FaceAntispoof-ONNX | 1748 | 252 | 382 | 1618 |
 
 - Nhận xét ngắn: FaceAntispoof-ONNX cho kết quả vượt trội trên CelebA-Spoof so với hai model còn lại; ViT-FAS vẫn có xu hướng reject nhiều live khi threshold tăng.
 
@@ -216,15 +239,13 @@ python3 scripts/run_evaluation.py --dataset face_antispoofing_vn
 | FaceAntispoof-ONNX | 0.5 | 0.7061 | 0.3556 | 0.1035 | 0.2296 | Điểm cân bằng hiện tại |
 | FaceAntispoof-ONNX | 0.7 | 0.7413 | 0.2963 | 0.1427 | 0.2195 | Tốt nhất trong 3 ngưỡng đã thử |
 
-- Confusion matrix:
-- MiniFASNet (threshold 0.5):
-![MiniFASNet CASIA Confusion Matrix](models/minifasnet_v2_2p7/metrics/casia_fasd/confusion_matrix_0.5.png)
+- Confusion matrix @ threshold 0.5 (dạng bảng):
 
-- ViT-FAS (threshold 0.5):
-![ViT-FAS CASIA Confusion Matrix](models/vitfas_vitb16_224/metrics/casia_fasd/confusion_matrix_0.5.png)
-
-- FaceAntispoof-ONNX (threshold 0.5):
-![FaceAntispoof-ONNX CASIA Confusion Matrix](models/face_antispoof_onnx_9820/metrics/casia_fasd/confusion_matrix_0.5.png)
+| Model | TP (live→live) | FN (live→spoof) | FP (spoof→live) | TN (spoof→spoof) |
+|-------|-----------------|-----------------|-----------------|------------------|
+| MiniFASNet | 843 | 152 | 40 | 3028 |
+| ViT-FAS | 756 | 239 | 1299 | 1769 |
+| FaceAntispoof-ONNX | 892 | 103 | 1091 | 1977 |
 
 - Nhận xét ngắn: trên CASIA-FASD, MiniFASNet vẫn vượt trội rõ rệt. FaceAntispoof-ONNX xếp thứ hai, tốt hơn ViT-FAS nhưng APCER còn cao.
 
@@ -252,27 +273,67 @@ python3 scripts/run_evaluation.py --dataset face_antispoofing_vn
 | FaceAntispoof-ONNX | 0.5 | 0.7691 | 0.0681 | 0.5090 | 0.2885 | Accuracy cao nhất; APCER thấp nhất @0.5 |
 | FaceAntispoof-ONNX | 0.7 | 0.7573 | 0.0419 | 0.5857 | 0.3138 | Ưu tiên bảo mật (APCER rất thấp) |
 
-- Confusion matrix: chưa export PNG cho dataset này (chỉ `metrics_summary.csv`, `metrics_threshold_*.json`).
+- Confusion matrix @ threshold 0.5 (dạng bảng):
+
+| Model | TP (live→live) | FN (live→spoof) | FP (spoof→live) | TN (spoof→spoof) |
+|-------|-----------------|-----------------|-----------------|------------------|
+| MiniFASNet | 465 | 317 | 212 | 1124 |
+| ViT-FAS | 278 | 504 | 411 | 925 |
+| FaceAntispoof-ONNX | 384 | 398 | 91 | 1245 |
 
 - Nhận xét ngắn: trên dữ liệu người Việt, **FaceAntispoof-ONNX** cho accuracy và APCER tốt nhất @0.5 (ít spoof lọt thành live), nhưng **BPCER cao** (nhiều live bị reject). **MiniFASNet** đứng thứ hai, cân bằng hơn BPCER @0.5 nhưng APCER cao hơn ONNX. **ViT-FAS** kém rõ trên domain VN (ACER ~0.48 @0.5) — khác với xu hướng trên CASIA/CelebA không đồng nhất, cần xem lại checkpoint/domain.
 
-### 7.4 So sánh giữa các dataset
+### 7.4 Drivers 250 FN (dữ liệu thực tế, đã crop)
 
-| Tiêu chí | CelebA-Spoof | CASIA-FASD | Face Anti-Spoofing VN |
-|----------|--------------|------------|------------------------|
-| MiniFASNet ACER @ 0.5 | 0.3118 | 0.0829 | 0.2820 |
-| ViT-FAS ACER @ 0.5 | 0.3558 | 0.3318 | 0.4761 |
-| FaceAntispoof-ONNX ACER @ 0.5 | 0.1585 | 0.2296 | 0.2885 |
-| MiniFASNet APCER @ 0.5 | 0.2685 | 0.0130 | 0.1587 |
-| ViT-FAS APCER @ 0.5 | 0.1830 | 0.4234 | 0.3076 |
-| FaceAntispoof-ONNX APCER @ 0.5 | 0.1910 | 0.3556 | 0.0681 |
-| Số mẫu (test/sample) | 4000 | 4063 | 2118 (782 live / 1336 spoof) |
-| Độ khó / domain | CelebA cân bằng, phân tách khó | CASIA khớp train MiniFASNet | VN OOD; ONNX hơn MiniFASNet |
-| Preprocess đầu vào | resize + normalize theo wrapper | resize + normalize theo wrapper | crop SFAS + resize theo wrapper |
+- Điều kiện chạy: `data/drivers_250_fn_cropped/` + `data/sampled/drivers_250_fn_sample.csv` (291 mẫu live, split `all`).
+- File predictions:
+  - MiniFASNet: `reports/models/minifasnet_v2_2p7/predictions/drivers_250_fn/latest.csv`
+  - ViT-FAS: `reports/models/vitfas_vitb16_224/predictions/drivers_250_fn/latest.csv`
+  - FaceAntispoof-ONNX: `reports/models/face_antispoof_onnx_9820/predictions/drivers_250_fn/latest.csv`
+- File metrics:
+  - MiniFASNet: `reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn/`
+  - ViT-FAS: `reports/models/vitfas_vitb16_224/metrics/drivers_250_fn/`
+  - FaceAntispoof-ONNX: `reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn/`
 
-### 7.5 Ảnh minh họa (tuỳ chọn)
+| Model | Threshold | Accuracy | APCER | BPCER | ACER | Ghi chú |
+|-------|-----------|----------|-------|-------|------|---------|
+| MiniFASNet | 0.3 | 0.6735 | 0.0000 | 0.3265 | 0.1632 | BPCER thấp nhất trong 3 model |
+| MiniFASNet | 0.5 | 0.5636 | 0.0000 | 0.4364 | 0.2182 | Điểm vận hành hiện tại |
+| MiniFASNet | 0.7 | 0.4502 | 0.0000 | 0.5498 | 0.2749 | BPCER tăng mạnh khi tăng threshold |
+| ViT-FAS | 0.3 | 0.4983 | 0.0000 | 0.5017 | 0.2509 | Chất lượng thấp trên dữ liệu thực tế |
+| ViT-FAS | 0.5 | 0.4227 | 0.0000 | 0.5773 | 0.2887 | Kém MiniFASNet |
+| ViT-FAS | 0.7 | 0.3333 | 0.0000 | 0.6667 | 0.3333 | BPCER rất cao |
+| FaceAntispoof-ONNX | 0.3 | 0.4330 | 0.0000 | 0.5670 | 0.2835 | Ưu tiên reject (an toàn) |
+| FaceAntispoof-ONNX | 0.5 | 0.3643 | 0.0000 | 0.6357 | 0.3179 | BPCER cao nhất @0.5 |
+| FaceAntispoof-ONNX | 0.7 | 0.3058 | 0.0000 | 0.6942 | 0.3471 | Không phù hợp UX hiện tại |
 
-- Trước / sau crop: `reports/casia_crop_before_after_10.png`
+- Confusion matrix @ threshold 0.5 (dạng bảng):
+
+| Model | TP (live→live) | FN (live→spoof) | FP (spoof→live) | TN (spoof→spoof) |
+|-------|-----------------|-----------------|-----------------|------------------|
+| MiniFASNet | 164 | 127 | 0 | 0 |
+| ViT-FAS | 123 | 168 | 0 | 0 |
+| FaceAntispoof-ONNX | 106 | 185 | 0 | 0 |
+
+- Nhận xét ngắn: với dữ liệu production false-negative, thứ hạng đảo chiều so với kết luận theo accuracy trên tập VN: **MiniFASNet tốt nhất theo BPCER**, ONNX tệ nhất theo BPCER.
+
+### 7.5 So sánh giữa các dataset
+
+| Tiêu chí | CelebA-Spoof | CASIA-FASD | Face Anti-Spoofing VN | Drivers 250 FN |
+|----------|--------------|------------|------------------------|----------------|
+| MiniFASNet ACER @ 0.5 | 0.3118 | 0.0829 | 0.2820 | 0.2182 |
+| ViT-FAS ACER @ 0.5 | 0.3558 | 0.3318 | 0.4761 | 0.2887 |
+| FaceAntispoof-ONNX ACER @ 0.5 | 0.1585 | 0.2296 | 0.2885 | 0.3179 |
+| MiniFASNet BPCER @ 0.5 | 0.3550 | 0.1528 | 0.4054 | 0.4364 |
+| ViT-FAS BPCER @ 0.5 | 0.5285 | 0.2402 | 0.6445 | 0.5773 |
+| FaceAntispoof-ONNX BPCER @ 0.5 | 0.1260 | 0.1035 | 0.5090 | 0.6357 |
+| Số mẫu (test/sample) | 4000 | 4063 | 2118 (782 live / 1336 spoof) | 291 (291 live / 0 spoof) |
+| Độ khó / domain | CelebA cân bằng, phân tách khó | CASIA khớp train MiniFASNet | VN OOD; ONNX hơn MiniFASNet theo accuracy | Production hard cases (false-negative) |
+| Preprocess đầu vào | resize + normalize theo wrapper | resize + normalize theo wrapper | crop SFAS + resize theo wrapper | crop SFAS local + resize theo wrapper |
+
+### 7.6 Artifact minh họa (không dùng ảnh confusion matrix)
+
+- Trước / sau crop (tham khảo): `reports/casia_crop_before_after_10.png`
 - Failure cases: `reports/failure_cases/`
 
 ---
@@ -324,23 +385,32 @@ python3 scripts/run_evaluation.py --dataset face_antispoofing_vn
 
 ### 10.1 Kết luận
 
-- MiniFASNet (`minifasnet_v2_2p7`) hiện là mô hình tốt nhất trên **CASIA-FASD**; trên **face_antispoofing_vn** xếp thứ hai (ACER @0.5 ≈ 0.28).
-- ViT-FAS đã chạy end-to-end thành công nhưng quality còn thấp trên mọi tập; trên VN đặc biệt kém (ACER @0.5 ≈ 0.48) — cần kiểm chứng checkpoint/domain trước khi dùng production.
-- FaceAntispoof-ONNX (`face_antispoof_onnx_9820`) rất tốt trên CelebA-Spoof; thứ hai trên CASIA-FASD; **tốt nhất trên face_antispoofing_vn** @0.5 (accuracy 0.769, APCER 0.068) nhưng BPCER cao (~0.51).
+- Với dữ liệu thực tế `drivers_250_fn` (291 mẫu live), tiêu chí quyết định là **BPCER** (tỷ lệ live bị reject).
+- Xếp hạng phù hợp production hiện tại trên `drivers_250_fn` (@0.5): **MiniFASNet (BPCER 0.4364) > ViT-FAS (0.5773) > FaceAntispoof-ONNX (0.6357)**.
+- Kết luận triển khai: **MiniFASNet** là lựa chọn phù hợp nhất ở thời điểm hiện tại cho luồng verify tài xế thực tế; ONNX chỉ phù hợp nếu ưu tiên rất cao việc chặn spoof và chấp nhận reject live nhiều.
 
-### 10.2 Đề xuất tích hợp service
+### 10.2 Phân tích từng mô hình trên `drivers_250_fn`
+
+| Model | Điểm mạnh | Điểm yếu | Nhận định phù hợp |
+|------|-----------|----------|-------------------|
+| MiniFASNet (`minifasnet_v2_2p7`) | BPCER thấp nhất trong 3 model trên tập thực tế; ổn định hơn khi thay đổi threshold; cho tỷ lệ pass live cao nhất | APCER trên các tập cân bằng không phải tốt nhất; vẫn reject nhiều live ở ngưỡng cao | **Phù hợp nhất hiện tại** cho production nếu mục tiêu chính là giảm false reject tài xế thật |
+| ViT-FAS (`vitfas_vitb16_224`) | Có thể chạy end-to-end ổn định trong pipeline hiện tại | BPCER cao trên `drivers_250_fn`; ACER cao trên VN/CASIA; chất lượng chưa đạt mức deploy | Chưa phù hợp để làm model chính; chỉ nên giữ cho mục đích benchmark nội bộ |
+| FaceAntispoof-ONNX (`face_antispoof_onnx_9820`) | APCER rất tốt trên VN/CelebA; mạnh ở mục tiêu giảm spoof lọt | BPCER cao nhất trên `drivers_250_fn` (reject live nhiều); độ phù hợp production thấp nếu KPI ưu tiên UX | Phù hợp cho kịch bản ưu tiên bảo mật cao; cần calibrate threshold/fine-tune trước khi dùng làm model chính |
+
+### 10.3 Đề xuất tích hợp service
 
 | Hạng mục | Đề xuất |
 |----------|---------|
-| Model anti-spoofing | CASIA/domain châu Á: MiniFASNetV2; tập người VN: cân nhắc FaceAntispoof-ONNX hoặc ensemble |
-| Ngưỡng operating point | Bắt đầu với `0.5`, tune riêng theo dataset (VN: cân nhắc giảm APCER với ONNX @0.7 hoặc tăng threshold) |
+| Model anti-spoofing | Chọn **MiniFASNetV2** làm model chính cho production hiện tại; ONNX để phương án phụ/ensemble sau calibrate |
+| Ngưỡng operating point | Không cố định `0.5`; tune theo KPI production với ràng buộc BPCER mục tiêu trên tập live thực tế |
 | Preprocessing (detect + crop) | VN: giữ crop SFAS nhất quán với bước build HF; resize theo từng model |
-| Bước tiếp theo (fine-tune, data nội bộ) | Fine-tune trên `face_antispoofing_vn` train; calibrate threshold trên VN; giảm BPCER ONNX |
+| Bước tiếp theo (fine-tune, data nội bộ) | Ưu tiên giảm BPCER trên `drivers_250_fn`: calibrate threshold theo production, mở rộng tập live khó, đánh giá lại ONNX sau fine-tune |
 
-### 10.3 Công việc tiếp theo
+### 10.4 Công việc tiếp theo
 
 - [ ] Kiểm tra sâu nhánh load/checkpoint ViT-FAS và thống nhất class order live/spoof.
-- [ ] Calibrate threshold cho FaceAntispoof-ONNX để giảm APCER trên CASIA-FASD.
+- [ ] Calibrate threshold theo KPI production (ưu tiên BPCER trên live thực tế `drivers_250_fn`).
+- [ ] Chạy lại ONNX với sweep threshold + báo cáo trade-off APCER/BPCER theo ngưỡng.
 - [ ] Chạy benchmark lặp lại nhiều seed để đo độ ổn định metric.
 - [ ] Bổ sung tập validation nội bộ để chọn threshold theo KPI service.
 
@@ -380,3 +450,5 @@ data/
 |------|-----------|----------|
 | 28/05/2026 | v0.1 | Khởi tạo mẫu |
 | 29/05/2026 | v0.2 | Bổ sung kết quả `face_antispoofing_vn` (3 model) |
+| 01/06/2026 | v0.3 | Bổ sung đánh giá `drivers_250_fn`, thêm metric BPCER trọng tâm cho production, thay confusion matrix ảnh bằng bảng markdown |
+| 01/06/2026 | v0.4 | Cập nhật mục 10: phân tích model phù hợp nhất cho `drivers_250_fn`, nêu điểm mạnh/yếu từng model theo dữ liệu thực tế |

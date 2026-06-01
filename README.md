@@ -43,7 +43,7 @@ python3 scripts/create_casia_fasd_hf_dataset.py
 python3 scripts/create_vietnam_hf_dataset.py
 ```
 
-Chi tiết schema / checklist: `hf_face_antispoofingvn.md`.
+**Drivers 250 FN** — crop: `python3 scripts/crop_drivers_250_fn.py`; annotation + kiểm thử 3 model: `evaluation_on_drivers250fn_crop.md`.
 
 **Chạy tải dữ liệu** (từ thư mục gốc repo, sau khi HF đã có dữ liệu):
 
@@ -125,17 +125,19 @@ Tải 3 file `.pth` vào `models/` (theo `configs/model_*.yaml`). File đã có 
 
 ## Sample cho inference (`data/sampled/`)
 
-`configs/dataset_celeba_spoof.yaml`, `configs/dataset_casia_fasd.yaml` và `configs/dataset_face_antispoofing_vn.yaml` trỏ tới `data/sampled/*_sample.csv`. Tạo các file này **sau khi** đã có `data/raw/<dataset>/annotations/raw.csv` (bước HF ở trên):
+`configs/dataset_celeba_spoof.yaml`, `configs/dataset_casia_fasd.yaml`, `configs/dataset_face_antispoofing_vn.yaml` và `configs/dataset_drivers_250_fn.yaml` trỏ tới `data/sampled/*_sample.csv`. Tạo các file HF **sau khi** đã có `data/raw/<dataset>/annotations/raw.csv`; bộ `drivers_250_fn` **sau khi** đã crop (`data/drivers_250_fn_cropped/`):
 
 ```bash
 python3 scripts/create_test_sample_annotation.py
+python3 scripts/create_test_sample_annotation.py --dataset drivers_250_fn
 ```
 
 Kết quả:
 
 - `data/sampled/celeba_spoof_sample.csv` — 2000 live + 2000 spoof (random, seed 42)
 - `data/sampled/casia_fasd_sample.csv` — toàn bộ dòng `is_valid=true` từ raw CASIA
-- `data/sampled/face_antispoofing_vn_sample.csv` — sample từ raw VN (sau khi script sample hỗ trợ dataset này)
+- `data/sampled/face_antispoofing_vn_sample.csv` — toàn bộ dòng `is_valid=true` từ raw VN test
+- `data/sampled/drivers_250_fn_sample.csv` — toàn bộ ảnh crop, nhãn `live` (bộ FN)
 
 ## Batch inference
 
@@ -157,6 +159,7 @@ Chạy từ thư mục gốc repo. Cần có weights (`download_pretrained_weigh
 | `configs/dataset_celeba_spoof.yaml` | `celeba_spoof` | `data/sampled/celeba_spoof_sample.csv` |
 | `configs/dataset_casia_fasd.yaml` | `casia_fasd` | `data/sampled/casia_fasd_sample.csv` |
 | `configs/dataset_face_antispoofing_vn.yaml` | `face_antispoofing_vn` | `data/sampled/face_antispoofing_vn_sample.csv` |
+| `configs/dataset_drivers_250_fn.yaml` | `drivers_250_fn` | `data/sampled/drivers_250_fn_sample.csv` |
 
 **Model** (`--model-config`)
 

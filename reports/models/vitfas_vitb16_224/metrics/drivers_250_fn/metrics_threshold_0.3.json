@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "vitfas_vitb16_224",
+    "source_dataset": "drivers_250_fn",
+    "predictions_path": "reports/models/vitfas_vitb16_224/predictions/drivers_250_fn/latest.csv",
+    "evaluated_at": "2026-05-31T10:10:52"
+  },
+  "filtering": {
+    "total_rows": 291,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 291,
+    "kept_live_rows": 291,
+    "kept_spoof_rows": 0
+  },
+  "metrics": {
+    "threshold": 0.3,
+    "num_samples": 291,
+    "num_live": 291,
+    "num_spoof": 0,
+    "cm_true_live_pred_live": 145,
+    "cm_true_live_pred_spoof": 146,
+    "cm_true_spoof_pred_live": 0,
+    "cm_true_spoof_pred_spoof": 0,
+    "apcer": 0.0,
+    "bpcer": 0.5017182130584192,
+    "acer": 0.2508591065292096,
+    "accuracy": 0.49828178694158076,
+    "precision_live": 1.0,
+    "recall_live": 0.49828178694158076,
+    "f1_live": 0.6651376146788991,
+    "precision_spoof": 0.0,
+    "recall_spoof": 0.0,
+    "f1_spoof": 0.0
+  }
+}

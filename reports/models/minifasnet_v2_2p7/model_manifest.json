@@ -4,7 +4,7 @@
   "weights_path": "/home/DVX/AntiSpoofingModelSurvey/models/2.7_80x80_MiniFASNetV2.pth",
   "threshold": 0.5,
   "device": "cuda:0",
-  "source_dataset": "face_antispoofing_vn",
-  "last_run_csv": "run_face_antispoofing_vn_20260529_174916.csv",
-  "updated_at": "2026-05-29T17:49:34"
+  "source_dataset": "drivers_250_fn",
+  "last_run_csv": "run_drivers_250_fn_20260531_100914.csv",
+  "updated_at": "2026-05-31T10:09:17"
 }
