@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "vitfas_vitb16_224",
+    "source_dataset": "face_antispoofing_vn",
+    "predictions_path": "reports/models/vitfas_vitb16_224/predictions/face_antispoofing_vn/latest.csv",
+    "evaluated_at": "2026-06-01T12:43:34"
+  },
+  "filtering": {
+    "total_rows": 2118,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 2118,
+    "kept_live_rows": 782,
+    "kept_spoof_rows": 1336
+  },
+  "metrics": {
+    "threshold": 0.1,
+    "num_samples": 2118,
+    "num_live": 782,
+    "num_spoof": 1336,
+    "cm_true_live_pred_live": 439,
+    "cm_true_live_pred_spoof": 343,
+    "cm_true_spoof_pred_live": 692,
+    "cm_true_spoof_pred_spoof": 644,
+    "apcer": 0.5179640718562875,
+    "bpcer": 0.43861892583120204,
+    "acer": 0.4782914988437448,
+    "accuracy": 0.5113314447592068,
+    "precision_live": 0.3881520778072502,
+    "recall_live": 0.5613810741687979,
+    "f1_live": 0.45896497647673806,
+    "precision_spoof": 0.6524822695035462,
+    "recall_spoof": 0.4820359281437126,
+    "f1_spoof": 0.5544554455445546
+  }
+}

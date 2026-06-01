@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "minifasnet_v2_2p7",
+    "source_dataset": "celeba_spoof",
+    "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/celeba_spoof/latest.csv",
+    "evaluated_at": "2026-06-01T12:43:24"
+  },
+  "filtering": {
+    "total_rows": 4000,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 4000,
+    "kept_live_rows": 2000,
+    "kept_spoof_rows": 2000
+  },
+  "metrics": {
+    "threshold": 0.4,
+    "num_samples": 4000,
+    "num_live": 2000,
+    "num_spoof": 2000,
+    "cm_true_live_pred_live": 1417,
+    "cm_true_live_pred_spoof": 583,
+    "cm_true_spoof_pred_live": 609,
+    "cm_true_spoof_pred_spoof": 1391,
+    "apcer": 0.3045,
+    "bpcer": 0.2915,
+    "acer": 0.298,
+    "accuracy": 0.702,
+    "precision_live": 0.6994076999012833,
+    "recall_live": 0.7085,
+    "f1_live": 0.7039244908097366,
+    "precision_spoof": 0.704660587639311,
+    "recall_spoof": 0.6955,
+    "f1_spoof": 0.7000503271263211
+  }
+}

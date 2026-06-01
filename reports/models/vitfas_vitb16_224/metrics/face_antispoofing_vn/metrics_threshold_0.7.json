@@ -3,7 +3,7 @@
     "model_id": "vitfas_vitb16_224",
     "source_dataset": "face_antispoofing_vn",
     "predictions_path": "reports/models/vitfas_vitb16_224/predictions/face_antispoofing_vn/latest.csv",
-    "evaluated_at": "2026-05-29T18:09:24"
+    "evaluated_at": "2026-06-01T12:43:34"
   },
   "filtering": {
     "total_rows": 2118,

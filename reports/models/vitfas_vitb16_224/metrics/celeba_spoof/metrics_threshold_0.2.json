@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "vitfas_vitb16_224",
+    "source_dataset": "celeba_spoof",
+    "predictions_path": "reports/models/vitfas_vitb16_224/predictions/celeba_spoof/latest.csv",
+    "evaluated_at": "2026-06-01T12:43:30"
+  },
+  "filtering": {
+    "total_rows": 4000,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 4000,
+    "kept_live_rows": 2000,
+    "kept_spoof_rows": 2000
+  },
+  "metrics": {
+    "threshold": 0.2,
+    "num_samples": 4000,
+    "num_live": 2000,
+    "num_spoof": 2000,
+    "cm_true_live_pred_live": 1260,
+    "cm_true_live_pred_spoof": 740,
+    "cm_true_spoof_pred_live": 525,
+    "cm_true_spoof_pred_spoof": 1475,
+    "apcer": 0.2625,
+    "bpcer": 0.37,
+    "acer": 0.31625000000000003,
+    "accuracy": 0.68375,
+    "precision_live": 0.7058823529411765,
+    "recall_live": 0.63,
+    "f1_live": 0.6657859973579922,
+    "precision_spoof": 0.6659142212189616,
+    "recall_spoof": 0.7375,
+    "f1_spoof": 0.6998813760379597
+  }
+}

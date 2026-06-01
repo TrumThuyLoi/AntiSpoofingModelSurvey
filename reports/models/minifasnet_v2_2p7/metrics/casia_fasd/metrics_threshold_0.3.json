@@ -3,7 +3,7 @@
     "model_id": "minifasnet_v2_2p7",
     "source_dataset": "casia_fasd",
     "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/casia_fasd/latest.csv",
-    "evaluated_at": "2026-05-29T14:11:52"
+    "evaluated_at": "2026-06-01T12:43:23"
   },
   "filtering": {
     "total_rows": 4063,

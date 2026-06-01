@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "minifasnet_v2_2p7",
+    "source_dataset": "drivers_250_fn_exp1.2",
+    "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/drivers_250_fn_exp1.2/latest.csv",
+    "evaluated_at": "2026-06-01T12:43:26"
+  },
+  "filtering": {
+    "total_rows": 291,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 291,
+    "kept_live_rows": 291,
+    "kept_spoof_rows": 0
+  },
+  "metrics": {
+    "threshold": 0.7,
+    "num_samples": 291,
+    "num_live": 291,
+    "num_spoof": 0,
+    "cm_true_live_pred_live": 206,
+    "cm_true_live_pred_spoof": 85,
+    "cm_true_spoof_pred_live": 0,
+    "cm_true_spoof_pred_spoof": 0,
+    "apcer": 0.0,
+    "bpcer": 0.2920962199312715,
+    "acer": 0.14604810996563575,
+    "accuracy": 0.7079037800687286,
+    "precision_live": 1.0,
+    "recall_live": 0.7079037800687286,
+    "f1_live": 0.8289738430583501,
+    "precision_spoof": 0.0,
+    "recall_spoof": 0.0,
+    "f1_spoof": 0.0
+  }
+}

@@ -3,7 +3,7 @@
     "model_id": "minifasnet_v2_2p7",
     "source_dataset": "celeba_spoof",
     "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/celeba_spoof/latest.csv",
-    "evaluated_at": "2026-05-29T14:12:17"
+    "evaluated_at": "2026-06-01T12:43:24"
   },
   "filtering": {
     "total_rows": 4000,

@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "face_antispoof_onnx_9820",
+    "source_dataset": "casia_fasd",
+    "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/casia_fasd/latest.csv",
+    "evaluated_at": "2026-06-01T12:43:17"
+  },
+  "filtering": {
+    "total_rows": 4063,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 4063,
+    "kept_live_rows": 995,
+    "kept_spoof_rows": 3068
+  },
+  "metrics": {
+    "threshold": 0.6,
+    "num_samples": 4063,
+    "num_live": 995,
+    "num_spoof": 3068,
+    "cm_true_live_pred_live": 879,
+    "cm_true_live_pred_spoof": 116,
+    "cm_true_spoof_pred_live": 1005,
+    "cm_true_spoof_pred_spoof": 2063,
+    "apcer": 0.32757496740547587,
+    "bpcer": 0.11658291457286432,
+    "acer": 0.22207894098917008,
+    "accuracy": 0.7240954959389614,
+    "precision_live": 0.46656050955414013,
+    "recall_live": 0.8834170854271357,
+    "f1_live": 0.6106286905175409,
+    "precision_spoof": 0.9467645709040844,
+    "recall_spoof": 0.6724250325945241,
+    "f1_spoof": 0.7863541071088241
+  }
+}
