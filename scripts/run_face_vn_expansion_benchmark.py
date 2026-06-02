@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Inference + evaluation một model trên toàn bộ dataset drivers_250_fn (mọi expansion)."""
+"""Inference + evaluation một model trên face_antispoofing_vn (mọi SFAS expansion)."""
 
 from __future__ import annotations
 
@@ -17,21 +17,20 @@ if str(_SCRIPTS) not in sys.path:
 
 from sfas_bbox_expansions import (
     SFAS_BBOX_EXPANSIONS,
-    drivers_dataset_config_path,
-    drivers_source_dataset_slug,
+    face_vn_dataset_config_path,
+    face_vn_source_dataset_slug,
 )
 from src.inference.run_batch import run_batch_inference
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Chạy inference + evaluation cho mọi expansion drivers_250_fn.",
+        description="Chạy inference + evaluation cho mọi expansion face_antispoofing_vn.",
     )
     parser.add_argument(
         "--model-config",
         type=Path,
         default=REPO_ROOT / "configs/model_minifasnet.yaml",
-        help="Model config (mặc định MiniFASNet).",
     )
     parser.add_argument(
         "--inference-config",
@@ -46,7 +45,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--skip-evaluation",
         action="store_true",
-        help="Chỉ chạy inference, bỏ qua evaluation.",
+        help="Chỉ chạy inference.",
     )
     return parser.parse_args()
 
@@ -62,14 +61,14 @@ def main() -> int:
     eval_config = args.eval_config if args.eval_config.is_absolute() else REPO_ROOT / args.eval_config
 
     for expansion in SFAS_BBOX_EXPANSIONS:
-        dataset_config = drivers_dataset_config_path(expansion, repo_root=REPO_ROOT)
+        dataset_config = face_vn_dataset_config_path(expansion, repo_root=REPO_ROOT)
         if not dataset_config.is_file():
             raise FileNotFoundError(
                 f"Thiếu {dataset_config}. Chạy: "
-                "python3 scripts/create_drivers_250_fn_dataset_configs.py"
+                "python3 scripts/create_face_antispoofing_vn_expansion_configs.py"
             )
 
-        slug = drivers_source_dataset_slug(expansion)
+        slug = face_vn_source_dataset_slug(expansion)
         print(f"\n=== expansion={expansion:g} source_dataset={slug} ===")
 
         pred_path = run_batch_inference(

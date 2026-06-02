@@ -1,8 +1,8 @@
 name: face_antispoofing_vn_sample
 annotation_path: data/sampled/face_antispoofing_vn_sample.csv
-image_root: data/sampled
+image_root: data/face_antispoofing_vn_cropped_sfas_exp1.0
 source_dataset: face_antispoofing_vn
-default_split: test
+default_split: all
 labels:
   live: live
   spoof: spoof

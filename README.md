@@ -80,43 +80,39 @@ download_raw_dataset(CASIA_FASD_SPEC)
 download_raw_dataset(FACE_ANTI_SPOOFING_VN_SPEC)
 ```
 
-## Drivers 250 FN — crop SFAS
+## SFAS crop (bbox expansion)
 
-Ảnh gốc: `data/drivers_250_FN/` (291 ca live). Metric chính: **BPCER** (chỉ live → APCER = 0). Chi tiết: `drivers_250_fn_sfas_crop_and_evaluation.md`.
+Hằng số: `scripts/sfas_bbox_expansions.py` → `SFAS_BBOX_EXPANSIONS = (1.6, 2.7)` (crop/benchmark tự động). Baseline SFAS exp **1.0** (`drivers_250_fn`, `face_antispoofing_vn`) dùng config/dữ liệu riêng, không nằm trong tuple này.
+
+**Một lệnh crop cả hai tập** (drivers + face VN):
 
 ```bash
 git submodule update --init third_party/Silent-Face-Anti-Spoofing
 python3 scripts/download_pretrained_weights.py
-
-# 1) Crop — một lệnh → bốn thư mục (exp 1.0 / 1.2 / 1.4 / 1.6)
-python3 scripts/crop_drivers_250_fn.py
-
-# 2) Sample CSV + dataset config
-python3 scripts/create_test_sample_annotation.py --dataset drivers_250_fn
-python3 scripts/create_drivers_250_fn_dataset_configs.py
+python3 scripts/crop_sfas_expansions.py
 ```
 
-| Expansion | Thư mục crop | `source_dataset` | `dataset-config` |
-|-----------|--------------|------------------|------------------|
-| 1.0 | `data/drivers_250_fn_cropped/` | `drivers_250_fn` | `configs/dataset_drivers_250_fn.yaml` |
-| 1.2 | `data/drivers_250_fn_cropped_sfas_exp1.2/` | `drivers_250_fn_exp1.2` | `configs/dataset_drivers_250_fn_exp1.2.yaml` |
-| 1.4 | `data/drivers_250_fn_cropped_sfas_exp1.4/` | `drivers_250_fn_exp1.4` | `configs/dataset_drivers_250_fn_exp1.4.yaml` |
-| 1.6 | `data/drivers_250_fn_cropped_sfas_exp1.6/` | `drivers_250_fn_exp1.6` | `configs/dataset_drivers_250_fn_exp1.6.yaml` |
+### Drivers 250 FN
 
-**Bước 3 — inference + evaluation** (xem [Inference + evaluation](#inference--evaluation); gồm cả ma trận toàn repo qua `--all` nếu đã crop):
-
-- **A (chuẩn, một model × 4 expansion):**
+Ảnh gốc: `data/drivers_250_FN/` (291 live). Metric: **BPCER**. Chi tiết: `drivers_250_fn_sfas_crop_and_evaluation.md`.
 
 ```bash
-MODEL=configs/model_minifasnet.yaml
-MID=minifasnet_v2_2p7
-for DS in drivers_250_fn drivers_250_fn_exp1.2 drivers_250_fn_exp1.4 drivers_250_fn_exp1.6; do
-  PRED=$(python3 scripts/run_inference.py --dataset-config configs/dataset_${DS}.yaml --model-config "$MODEL")
-  python3 scripts/run_evaluation.py --predictions "$PRED" --dataset "$DS" --model-id "$MID"
-done
+python3 scripts/create_test_sample_annotation.py --dataset drivers_250_fn
+python3 scripts/create_drivers_250_fn_dataset_configs.py
+python3 scripts/run_drivers_250_fn_expansion_benchmark.py --model-config configs/model_minifasnet.yaml
 ```
 
-- **B (tiện):** `python3 scripts/run_drivers_250_fn_expansion_benchmark.py --model-config configs/model_minifasnet.yaml` — macro lặp 4 expansion (cùng hai script bên trong).
+### Face Anti-Spoofing VN (expansion ablation)
+
+Ảnh gốc: `data/face_antispoofing_vn/` (cùng layout `train_photo|test_photo/{live,not_live}/`). Chi tiết: `face_antispoofing_vn_sfas_crop_and_evaluation.md`.
+
+```bash
+python3 scripts/create_test_sample_annotation.py --dataset face_antispoofing_vn
+python3 scripts/create_face_antispoofing_vn_expansion_configs.py
+python3 scripts/run_face_vn_expansion_benchmark.py --model-config configs/model_minifasnet.yaml
+```
+
+*(Chạy `crop_sfas_expansions.py` trước khi tạo sample, giống drivers.)*
 
 ## Label Studio
 
@@ -227,13 +223,12 @@ Cần weights, submodule, `data/sampled/*_sample.csv`.
 |------|------------------|---------------------|
 | `configs/dataset_celeba_spoof.yaml` | `celeba_spoof` | `data/sampled/celeba_spoof_sample.csv` |
 | `configs/dataset_casia_fasd.yaml` | `casia_fasd` | `data/sampled/casia_fasd_sample.csv` |
-| `configs/dataset_face_antispoofing_vn.yaml` | `face_antispoofing_vn` | `data/sampled/face_antispoofing_vn_sample.csv` |
+| `configs/dataset_face_antispoofing_vn.yaml` | `face_antispoofing_vn` | `data/sampled/face_antispoofing_vn_sample.csv` (exp 1.0 crop) |
+| `configs/dataset_face_antispoofing_vn_exp*.yaml` | `face_antispoofing_vn_exp*` | `data/sampled/face_antispoofing_vn_exp*_sample.csv` |
 | `configs/dataset_drivers_250_fn.yaml` | `drivers_250_fn` | `data/sampled/drivers_250_fn_sample.csv` |
-| `configs/dataset_drivers_250_fn_exp1.2.yaml` | `drivers_250_fn_exp1.2` | `data/sampled/drivers_250_fn_exp1.2_sample.csv` |
-| `configs/dataset_drivers_250_fn_exp1.4.yaml` | `drivers_250_fn_exp1.4` | `data/sampled/drivers_250_fn_exp1.4_sample.csv` |
-| `configs/dataset_drivers_250_fn_exp1.6.yaml` | `drivers_250_fn_exp1.6` | `data/sampled/drivers_250_fn_exp1.6_sample.csv` |
+| `configs/dataset_drivers_250_fn_exp*.yaml` | `drivers_250_fn_exp*` | `data/sampled/drivers_250_fn_exp*_sample.csv` |
 
-*(Drivers: cần crop + `create_drivers_250_fn_dataset_configs.py` trước; xem mục Drivers 250 FN.)*
+*(Cần `crop_sfas_expansions.py` + script tạo config tương ứng; xem [SFAS crop](#sfas-crop-bbox-expansion).)*
 
 **Model** (`--model-config`)
 
@@ -289,8 +284,10 @@ python3 -m unittest discover -s tests -v; rm -f test_log_*.log
 
 # Từng module
 python3 -m unittest tests.test_create_vietnam_hf_dataset -v
-python3 -m unittest tests.test_drivers_250_fn_expansions -v
-python3 -m unittest tests.test_crop_drivers_250_fn -v
+python3 -m unittest tests.test_sfas_bbox_expansions -v
+python3 -m unittest tests.test_crop_sfas_expansions -v
+python3 -m unittest tests.test_create_face_antispoofing_vn_expansion_configs -v
+python3 -m unittest tests.test_run_face_vn_expansion_benchmark -v
 python3 -m unittest tests.test_create_test_sample_annotation_drivers -v
 python3 -m unittest tests.test_create_drivers_250_fn_dataset_configs -v
 python3 -m unittest tests.test_run_drivers_250_fn_expansion_benchmark -v
@@ -303,13 +300,15 @@ python3 -m unittest tests.test_minifasnet_model -v
 python3 -m unittest tests.test_vit_fas_model -v; rm -f test_log_*.log
 python3 -m unittest tests.test_face_antispoof_onnx_model -v
 
-# drivers_250_FN (SFAS expansion) — gom một lệnh
+# SFAS expansion (drivers + face VN)
 python3 -m unittest \
-  tests.test_drivers_250_fn_expansions \
-  tests.test_crop_drivers_250_fn \
+  tests.test_sfas_bbox_expansions \
+  tests.test_crop_sfas_expansions \
   tests.test_create_test_sample_annotation_drivers \
   tests.test_create_drivers_250_fn_dataset_configs \
+  tests.test_create_face_antispoofing_vn_expansion_configs \
   tests.test_run_drivers_250_fn_expansion_benchmark \
+  tests.test_run_face_vn_expansion_benchmark \
   tests.test_create_vietnam_hf_dataset.TestCropBgrFaceSfasExpanded \
   tests.test_create_vietnam_hf_dataset.TestDetectAndCropRgb \
   -v

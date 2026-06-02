@@ -1,4 +1,4 @@
-"""Tests cho scripts/crop_drivers_250_fn.py (mock detector, không quét full dataset)."""
+"""Tests cho scripts/crop_sfas_expansions.py (mock detector)."""
 
 from __future__ import annotations
 
@@ -41,8 +41,8 @@ def _load_crop_module():
         sys.path.insert(0, str(_SCRIPTS))
 
     spec = importlib.util.spec_from_file_location(
-        "crop_drivers_250_fn",
-        _SCRIPTS / "crop_drivers_250_fn.py",
+        "crop_sfas_expansions",
+        _SCRIPTS / "crop_sfas_expansions.py",
     )
     assert spec and spec.loader
     mod = importlib.util.module_from_spec(spec)
@@ -61,7 +61,7 @@ def _load_crop_module():
 
 
 @unittest.skipUnless(_HAS_NUMPY and _HAS_PIL, "Cần numpy và Pillow")
-class TestCropAllExpansions(unittest.TestCase):
+class TestCropDrivers(unittest.TestCase):
     def setUp(self):
         self.crop_mod = _load_crop_module()
 
@@ -73,28 +73,46 @@ class TestCropAllExpansions(unittest.TestCase):
             inp.write_bytes(b"x")
 
             with patch.object(self.crop_mod, "REPO_ROOT", repo):
-                with patch.object(self.crop_mod, "INPUT_ROOT", repo / "data" / "drivers_250_FN"):
-                    stats = self.crop_mod._crop_all_expansions(skip_existing=False)
+                with patch.object(self.crop_mod, "DRIVERS_INPUT_ROOT", repo / "data" / "drivers_250_FN"):
+                    stats = self.crop_mod.crop_drivers(skip_existing=False)
 
-            self.assertEqual(len(stats), 4)
+            self.assertEqual(len(stats), len(self.crop_mod.SFAS_BBOX_EXPANSIONS))
             for expansion in self.crop_mod.SFAS_BBOX_EXPANSIONS:
-                out = self.crop_mod.crop_output_dir(expansion, repo_root=repo)
-                dest = out / "uid" / "a.jpg"
-                self.assertTrue(dest.is_file(), f"missing {dest}")
+                out = self.crop_mod.drivers_crop_output_dir(expansion, repo_root=repo)
+                self.assertTrue((out / "uid" / "a.jpg").is_file())
 
-            expansions_called = {
-                c.kwargs.get("bbox_expansion")
-                for c in self.crop_mod.vn.detect_and_crop_rgb.call_args_list
-            }
-            self.assertEqual(expansions_called, {1.0, 1.2, 1.4, 1.6})
-
-    def test_missing_input_raises(self):
+    def test_missing_drivers_input_raises(self):
         with TemporaryDirectory() as tmp:
             repo = Path(tmp)
             with patch.object(self.crop_mod, "REPO_ROOT", repo):
-                with patch.object(self.crop_mod, "INPUT_ROOT", repo / "missing"):
+                with patch.object(self.crop_mod, "DRIVERS_INPUT_ROOT", repo / "missing"):
                     with self.assertRaises(FileNotFoundError):
-                        self.crop_mod._crop_all_expansions()
+                        self.crop_mod.crop_drivers()
+
+
+@unittest.skipUnless(_HAS_NUMPY and _HAS_PIL, "Cần numpy và Pillow")
+class TestCropFaceVn(unittest.TestCase):
+    def setUp(self):
+        self.crop_mod = _load_crop_module()
+
+    def test_crop_face_vn_preserves_relative_path(self):
+        with TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            src = repo / "data/face_antispoofing_vn/test_photo/live/000.jpg"
+            src.parent.mkdir(parents=True, exist_ok=True)
+            src.write_bytes(b"x")
+
+            with patch.object(self.crop_mod, "REPO_ROOT", repo):
+                with patch.object(
+                    self.crop_mod,
+                    "FACE_VN_INPUT_ROOT",
+                    repo / "data/face_antispoofing_vn",
+                ):
+                    stats = self.crop_mod.crop_face_antispoofing_vn(skip_existing=False)
+
+            out = self.crop_mod.face_vn_crop_output_dir(1.6, repo_root=repo)
+            self.assertTrue((out / "test_photo/live/000.jpg").is_file())
+            self.assertEqual(stats[1.6]["ok"], 1)
 
 
 if __name__ == "__main__":

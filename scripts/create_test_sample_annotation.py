@@ -14,7 +14,13 @@ _SCRIPTS = REPO_ROOT / "scripts"
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from drivers_250_fn_expansions import SFAS_BBOX_EXPANSIONS, crop_output_dir, source_dataset_slug
+from sfas_bbox_expansions import (
+    SFAS_BBOX_EXPANSIONS,
+    drivers_crop_output_dir,
+    drivers_source_dataset_slug,
+    face_vn_crop_output_dir,
+    face_vn_source_dataset_slug,
+)
 
 RAW_ROOT = REPO_ROOT / "data" / "raw"
 OUT_ROOT = REPO_ROOT / "data" / "sampled"
@@ -48,9 +54,51 @@ def _sample_casia(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     return [r for r in rows if _is_valid_true(r)]
 
 
-def _sample_face_antispoofing_vn(rows: list[dict[str, str]]) -> list[dict[str, str]]:
-    """Toàn bộ dòng is_valid=true từ raw test (hf_raw → data/raw/face_antispoofing_vn/)."""
-    return _sample_casia(rows)
+def _face_vn_label_and_split(rel: Path) -> tuple[str, str]:
+    parts = rel.parts
+    if "not_live" in parts:
+        label = "spoof"
+    elif "live" in parts:
+        label = "live"
+    else:
+        raise ValueError(f"Không suy ra label từ đường dẫn: {rel}")
+    if "test_photo" in parts:
+        split = "test"
+    elif "train_photo" in parts:
+        split = "train"
+    else:
+        split = "all"
+    return label, split
+
+
+def _sample_face_vn_from_crop(
+    crop_root: Path,
+    *,
+    expansion: float,
+) -> list[dict[str, str]]:
+    if not crop_root.is_dir():
+        raise FileNotFoundError(f"Không tìm thấy thư mục crop: {crop_root}")
+
+    slug = face_vn_source_dataset_slug(expansion)
+    rows: list[dict[str, str]] = []
+    for path in sorted(crop_root.rglob("*")):
+        if not path.is_file() or path.suffix.lower() not in _IMAGE_SUFFIXES:
+            continue
+        rel = path.relative_to(crop_root)
+        label, split = _face_vn_label_and_split(rel)
+        rows.append(
+            {
+                "image_path": str(path.relative_to(REPO_ROOT)),
+                "label": label,
+                "source_dataset": slug,
+                "split": split,
+                "is_valid": "True",
+                "note": f"sfas_exp={expansion:g}",
+            }
+        )
+    if not rows:
+        raise ValueError(f"Không có ảnh hợp lệ trong {crop_root}")
+    return rows
 
 
 def _sample_drivers_250_fn_from_crop(
@@ -62,7 +110,7 @@ def _sample_drivers_250_fn_from_crop(
     if not crop_root.is_dir():
         raise FileNotFoundError(f"Không tìm thấy thư mục crop: {crop_root}")
 
-    slug = source_dataset_slug(expansion)
+    slug = drivers_source_dataset_slug(expansion)
     rows: list[dict[str, str]] = []
     for path in sorted(crop_root.rglob("*")):
         if not path.is_file() or path.suffix.lower() not in _IMAGE_SUFFIXES:
@@ -83,12 +131,12 @@ def _sample_drivers_250_fn_from_crop(
 
 
 def _build_all_drivers_250_fn_samples() -> list[tuple[str, list[dict[str, str]]]]:
-    """Một lần chạy tạo CSV cho mọi expansion (1.0, 1.2, 1.4, 1.6)."""
+    """Một lần chạy tạo CSV cho mọi mức trong SFAS_BBOX_EXPANSIONS."""
     out: list[tuple[str, list[dict[str, str]]]] = []
     for expansion in SFAS_BBOX_EXPANSIONS:
-        crop_root = crop_output_dir(expansion, repo_root=REPO_ROOT)
+        crop_root = drivers_crop_output_dir(expansion, repo_root=REPO_ROOT)
         rows = _sample_drivers_250_fn_from_crop(crop_root, expansion=expansion)
-        out.append((source_dataset_slug(expansion), rows))
+        out.append((drivers_source_dataset_slug(expansion), rows))
     return out
 
 
@@ -115,8 +163,17 @@ def _build_casia_sample() -> tuple[str, list[dict[str, str]]]:
     return "casia_fasd", _sample_casia(_read_rows("casia_fasd"))
 
 
-def _build_face_antispoofing_vn_sample() -> tuple[str, list[dict[str, str]]]:
-    return "face_antispoofing_vn", _sample_face_antispoofing_vn(_read_rows("face_antispoofing_vn"))
+def _build_all_face_antispoofing_vn_samples() -> list[tuple[str, list[dict[str, str]]]]:
+    out: list[tuple[str, list[dict[str, str]]]] = []
+    for expansion in SFAS_BBOX_EXPANSIONS:
+        crop_root = face_vn_crop_output_dir(expansion, repo_root=REPO_ROOT)
+        rows = _sample_face_vn_from_crop(crop_root, expansion=expansion)
+        out.append((face_vn_source_dataset_slug(expansion), rows))
+    return out
+
+
+def _build_face_antispoofing_vn_sample() -> list[tuple[str, list[dict[str, str]]]]:
+    return _build_all_face_antispoofing_vn_samples()
 
 
 _BUILDERS = {
@@ -145,7 +202,7 @@ def main() -> None:
     datasets = [args.dataset] if args.dataset else list(_SUPPORTED_DATASETS)
     for name in datasets:
         built = _BUILDERS[name]()
-        if name == "drivers_250_fn":
+        if name in ("drivers_250_fn", "face_antispoofing_vn"):
             for dataset, rows in built:
                 out_path = _write_rows(dataset, rows)
                 print(f"[OK] {dataset}: {len(rows)} -> {out_path}")

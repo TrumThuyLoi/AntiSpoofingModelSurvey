@@ -28,26 +28,19 @@ def _touch_crop_tree(crop_root: Path, name: str = "face.jpg") -> None:
 
 
 class TestDrivers250FnSampleBuilders(unittest.TestCase):
-    def test_build_all_expansions_returns_four_datasets(self):
+    def test_build_all_expansions_returns_one_dataset_per_expansion(self):
         with TemporaryDirectory() as tmp:
             repo = Path(tmp)
             for expansion in ann.SFAS_BBOX_EXPANSIONS:
-                _touch_crop_tree(ann.crop_output_dir(expansion, repo_root=repo))
+                _touch_crop_tree(ann.drivers_crop_output_dir(expansion, repo_root=repo))
 
             with patch.object(ann, "REPO_ROOT", repo):
                 built = ann._build_all_drivers_250_fn_samples()
 
-            self.assertEqual(len(built), 4)
+            self.assertEqual(len(built), len(ann.SFAS_BBOX_EXPANSIONS))
             slugs = {slug for slug, _ in built}
-            self.assertEqual(
-                slugs,
-                {
-                    "drivers_250_fn",
-                    "drivers_250_fn_exp1.2",
-                    "drivers_250_fn_exp1.4",
-                    "drivers_250_fn_exp1.6",
-                },
-            )
+            expected = {ann.drivers_source_dataset_slug(exp) for exp in ann.SFAS_BBOX_EXPANSIONS}
+            self.assertEqual(slugs, expected)
             for slug, rows in built:
                 self.assertEqual(len(rows), 1)
                 self.assertEqual(rows[0]["label"], "live")

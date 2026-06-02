@@ -48,7 +48,7 @@ class TestExpansionBenchmarkMain(unittest.TestCase):
             configs = repo / "configs"
             configs.mkdir()
             for expansion in self.bench.SFAS_BBOX_EXPANSIONS:
-                path = self.bench.dataset_config_path(expansion, repo_root=repo)
+                path = self.bench.drivers_dataset_config_path(expansion, repo_root=repo)
                 path.write_text("name: x\n", encoding="utf-8")
 
             model_cfg = repo / "configs/model.yaml"
@@ -69,8 +69,9 @@ class TestExpansionBenchmarkMain(unittest.TestCase):
                     rc = self.bench.main()
 
         self.assertEqual(rc, 0)
-        self.assertEqual(self.bench.run_batch_inference.call_count, 4)
-        self.assertEqual(mock_subprocess.run.call_count, 4)
+        n = len(self.bench.SFAS_BBOX_EXPANSIONS)
+        self.assertEqual(self.bench.run_batch_inference.call_count, n)
+        self.assertEqual(mock_subprocess.run.call_count, n)
 
     def test_skip_evaluation(self):
         with TemporaryDirectory() as tmp:
@@ -78,7 +79,7 @@ class TestExpansionBenchmarkMain(unittest.TestCase):
             configs = repo / "configs"
             configs.mkdir()
             for expansion in self.bench.SFAS_BBOX_EXPANSIONS:
-                self.bench.dataset_config_path(expansion, repo_root=repo).write_text(
+                self.bench.drivers_dataset_config_path(expansion, repo_root=repo).write_text(
                     "x", encoding="utf-8"
                 )
 

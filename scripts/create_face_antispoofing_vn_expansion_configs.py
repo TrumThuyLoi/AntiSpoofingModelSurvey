@@ -1,25 +1,24 @@
 #!/usr/bin/env python3
-"""Ghi configs/dataset_drivers_250_fn*.yaml cho mọi mức SFAS bbox expansion."""
+"""Ghi configs/dataset_face_antispoofing_vn_exp*.yaml cho mọi mức SFAS bbox expansion."""
 
 from __future__ import annotations
 
 from pathlib import Path
 
 from sfas_bbox_expansions import (
+    REPO_ROOT,
     SFAS_BBOX_EXPANSIONS,
-    drivers_crop_output_dir,
-    drivers_dataset_config_path,
-    drivers_sample_csv_name,
-    drivers_source_dataset_slug,
+    face_vn_crop_output_dir,
+    face_vn_dataset_config_path,
+    face_vn_sample_csv_name,
+    face_vn_source_dataset_slug,
 )
-
-REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def _yaml_for_expansion(expansion: float) -> str:
-    slug = drivers_source_dataset_slug(expansion)
-    crop_rel = drivers_crop_output_dir(expansion, repo_root=REPO_ROOT).relative_to(REPO_ROOT)
-    ann_rel = Path("data/sampled") / drivers_sample_csv_name(expansion)
+    slug = face_vn_source_dataset_slug(expansion)
+    crop_rel = face_vn_crop_output_dir(expansion, repo_root=REPO_ROOT).relative_to(REPO_ROOT)
+    ann_rel = Path("data/sampled") / face_vn_sample_csv_name(expansion)
     return f"""name: {slug}_sample
 annotation_path: {ann_rel.as_posix()}
 image_root: {crop_rel.as_posix()}
@@ -34,7 +33,7 @@ labels:
 
 def main() -> None:
     for expansion in SFAS_BBOX_EXPANSIONS:
-        path = drivers_dataset_config_path(expansion, repo_root=REPO_ROOT)
+        path = face_vn_dataset_config_path(expansion, repo_root=REPO_ROOT)
         path.write_text(_yaml_for_expansion(expansion), encoding="utf-8")
         print(f"[OK] {path.relative_to(REPO_ROOT)}")
 

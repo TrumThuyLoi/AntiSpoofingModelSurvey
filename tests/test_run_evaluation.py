@@ -12,7 +12,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from run_evaluation import (  # noqa: E402
     _evaluate_threshold,
+    _is_drivers_dataset_slug,
+    _misclassified_rows_at_threshold,
     _plot_apcer_bpcer_curve,
+    _plot_error_montage,
+    _plot_live_score_distribution,
+    _plot_live_score_histogram_coarse,
+    _plot_live_score_true_false_at_threshold,
+    _thresholds_for_curve_plot,
     _write_summary_csv,
     _write_threshold_json,
     discover_config_paths,
@@ -135,15 +142,101 @@ class TestMetricsOutputLayout(unittest.TestCase):
             self.assertTrue(out.is_file())
             self.assertIn("threshold", out.read_text(encoding="utf-8"))
 
+    def test_thresholds_for_curve_plot_includes_configured(self) -> None:
+        pts = _thresholds_for_curve_plot([0.3, 0.5, 0.7])
+        self.assertEqual(len(pts), 101)
+        self.assertIn(0.5, pts)
+
     def test_apcer_bpcer_curve_png_written(self) -> None:
         rows = [
             {"label_true": "live", "live_score": "0.9"},
             {"label_true": "spoof", "live_score": "0.2"},
         ]
-        results = [_evaluate_threshold(rows, t) for t in (0.3, 0.5, 0.7)]
+        curve_rows = [_evaluate_threshold(rows, t) for t in _thresholds_for_curve_plot([0.5])]
         with TemporaryDirectory() as tmp:
             out = Path(tmp) / "apcer_bpcer_vs_threshold.png"
-            _plot_apcer_bpcer_curve(out, results, dataset_slug="celeba_spoof", model_id="test_model")
+            _plot_apcer_bpcer_curve(out, curve_rows, dataset_slug="celeba_spoof", model_id="test_model")
+            self.assertTrue(out.is_file())
+            self.assertGreater(out.stat().st_size, 500)
+
+    def test_live_score_distribution_png_written(self) -> None:
+        rows = [
+            {"label_true": "live", "live_score": "0.9"},
+            {"label_true": "live", "live_score": "0.7"},
+            {"label_true": "spoof", "live_score": "0.2"},
+        ]
+        with TemporaryDirectory() as tmp:
+            out = Path(tmp) / "live_score_distribution.png"
+            _plot_live_score_distribution(out, rows, dataset_slug="casia_fasd", model_id="test_model")
+            self.assertTrue(out.is_file())
+            self.assertGreater(out.stat().st_size, 500)
+
+    def test_live_score_distribution_live_only(self) -> None:
+        rows = [{"label_true": "live", "live_score": "0.8"}]
+        with TemporaryDirectory() as tmp:
+            out = Path(tmp) / "live_score_distribution.png"
+            _plot_live_score_distribution(out, rows, dataset_slug="drivers_250_fn")
+            self.assertTrue(out.is_file())
+
+    def test_drivers_slug_detection(self) -> None:
+        self.assertTrue(_is_drivers_dataset_slug("drivers_250_fn_exp1.6"))
+        self.assertFalse(_is_drivers_dataset_slug("celeba_spoof"))
+
+    def test_live_score_true_false_png_written(self) -> None:
+        rows = [
+            {"label_true": "live", "live_score": "0.9"},
+            {"label_true": "live", "live_score": "0.1"},
+        ]
+        with TemporaryDirectory() as tmp:
+            out = Path(tmp) / "live_score_true_false_0.5.png"
+            _plot_live_score_true_false_at_threshold(
+                out, rows, dataset_slug="drivers_250_fn_exp1.6", model_id="m"
+            )
+            self.assertTrue(out.is_file())
+            self.assertGreater(out.stat().st_size, 500)
+
+    def test_live_score_histogram_coarse_png_written(self) -> None:
+        rows = [{"label_true": "live", "live_score": "0.85"}]
+        with TemporaryDirectory() as tmp:
+            out = Path(tmp) / "live_score_histogram_bins_0.5.png"
+            _plot_live_score_histogram_coarse(
+                out, rows, dataset_slug="drivers_250_fn_exp2.7", model_id="m"
+            )
+            self.assertTrue(out.is_file())
+            self.assertGreater(out.stat().st_size, 500)
+
+    def test_misclassified_rows_at_threshold(self) -> None:
+        rows = [
+            {"label_true": "live", "live_score": "0.9"},
+            {"label_true": "live", "live_score": "0.1"},
+            {"label_true": "spoof", "live_score": "0.8"},
+        ]
+        fn, fp = _misclassified_rows_at_threshold(rows, 0.5)
+        self.assertEqual(len(fn), 1)
+        self.assertEqual(len(fp), 1)
+
+    def test_error_montage_png_written(self) -> None:
+        from PIL import Image
+
+        with TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            img = tmp_path / "a.png"
+            Image.new("RGB", (16, 16), color=(200, 100, 50)).save(img)
+            rows = [
+                {
+                    "label_true": "live",
+                    "live_score": "0.1",
+                    "image_path": str(img),
+                },
+            ]
+            out = tmp_path / "false_negative_montage_0.5.png"
+            ok = _plot_error_montage(
+                out,
+                rows,
+                title="FN test",
+                subtitle_fn=lambda r: f"live\n{float(r['live_score']):.3f}",
+            )
+            self.assertTrue(ok)
             self.assertTrue(out.is_file())
             self.assertGreater(out.stat().st_size, 500)
 
