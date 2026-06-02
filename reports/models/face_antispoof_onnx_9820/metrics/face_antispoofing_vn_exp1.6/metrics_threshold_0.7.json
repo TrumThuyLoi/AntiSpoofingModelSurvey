@@ -3,7 +3,7 @@
     "model_id": "face_antispoof_onnx_9820",
     "source_dataset": "face_antispoofing_vn_exp1.6",
     "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/face_antispoofing_vn_exp1.6/latest.csv",
-    "evaluated_at": "2026-06-02T11:51:40"
+    "evaluated_at": "2026-06-02T12:05:24"
   },
   "filtering": {
     "total_rows": 11376,
