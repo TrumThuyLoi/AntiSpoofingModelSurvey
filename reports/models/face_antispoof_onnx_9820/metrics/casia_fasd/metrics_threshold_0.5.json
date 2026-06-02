@@ -3,7 +3,7 @@
     "model_id": "face_antispoof_onnx_9820",
     "source_dataset": "casia_fasd",
     "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/casia_fasd/latest.csv",
-    "evaluated_at": "2026-06-02T10:41:01"
+    "evaluated_at": "2026-06-02T11:51:20"
   },
   "filtering": {
     "total_rows": 4063,

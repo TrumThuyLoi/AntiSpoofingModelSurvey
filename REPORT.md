@@ -228,6 +228,18 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.6/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp1.6/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.6/confusion_matrix_0.5.png) |
 
+Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.6/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp1.6/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.6/false_negative_montage_0.5.png) |
+
+Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![MiniFASNet FP](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.6/false_positive_montage_0.5.png) | ![ViT-FAS FP](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp1.6/false_positive_montage_0.5.png) | ![ONNX FP](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.6/false_positive_montage_0.5.png) |
+
 #### SFAS exp 2.7 (`face_antispoofing_vn_exp2.7`)
 
 | Model | Threshold | Accuracy | APCER | BPCER |
@@ -259,6 +271,18 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp2.7/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp2.7/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp2.7/confusion_matrix_0.5.png) |
+
+Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp2.7/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp2.7/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp2.7/false_negative_montage_0.5.png) |
+
+Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![MiniFASNet FP](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp2.7/false_positive_montage_0.5.png) | ![ViT-FAS FP](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp2.7/false_positive_montage_0.5.png) | ![ONNX FP](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp2.7/false_positive_montage_0.5.png) |
 
 - Nhận xét: exp 1.6/2.7 — BPCER giảm mạnh, APCER tăng (trade-off spoof vs live).
 
@@ -298,6 +322,18 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.6/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp1.6/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.6/confusion_matrix_0.5.png) |
 
+Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.6/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp1.6/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.6/false_negative_montage_0.5.png) |
+
+Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| *(MiniFASNet: chưa có `false_positive_montage_0.5.png`)* | *(ViT-FAS: chưa có `false_positive_montage_0.5.png`)* | *(ONNX: chưa có `false_positive_montage_0.5.png`)* |
+
 #### SFAS exp 2.7 (`drivers_250_fn_exp2.7`)
 
 | Model | Threshold | Accuracy | APCER | BPCER |
@@ -329,6 +365,18 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp2.7/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp2.7/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp2.7/confusion_matrix_0.5.png) |
+
+Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp2.7/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp2.7/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp2.7/false_negative_montage_0.5.png) |
+
+Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+
+| MiniFASNet | ViT-FAS | ONNX |
+|:---:|:---:|:---:|
+| *(MiniFASNet: chưa có `false_positive_montage_0.5.png`)* | *(ViT-FAS: chưa có `false_positive_montage_0.5.png`)* | *(ONNX: chưa có `false_positive_montage_0.5.png`)* |
 
 - **Xu hướng (MiniFASNet @0.5):** BPCER **0.0585 (23/393)** @ exp 1.6; 0.0611 (24/393) @ exp 2.7.
 

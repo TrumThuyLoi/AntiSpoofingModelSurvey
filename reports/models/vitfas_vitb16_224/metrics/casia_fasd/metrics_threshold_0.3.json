@@ -3,7 +3,7 @@
     "model_id": "vitfas_vitb16_224",
     "source_dataset": "casia_fasd",
     "predictions_path": "reports/models/vitfas_vitb16_224/predictions/casia_fasd/latest.csv",
-    "evaluated_at": "2026-06-02T10:41:13"
+    "evaluated_at": "2026-06-02T11:52:18"
   },
   "filtering": {
     "total_rows": 4063,
