@@ -4,7 +4,7 @@
   "weights_path": "/home/DVX/AntiSpoofingModelSurvey/models/face_antispoof_onnx_best_9820.pth",
   "threshold": 0.5,
   "device": "cuda:0",
-  "source_dataset": "face_antispoofing_vn",
-  "last_run_csv": "run_face_antispoofing_vn_20260601_142506.csv",
-  "updated_at": "2026-06-01T14:25:33"
+  "source_dataset": "face_antispoofing_vn_exp2.7",
+  "last_run_csv": "run_face_antispoofing_vn_exp2.7_20260601_204512.csv",
+  "updated_at": "2026-06-01T20:48:41"
 }

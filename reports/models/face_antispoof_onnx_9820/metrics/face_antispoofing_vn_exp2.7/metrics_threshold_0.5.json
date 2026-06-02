@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "face_antispoof_onnx_9820",
+    "source_dataset": "face_antispoofing_vn_exp2.7",
+    "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/face_antispoofing_vn_exp2.7/latest.csv",
+    "evaluated_at": "2026-06-02T10:41:06"
+  },
+  "filtering": {
+    "total_rows": 11376,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 11376,
+    "kept_live_rows": 7541,
+    "kept_spoof_rows": 3835
+  },
+  "metrics": {
+    "threshold": 0.5,
+    "num_samples": 11376,
+    "num_live": 7541,
+    "num_spoof": 3835,
+    "cm_true_live_pred_live": 5880,
+    "cm_true_live_pred_spoof": 1661,
+    "cm_true_spoof_pred_live": 1389,
+    "cm_true_spoof_pred_spoof": 2446,
+    "apcer": 0.3621903520208605,
+    "bpcer": 0.2202625646465986,
+    "acer": 0.2912264583337295,
+    "accuracy": 0.7318917018284107,
+    "precision_live": 0.8089145687164672,
+    "recall_live": 0.7797374353534015,
+    "f1_live": 0.7940580688723835,
+    "precision_spoof": 0.5955685415144875,
+    "recall_spoof": 0.6378096479791395,
+    "f1_spoof": 0.6159657516998237
+  }
+}

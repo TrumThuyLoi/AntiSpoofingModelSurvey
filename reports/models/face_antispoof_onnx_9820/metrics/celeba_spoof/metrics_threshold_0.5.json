@@ -3,7 +3,7 @@
     "model_id": "face_antispoof_onnx_9820",
     "source_dataset": "celeba_spoof",
     "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/celeba_spoof/latest.csv",
-    "evaluated_at": "2026-06-01T14:31:10"
+    "evaluated_at": "2026-06-02T10:41:02"
   },
   "filtering": {
     "total_rows": 4000,
