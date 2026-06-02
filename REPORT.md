@@ -228,13 +228,13 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.6/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp1.6/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.6/confusion_matrix_0.5.png) |
 
-Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+**FN (âm tính giả)** — nhãn **live**, model **reject** (`live_score` < 0.5). Ảnh là **người thật** (không phải spoof). `false_negative_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
 | ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.6/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp1.6/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.6/false_negative_montage_0.5.png) |
 
-Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+**FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
@@ -272,13 +272,13 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp2.7/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp2.7/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp2.7/confusion_matrix_0.5.png) |
 
-Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+**FN (âm tính giả)** — nhãn **live**, model **reject** (`live_score` < 0.5). Ảnh là **người thật** (không phải spoof). `false_negative_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
 | ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp2.7/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/face_antispoofing_vn_exp2.7/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp2.7/false_negative_montage_0.5.png) |
 
-Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+**FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
@@ -322,13 +322,13 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.6/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp1.6/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.6/confusion_matrix_0.5.png) |
 
-Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+**FN (âm tính giả)** — nhãn **live**, model **reject** (`live_score` < 0.5). Ảnh là **người thật** (không phải spoof). `false_negative_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
 | ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.6/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp1.6/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.6/false_negative_montage_0.5.png) |
 
-Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+**FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
@@ -366,13 +366,13 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 |:---:|:---:|:---:|
 | ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp2.7/confusion_matrix_0.5.png) | ![ViT-FAS CM@0.5](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp2.7/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp2.7/confusion_matrix_0.5.png) |
 
-Âm tính giả / FN @0.5 (`false_negative_montage_0.5.png`, 6×4):
+**FN (âm tính giả)** — nhãn **live**, model **reject** (`live_score` < 0.5). Ảnh là **người thật** (không phải spoof). `false_negative_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
 | ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp2.7/false_negative_montage_0.5.png) | ![ViT-FAS FN](./reports/models/vitfas_vitb16_224/metrics/drivers_250_fn_exp2.7/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp2.7/false_negative_montage_0.5.png) |
 
-Dương tính giả / FP @0.5 (`false_positive_montage_0.5.png`, 6×4):
+**FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:
 
 | MiniFASNet | ViT-FAS | ONNX |
 |:---:|:---:|:---:|
