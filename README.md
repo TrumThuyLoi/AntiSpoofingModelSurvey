@@ -94,13 +94,28 @@ python3 scripts/crop_sfas_expansions.py
 
 ### Drivers 250 FN
 
-Ảnh gốc: `data/drivers_250_FN/` (291 live). Metric: **BPCER**. Chi tiết: `drivers_250_fn_sfas_crop_and_evaluation.md`.
+Ảnh gốc: `data/drivers_250_FN/` (291 live). Metric: **BPCER**. ONNX hairymax: `tich_hop_onnx_hairymax.md`.
 
 ```bash
 python3 scripts/create_test_sample_annotation.py --dataset drivers_250_fn
 python3 scripts/create_drivers_250_fn_dataset_configs.py
 python3 scripts/run_drivers_250_fn_expansion_benchmark.py --model-config configs/model_minifasnet.yaml
 ```
+
+**ONNX hairymax** — wrapper `src/models/hairymax_onnx.py` (chưa gắn `run_inference.py`); chi tiết [`tich_hop_onnx_hairymax.md`](tich_hop_onnx_hairymax.md):
+
+```bash
+git clone --depth 1 https://github.com/hairymax/Face-AntiSpoofing.git third_party/Face-AntiSpoofing-hairymax
+python3 scripts/download_pretrained_weights.py   # → models/AntiSpoofing_bin_1.5_128.onnx
+
+# Smoke BPCER (script tạm)
+python3 scripts/run_hairymax_onnx_drivers_bpcer.py
+
+# Test wrapper
+python3 -m unittest tests.test_hairymax_onnx -v
+```
+
+Mặc định **expansion 1.5** → `data/sampled/drivers_250_fn_exp1.5_sample.csv`; in BPCER @ `--threshold 0.5`.
 
 ### Face Anti-Spoofing VN (expansion ablation)
 
@@ -153,7 +168,7 @@ python3 scripts/create_label_studio_task.py --all --sampled-10pct
 python3 scripts/download_pretrained_weights.py
 ```
 
-Tải 3 file `.pth` vào `models/` (theo `configs/model_*.yaml`). File đã có thì bỏ qua.
+Tải weight vào `models/` (MiniFASNet, ViT-FAS, FaceAntispoof-ONNX `.pth`, và `AntiSpoofing_bin_1.5_128.onnx`). File đã có thì bỏ qua.
 
 ## Sample cho inference (`data/sampled/`)
 
@@ -274,6 +289,36 @@ python3 scripts/run_evaluation.py \
 
 Hoặc `python3 scripts/run_evaluation.py --dataset celeba_spoof` khi `evaluation.yaml` đã khớp model + dataset.
 
+## Báo cáo (`REPORT.md`)
+
+File [`REPORT.md`](REPORT.md) §7 (metric, bảng, biểu đồ nhúng) **không** tự cập nhật khi chạy evaluation — cần script patch sau khi đã có artifact trong `reports/models/`.
+
+**Luồng đầy đủ:**
+
+```bash
+# 1) Predictions + metrics/PNG (ma trận model × dataset)
+python3 scripts/run_inference.py --all
+python3 scripts/run_evaluation.py --all
+
+# 2) Ghi lại §7 trong REPORT.md (giữ §7.5.1 trở đi và §10 thủ công)
+python3 scripts/patch_report_section7.py
+```
+
+**Một cặp** (sau khi đã có `latest.csv`):
+
+```bash
+python3 scripts/run_evaluation.py \
+  --predictions reports/models/minifasnet_v2_2p7/predictions/casia_fasd/latest.csv \
+  --dataset casia_fasd \
+  --model-id minifasnet_v2_2p7
+
+python3 scripts/patch_report_section7.py
+```
+
+- Patch đọc `reports/models/<model_id>/metrics/<dataset>/` (CSV, PNG confusion matrix, drivers §7.5.2, …).
+- Nếu thiếu PNG/metrics cho một cặp, mục tương ứng trong §7 có thể trống hoặc bỏ qua — chạy evaluation cho cặp đó trước.
+- Chi tiết mục §7 / changelog: xem đầu `scripts/patch_report_section7.py` và `REPORT.md`.
+
 ## Chạy test
 
 Từ thư mục gốc repo (đã activate `.venv`):
@@ -291,6 +336,8 @@ python3 -m unittest tests.test_run_face_vn_expansion_benchmark -v
 python3 -m unittest tests.test_create_test_sample_annotation_drivers -v
 python3 -m unittest tests.test_create_drivers_250_fn_dataset_configs -v
 python3 -m unittest tests.test_run_drivers_250_fn_expansion_benchmark -v
+python3 -m unittest tests.test_run_hairymax_onnx_drivers_bpcer -v
+python3 -m unittest tests.test_hairymax_onnx -v
 python3 -m unittest tests.test_hf_raw -v
 python3 -m unittest tests.test_label_studio_tasks -v
 python3 -m unittest tests.test_run_evaluation tests.test_run_inference -v

@@ -1,0 +1,10 @@
+{
+  "model_id": "hairymax_bin_1p5_retrain",
+  "model_name": "hairymax_onnx",
+  "weights_path": "/home/DVX/AntiSpoofingModelSurvey/models/retrained_AntiSpoofing_bin_1.5_128.onnx",
+  "threshold": 0.5,
+  "device": "cpu",
+  "source_dataset": "drivers_250_fn_exp1.5",
+  "last_run_csv": "run_drivers_250_fn_exp1.5_20260603_175157.csv",
+  "updated_at": "2026-06-03T17:52:00"
+}

@@ -16,3 +16,5 @@ timm
 seaborn
 datasets>=2.14.0
 huggingface_hub>=0.20.0
+onnxruntime-gpu
+

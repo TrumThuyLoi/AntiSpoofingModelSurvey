@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Regenerate REPORT.md §7 (đến trước §7.5.1): metric + biểu đồ.
 
-- SFAS expansion trong báo cáo: chỉ **1.6** và **2.7** (không exp 1.0).
+- Phạm vi báo cáo: **face_antispoofing_vn_exp1.5** + **drivers_250_fn_exp1.5** (SFAS bbox **1.5**).
 - Confusion matrix: chỉ **ảnh** `confusion_matrix_0.5.png` (không bảng markdown TP/FN).
 - §7.5.2 (drivers): `live_score_true_false_0.5.png`, `live_score_histogram_bins_0.5.png`.
 
@@ -18,8 +18,9 @@ REPO = Path(__file__).resolve().parents[1]
 REPORT = REPO / "REPORT.md"
 MODELS = [
     ("minifasnet_v2_2p7", "MiniFASNet"),
-    ("vitfas_vitb16_224", "ViT-FAS"),
     ("face_antispoof_onnx_9820", "ONNX"),
+    ("hairymax_bin_1p5_pretrained", "Hairymax pre"),
+    ("hairymax_bin_1p5_retrain", "Hairymax retrain"),
 ]
 THRESHOLDS = (0.3, 0.5, 0.7)
 ROOT = REPO / "reports" / "models"
@@ -52,7 +53,7 @@ def metrics_glossary_block() -> str:
             "- `live_score_distribution.png`: live thật nên dồn **cao**; spoof thật nên dồn **thấp** (tách càng rõ càng tốt).",
             "- `confusion_matrix_0.5.png`: ma trận 2×2 @ ngưỡng **0.5** (trục: true live/spoof × pred live/spoof).",
             "",
-            "**Định dạng bảng §7.1–7.4:** mỗi ô Accuracy / APCER / BPCER = **`tỷ lệ (số_lỗi/tổng_lớp)`** "
+            "**Định dạng bảng §7.1–7.2:** mỗi ô Accuracy / APCER / BPCER = **`tỷ lệ (số_lỗi/tổng_lớp)`** "
             "(vd. BPCER `0.059 (23/393)` = 23 live bị reject trên 393 live).",
             "",
             "**Production (verify tài xế):** gate đề xuất **BPCER ≤ 0.10** trên tập live thực tế; kiểm tra thêm APCER khi có tập spoof.",
@@ -127,17 +128,34 @@ def metrics_from_summary(mid: str, ds: str) -> dict[float, dict] | None:
     return out or None
 
 
-def load_metrics(ds: str, *, from_predictions: bool) -> dict[float, dict] | None:
-    merged: dict[float, dict] = {}
+def load_metrics(ds: str, *, from_predictions: bool) -> dict[str, dict[float, dict]]:
+    """Metrics theo model; thiếu artifact → bỏ qua model đó (không fail cả dataset)."""
+    merged: dict[str, dict[float, dict]] = {}
     for mid, _ in MODELS:
         if from_predictions:
             data = metrics_from_predictions(ROOT / mid / "predictions" / ds / "latest.csv")
         else:
             data = metrics_from_summary(mid, ds)
-        if not data:
-            return None
-        merged[mid] = data
+        if data:
+            merged[mid] = data
     return merged
+
+
+def model_table_header() -> tuple[str, str]:
+    """Header markdown 2 hàng cho bảng/biểu đồ theo MODELS."""
+    labels = [label for _, label in MODELS]
+    cols = " | ".join(labels)
+    sep = " | ".join(":---:" for _ in labels)
+    return f"| {cols} |", f"|{sep}|"
+
+
+def benchmark_matrix_header() -> tuple[str, str]:
+    """Header bảng Dataset × models (§7.5, §7.5.1)."""
+    labels = [label for _, label in MODELS]
+    return (
+        "| Dataset | " + " | ".join(labels) + " |",
+        "|---------|" + "|".join(":---:" for _ in labels) + "|",
+    )
 
 
 def fmt4(value: float) -> str:
@@ -153,13 +171,15 @@ def fmt_rate_count(rate: float, num: int, denom: int) -> str:
 def metric_table(ds: str, *, from_predictions: bool) -> str:
     by_model = load_metrics(ds, from_predictions=from_predictions)
     if not by_model:
-        raise FileNotFoundError(ds)
+        return "*Chưa có metrics cho dataset này.*\n"
     lines = [
         "| Model | Threshold | Accuracy | APCER | BPCER |",
         "|-------|-----------|----------|-------|-------|",
     ]
-    for _mid, label in MODELS:
-        data = by_model[_mid]
+    for mid, label in MODELS:
+        data = by_model.get(mid)
+        if not data:
+            continue
         for th in THRESHOLDS:
             row = data[th]
             tp = int(row["tp"])
@@ -183,7 +203,8 @@ def _metrics_rel_path(model_id: str, ds: str, filename: str) -> str:
 
 
 def plot_row(ds: str, filename: str, *, alt: str) -> str:
-    header = "| MiniFASNet | ViT-FAS | ONNX |\n|:---:|:---:|:---:|\n|"
+    h1, h2 = model_table_header()
+    header = f"{h1}\n{h2}\n|"
     cells: list[str] = []
     for mid, label in MODELS:
         rel = _metrics_rel_path(mid, ds, filename)
@@ -250,81 +271,59 @@ def build_section7() -> str:
     parts = [
         "## 7. Kết quả",
         "",
-        "Ngưỡng báo cáo: **0.3, 0.5, 0.7** (`configs/evaluation.yaml`). "
-        "Face VN / CelebA / CASIA: `metrics_summary.csv`; drivers: `predictions/latest.csv` (393 live / expansion).",
+        "Phạm vi: **Face Anti-Spoofing VN** + **drivers_250_fn** (ảnh live thật), crop SFAS **exp 1.5**.",
+        "Ngưỡng: **0.3, 0.5, 0.7** (`configs/evaluation.yaml`). Metric từ `predictions/latest.csv` "
+        "(Face VN: live+spoof; drivers: 393 live, APCER = 0).",
         "",
         metrics_glossary_block(),
-        dataset_block(
-            "7.1 CelebA-Spoof",
-            "celeba_spoof",
-            [
-                "- Predictions / metrics: `reports/models/<model_id>/predictions|metrics/celeba_spoof/`",
-                "- @0.5: ONNX APCER/BPCER cân bằng; ViT BPCER cao `0.5285 (1057/2000)`.",
-            ],
-        ),
-        dataset_block(
-            "7.2 CASIA-FASD",
-            "casia_fasd",
-            [
-                "- Predictions / metrics: `reports/models/<model_id>/predictions|casia_fasd/`",
-                "- @0.5: MiniFASNet BPCER thấp `0.1528 (152/995)`; APCER rất thấp.",
-            ],
-        ),
-        "### 7.3 Face Anti-Spoofing VN (SFAS expansion)",
+        "### 7.1 Face Anti-Spoofing VN (SFAS exp 1.5)",
         "",
-        "- **11376** mẫu (7541 live, 3835 spoof). Ablation crop SFAS: exp **1.6**, **2.7**.",
+        "- **11376** mẫu (7541 live, 3835 spoof). `source_dataset`: `face_antispoofing_vn_exp1.5`.",
         "",
     ]
-    for slug, heading in [
-        ("face_antispoofing_vn_exp1.6", "SFAS exp 1.6 (`face_antispoofing_vn_exp1.6`)"),
-        ("face_antispoofing_vn_exp2.7", "SFAS exp 2.7 (`face_antispoofing_vn_exp2.7`)"),
-    ]:
-        parts.append(expansion_block(heading, slug, drivers=False, error_montages=True))
     parts.append(
-        "- Nhận xét: exp 1.6/2.7 — BPCER giảm mạnh, APCER tăng (trade-off spoof vs live)."
+        expansion_block(
+            "SFAS exp 1.5 (`face_antispoofing_vn_exp1.5`)",
+            "face_antispoofing_vn_exp1.5",
+            drivers=True,
+            error_montages=True,
+        )
     )
-    parts.append("")
     parts.extend(
         [
-            "### 7.4 Drivers 250 FN (SFAS expansion)",
+            "### 7.2 Drivers 250 FN (SFAS exp 1.5)",
             "",
-            "- **393** live / expansion; **APCER = 0**. Pipeline crop SFAS: **1.6**, **2.7**.",
+            "- **393** live. **APCER = 0**. `source_dataset`: `drivers_250_fn_exp1.5`.",
+            "- Hairymax ONNX (pretrained / retrain) benchmark trên tập này.",
             "",
         ]
     )
-    for slug, heading in [
-        ("drivers_250_fn_exp1.6", "SFAS exp 1.6 (`drivers_250_fn_exp1.6`)"),
-        ("drivers_250_fn_exp2.7", "SFAS exp 2.7 (`drivers_250_fn_exp2.7`)"),
-    ]:
-        parts.append(expansion_block(heading, slug, drivers=True, error_montages=True))
-    parts.extend(
-        [
-            "- **Xu hướng (MiniFASNet @0.5):** BPCER **0.0585 (23/393)** @ exp 1.6; 0.0611 (24/393) @ exp 2.7.",
-            "",
-        ]
+    parts.append(
+        expansion_block(
+            "SFAS exp 1.5 (`drivers_250_fn_exp1.5`)",
+            "drivers_250_fn_exp1.5",
+            drivers=True,
+            error_montages=True,
+        )
     )
     return "\n".join(parts)
 
 
 BENCHMARK_ROWS: list[tuple[str, str, bool]] = [
-    ("celeba_spoof", "celeba_spoof", False),
-    ("casia_fasd", "casia_fasd", False),
-    ("face_antispoofing_vn_exp1.6", "face_antispoofing_vn_exp1.6", False),
-    ("face_antispoofing_vn_exp2.7", "face_antispoofing_vn_exp2.7", False),
-    ("drivers_250_fn_exp1.6", "drivers_250_fn_exp1.6", True),
-    ("drivers_250_fn_exp2.7", "drivers_250_fn_exp2.7", True),
+    ("face_antispoofing_vn_exp1.5", "face_antispoofing_vn_exp1.5", True),
+    ("drivers_250_fn_exp1.5", "drivers_250_fn_exp1.5", True),
 ]
 
-# §7.5.1 dùng cùng danh sách dataset (celeba/casia + expansion 1.6/2.7)
 SECTION751_ROWS = BENCHMARK_ROWS
 
 
 def _bpcer_apcer_cells(ds: str, *, from_predictions: bool) -> list[str]:
     by_model = load_metrics(ds, from_predictions=from_predictions)
-    if not by_model:
-        raise FileNotFoundError(ds)
     cells: list[str] = []
     for mid, _ in MODELS:
+        if mid not in by_model:
+            cells.append("— / —")
+            continue
         row = by_model[mid][0.5]
         tp, fn, fp, tn = int(row["tp"]), int(row["fn"]), int(row["fp"]), int(row["tn"])
         n_live, n_spoof = tp + fn, fp + tn
@@ -366,13 +365,11 @@ def build_section751() -> str:
         "- **False** = số ảnh **live** bị reject (pred spoof → FN trên live).",
         "- Định dạng ô: **`True / False`** (chỉ đếm mẫu nhãn live; spoof không hiển thị ở đây).",
         "",
-        "**Phạm vi dataset** (khớp §7.5 và §7.1–7.4):",
-        "- **CelebA / CASIA:** benchmark chuẩn (không SFAS expansion).",
-        "- **Face VN / Drivers:** chỉ crop SFAS **exp 1.6** và **2.7** (không exp 1.0 trong báo cáo).",
+        "**Phạm vi dataset** (khớp §7.1–7.2):",
+        "- **Face VN** + **drivers_250_fn**, crop SFAS **exp 1.5**.",
         "",
-        "| Dataset | MiniFASNet | ViT-FAS | ONNX |",
-        "|---------|------------|---------|------|",
     ]
+    lines += list(benchmark_matrix_header())
     for slug, label, drivers in SECTION751_ROWS:
         cells: list[str] = []
         note = ""
@@ -394,34 +391,27 @@ def build_section75_matrix() -> str:
     lines = [
         "### 7.5 Ma trận benchmark — tóm tắt @0.5",
         "",
-        "`run_inference.py --all` + `run_evaluation.py --all`. Bảng đầy đủ threshold: §7.1–7.4.",
+        "Inference + evaluation trên hai dataset §7.1–7.2. Bảng đầy đủ threshold: §7.1–7.2.",
         "",
         "Định dạng mỗi ô: **BPCER (FN/n_live) / APCER (FP/n_spoof)**.",
         "",
-        "| Dataset | MiniFASNet BPCER / APCER | ViT-FAS | ONNX |",
-        "|---------|-------------------------|---------|------|",
     ]
+    lines += list(benchmark_matrix_header())
     for slug, label, drivers in BENCHMARK_ROWS:
-        try:
-            cells = _bpcer_apcer_cells(slug, from_predictions=drivers)
-        except FileNotFoundError:
-            cells = ["— / —", "— / —", "— / —"]
+        cells = _bpcer_apcer_cells(slug, from_predictions=drivers)
         lines.append(f"| {label} | {' | '.join(cells)} |")
     lines.append("")
     return "\n".join(lines)
 
 
-DRIVERS_EXP_FOR_752 = (
-    ("drivers_250_fn_exp1.6", "1.6"),
-    ("drivers_250_fn_exp2.7", "2.7"),
-)
+DRIVERS_EXP_FOR_752 = (("drivers_250_fn_exp1.5", "1.5"),)
 
 
 def build_section752() -> str:
     lines = [
         "#### 7.5.2 Phân phối `y_prob` @0.5 (nhóm True / False)",
         "",
-        "`live_score` = **y_prob**; ngưỡng **0.5**. Chỉ **drivers** SFAS **exp 1.6** và **2.7** (393 live).",
+        "`live_score` = **y_prob**; ngưỡng **0.5**. **Drivers** SFAS **exp 1.5** (393 live).",
         "",
         "- **True** = live được chấp nhận (TP); **False** = live bị reject (FN).",
         "- Artifact: `live_score_true_false_0.5.png`, `live_score_histogram_bins_0.5.png` "
@@ -464,7 +454,7 @@ def main() -> None:
         encoding="utf-8",
     )
     print(f"Updated {REPORT}")
-    print("§7: expansions 1.6 + 2.7; §7.5.2 = PNG (drivers only)")
+    print("§7: face_antispoofing_vn_exp1.5 + drivers_250_fn_exp1.5")
 
 
 if __name__ == "__main__":

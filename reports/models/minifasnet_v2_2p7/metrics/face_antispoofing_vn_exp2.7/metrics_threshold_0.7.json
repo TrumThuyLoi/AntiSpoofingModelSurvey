@@ -3,7 +3,7 @@
     "model_id": "minifasnet_v2_2p7",
     "source_dataset": "face_antispoofing_vn_exp2.7",
     "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/face_antispoofing_vn_exp2.7/latest.csv",
-    "evaluated_at": "2026-06-02T12:05:53"
+    "evaluated_at": "2026-06-03T18:02:37"
   },
   "filtering": {
     "total_rows": 11376,

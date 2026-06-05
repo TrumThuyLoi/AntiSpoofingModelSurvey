@@ -110,9 +110,9 @@ class TestCropFaceVn(unittest.TestCase):
                 ):
                     stats = self.crop_mod.crop_face_antispoofing_vn(skip_existing=False)
 
-            out = self.crop_mod.face_vn_crop_output_dir(1.6, repo_root=repo)
+            out = self.crop_mod.face_vn_crop_output_dir(1.5, repo_root=repo)
             self.assertTrue((out / "test_photo/live/000.jpg").is_file())
-            self.assertEqual(stats[1.6]["ok"], 1)
+            self.assertEqual(stats[1.5]["ok"], 1)
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 # Ablation crop/benchmark tự động; baseline exp 1.0 dùng config riêng (drivers_250_fn / face_antispoofing_vn).
-SFAS_BBOX_EXPANSIONS: tuple[float, ...] = (1.6, 2.7)
+SFAS_BBOX_EXPANSIONS: tuple[float, ...] = (1.5, 2.7)
 
 FACE_VN_INPUT_REL = Path("data/face_antispoofing_vn")
 

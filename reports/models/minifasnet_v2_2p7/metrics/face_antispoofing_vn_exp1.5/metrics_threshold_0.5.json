@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "minifasnet_v2_2p7",
+    "source_dataset": "face_antispoofing_vn_exp1.5",
+    "predictions_path": "reports/models/minifasnet_v2_2p7/predictions/face_antispoofing_vn_exp1.5/latest.csv",
+    "evaluated_at": "2026-06-05T10:59:25"
+  },
+  "filtering": {
+    "total_rows": 11376,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 11376,
+    "kept_live_rows": 7541,
+    "kept_spoof_rows": 3835
+  },
+  "metrics": {
+    "threshold": 0.5,
+    "num_samples": 11376,
+    "num_live": 7541,
+    "num_spoof": 3835,
+    "cm_true_live_pred_live": 7241,
+    "cm_true_live_pred_spoof": 300,
+    "cm_true_spoof_pred_live": 2047,
+    "cm_true_spoof_pred_spoof": 1788,
+    "apcer": 0.5337679269882659,
+    "bpcer": 0.039782522211908235,
+    "acer": 0.2867752246000871,
+    "accuracy": 0.7936884669479606,
+    "precision_live": 0.7796080964685616,
+    "recall_live": 0.9602174777880917,
+    "f1_live": 0.8605383564085805,
+    "precision_spoof": 0.8563218390804598,
+    "recall_spoof": 0.466232073011734,
+    "f1_spoof": 0.6037481006246834
+  }
+}

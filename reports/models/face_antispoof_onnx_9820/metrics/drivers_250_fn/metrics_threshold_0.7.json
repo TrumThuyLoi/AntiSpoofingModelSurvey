@@ -3,7 +3,7 @@
     "model_id": "face_antispoof_onnx_9820",
     "source_dataset": "drivers_250_fn",
     "predictions_path": "reports/models/face_antispoof_onnx_9820/predictions/drivers_250_fn/latest.csv",
-    "evaluated_at": "2026-06-02T12:05:09"
+    "evaluated_at": "2026-06-03T18:01:52"
   },
   "filtering": {
     "total_rows": 393,

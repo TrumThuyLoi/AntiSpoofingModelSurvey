@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tải 3 pretrained weights vào models/."""
+"""Tải pretrained weights vào models/."""
 
 from pathlib import Path
 
@@ -24,6 +24,11 @@ WEIGHTS = [
         "https://raw.githubusercontent.com/facenox/face-antispoof-onnx/main/"
         "models/best/98.20/best_model.pth",
         MODELS / "face_antispoof_onnx_best_9820.pth",
+    ),
+    (
+        "https://github.com/hairymax/Face-AntiSpoofing/raw/main/"
+        "saved_models/AntiSpoofing_bin_1.5_128.onnx",
+        MODELS / "AntiSpoofing_bin_1.5_128.onnx",
     ),
 ]
 

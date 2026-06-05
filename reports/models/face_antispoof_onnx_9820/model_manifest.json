@@ -5,6 +5,6 @@
   "threshold": 0.5,
   "device": "cuda:0",
   "source_dataset": "face_antispoofing_vn_exp2.7",
-  "last_run_csv": "run_face_antispoofing_vn_exp2.7_20260601_204512.csv",
-  "updated_at": "2026-06-01T20:48:41"
+  "last_run_csv": "run_face_antispoofing_vn_exp2.7_20260603_172147.csv",
+  "updated_at": "2026-06-03T17:25:01"
 }

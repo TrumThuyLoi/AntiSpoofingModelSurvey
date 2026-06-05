@@ -21,7 +21,7 @@ _spec.loader.exec_module(exp)
 
 class TestSfasBboxExpansions(unittest.TestCase):
     def test_expansion_constants(self):
-        self.assertEqual(exp.SFAS_BBOX_EXPANSIONS, (1.6, 2.7))
+        self.assertEqual(exp.SFAS_BBOX_EXPANSIONS, (1.5, 2.7))
 
     def test_drivers_crop_output_dir_baseline(self):
         p = exp.drivers_crop_output_dir(1.0, repo_root=ROOT)

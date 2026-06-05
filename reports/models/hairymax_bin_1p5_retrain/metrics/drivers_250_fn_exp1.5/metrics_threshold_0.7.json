@@ -1,0 +1,36 @@
+{
+  "provenance": {
+    "model_id": "hairymax_bin_1p5_retrain",
+    "source_dataset": "drivers_250_fn_exp1.5",
+    "predictions_path": "reports/models/hairymax_bin_1p5_retrain/predictions/drivers_250_fn_exp1.5/latest.csv",
+    "evaluated_at": "2026-06-03T18:02:18"
+  },
+  "filtering": {
+    "total_rows": 393,
+    "dropped_error_rows": 0,
+    "dropped_invalid_label_rows": 0,
+    "kept_rows": 393,
+    "kept_live_rows": 393,
+    "kept_spoof_rows": 0
+  },
+  "metrics": {
+    "threshold": 0.7,
+    "num_samples": 393,
+    "num_live": 393,
+    "num_spoof": 0,
+    "cm_true_live_pred_live": 333,
+    "cm_true_live_pred_spoof": 60,
+    "cm_true_spoof_pred_live": 0,
+    "cm_true_spoof_pred_spoof": 0,
+    "apcer": 0.0,
+    "bpcer": 0.15267175572519084,
+    "acer": 0.07633587786259542,
+    "accuracy": 0.8473282442748091,
+    "precision_live": 1.0,
+    "recall_live": 0.8473282442748091,
+    "f1_live": 0.9173553719008264,
+    "precision_spoof": 0.0,
+    "recall_spoof": 0.0,
+    "f1_spoof": 0.0
+  }
+}
