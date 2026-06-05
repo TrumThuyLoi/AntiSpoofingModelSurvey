@@ -234,20 +234,24 @@ def charts_block(ds: str) -> list[str]:
     ]
 
 
-def error_montages_block(ds: str) -> list[str]:
-    """FN/FP montage @0.5 (`run_evaluation.py`). Drivers: thường chỉ có FN (0 spoof)."""
-    return [
+def error_montages_block(ds: str, *, include_fp: bool = True) -> list[str]:
+    """FN/FP montage @0.5 (`run_evaluation.py`). Drivers (0 spoof): chỉ FN."""
+    lines = [
         "**FN (âm tính giả)** — nhãn **live**, model **reject** (`live_score` < 0.5). "
         "Ảnh là **người thật** (không phải spoof). `false_negative_montage_0.5.png`:",
         "",
         plot_row(ds, "false_negative_montage_0.5.png", alt="FN"),
         "",
-        "**FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). "
-        "Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:",
-        "",
-        plot_row(ds, "false_positive_montage_0.5.png", alt="FP"),
-        "",
     ]
+    if include_fp:
+        lines += [
+            "**FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). "
+            "Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:",
+            "",
+            plot_row(ds, "false_positive_montage_0.5.png", alt="FP"),
+            "",
+        ]
+    return lines
 
 
 def dataset_block(title: str, ds: str, intro: list[str], *, drivers: bool = False) -> str:
@@ -260,10 +264,17 @@ def dataset_block(title: str, ds: str, intro: list[str], *, drivers: bool = Fals
     return "\n".join(parts)
 
 
-def expansion_block(heading: str, ds: str, *, drivers: bool, error_montages: bool = False) -> str:
+def expansion_block(
+    heading: str,
+    ds: str,
+    *,
+    drivers: bool,
+    error_montages: bool = False,
+    fp_montage: bool = True,
+) -> str:
     parts = [f"#### {heading}", "", metric_table(ds, from_predictions=drivers), ""] + charts_block(ds)
     if error_montages:
-        parts += error_montages_block(ds)
+        parts += error_montages_block(ds, include_fp=fp_montage)
     return "\n".join(parts)
 
 
@@ -304,6 +315,7 @@ def build_section7() -> str:
             "drivers_250_fn_exp1.5",
             drivers=True,
             error_montages=True,
+            fp_montage=False,
         )
     )
     return "\n".join(parts)

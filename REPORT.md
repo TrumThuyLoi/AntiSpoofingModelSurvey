@@ -206,12 +206,6 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 |:---: | :---: | :---: | :---:|
 | ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![Hairymax pre FN](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![Hairymax retrain FN](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) |
 
-**FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:
-
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| *(MiniFASNet: chưa có `false_positive_montage_0.5.png`)* | *(ONNX: chưa có `false_positive_montage_0.5.png`)* | *(Hairymax pre: chưa có `false_positive_montage_0.5.png`)* | *(Hairymax retrain: chưa có `false_positive_montage_0.5.png`)* |
-
 ### 7.5 Ma trận benchmark — tóm tắt @0.5
 
 Inference + evaluation trên hai dataset §7.1–7.2. Bảng đầy đủ threshold: §7.1–7.2.
