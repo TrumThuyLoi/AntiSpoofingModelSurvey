@@ -202,18 +202,37 @@ def _metrics_rel_path(model_id: str, ds: str, filename: str) -> str:
     return f"./reports/models/{model_id}/metrics/{ds}/{filename}"
 
 
+def _plot_cell(ds: str, filename: str, mid: str, label: str, *, alt: str) -> str:
+    rel = _metrics_rel_path(mid, ds, filename)
+    path = ROOT / mid / "metrics" / ds / filename
+    if path.is_file():
+        return f"![{label} {alt}]({rel})"
+    return f"*({label}: chưa có `{filename}`)*"
+
+
 def plot_row(ds: str, filename: str, *, alt: str) -> str:
-    h1, h2 = model_table_header()
-    header = f"{h1}\n{h2}\n|"
-    cells: list[str] = []
-    for mid, label in MODELS:
-        rel = _metrics_rel_path(mid, ds, filename)
-        path = ROOT / mid / "metrics" / ds / filename
-        if path.is_file():
-            cells.append(f" ![{label} {alt}]({rel}) ")
-        else:
-            cells.append(f" *({label}: chưa có `{filename}`)* ")
-    return header + "|".join(cells) + "|"
+    """4 biểu đồ theo layout 2×2 (2 model / hàng)."""
+    if len(MODELS) != 4:
+        h1, h2 = model_table_header()
+        cells = [_plot_cell(ds, filename, mid, label, alt=alt) for mid, label in MODELS]
+        return f"{h1}\n{h2}\n| {' | '.join(cells)} |"
+    top = MODELS[:2]
+    bottom = MODELS[2:]
+    sep = "| :---: | :---: |"
+    top_hdr = " | ".join(label for _, label in top)
+    bot_hdr = " | ".join(label for _, label in bottom)
+    top_cells = " | ".join(_plot_cell(ds, filename, mid, label, alt=alt) for mid, label in top)
+    bot_cells = " | ".join(_plot_cell(ds, filename, mid, label, alt=alt) for mid, label in bottom)
+    return "\n".join(
+        [
+            f"| {top_hdr} |",
+            sep,
+            f"| {top_cells} |",
+            f"| {bot_hdr} |",
+            sep,
+            f"| {bot_cells} |",
+        ]
+    )
 
 
 def charts_block(ds: str) -> list[str]:

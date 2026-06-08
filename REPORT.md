@@ -132,33 +132,48 @@ Quy ước trong repo (`scripts/run_evaluation.py`): ảnh có nhãn thật **li
 
 Đường cong APCER / BPCER (`apcer_bpcer_vs_threshold.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet APCER/BPCER](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/apcer_bpcer_vs_threshold.png) | ![ONNX APCER/BPCER](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/apcer_bpcer_vs_threshold.png) | *(Hairymax pre: chưa có `apcer_bpcer_vs_threshold.png`)* | *(Hairymax retrain: chưa có `apcer_bpcer_vs_threshold.png`)* |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet APCER/BPCER](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/apcer_bpcer_vs_threshold.png) | ![ONNX APCER/BPCER](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/apcer_bpcer_vs_threshold.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| *(Hairymax pre: chưa có `apcer_bpcer_vs_threshold.png`)* | *(Hairymax retrain: chưa có `apcer_bpcer_vs_threshold.png`)* |
 
 Phân phối `live_score` (`live_score_distribution.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet live_score](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/live_score_distribution.png) | ![ONNX live_score](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/live_score_distribution.png) | *(Hairymax pre: chưa có `live_score_distribution.png`)* | *(Hairymax retrain: chưa có `live_score_distribution.png`)* |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet live_score](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/live_score_distribution.png) | ![ONNX live_score](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/live_score_distribution.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| *(Hairymax pre: chưa có `live_score_distribution.png`)* | *(Hairymax retrain: chưa có `live_score_distribution.png`)* |
 
 Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/confusion_matrix_0.5.png) | *(Hairymax pre: chưa có `confusion_matrix_0.5.png`)* | *(Hairymax retrain: chưa có `confusion_matrix_0.5.png`)* |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/confusion_matrix_0.5.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| *(Hairymax pre: chưa có `confusion_matrix_0.5.png`)* | *(Hairymax retrain: chưa có `confusion_matrix_0.5.png`)* |
 
 **FN (âm tính giả)** — nhãn **live**, model **reject** (`live_score` < 0.5). Ảnh là **người thật** (không phải spoof). `false_negative_montage_0.5.png`:
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/false_negative_montage_0.5.png) | *(Hairymax pre: chưa có `false_negative_montage_0.5.png`)* | *(Hairymax retrain: chưa có `false_negative_montage_0.5.png`)* |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/false_negative_montage_0.5.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| *(Hairymax pre: chưa có `false_negative_montage_0.5.png`)* | *(Hairymax retrain: chưa có `false_negative_montage_0.5.png`)* |
 
 **FP (dương tính giả)** — nhãn **spoof**, model **chấp nhận** (`live_score` ≥ 0.5). Ảnh là **spoof** (thư mục `not_live` / spoof trên Face VN). `false_positive_montage_0.5.png`:
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet FP](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/false_positive_montage_0.5.png) | ![ONNX FP](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/false_positive_montage_0.5.png) | *(Hairymax pre: chưa có `false_positive_montage_0.5.png`)* | *(Hairymax retrain: chưa có `false_positive_montage_0.5.png`)* |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet FP](./reports/models/minifasnet_v2_2p7/metrics/face_antispoofing_vn_exp1.5/false_positive_montage_0.5.png) | ![ONNX FP](./reports/models/face_antispoof_onnx_9820/metrics/face_antispoofing_vn_exp1.5/false_positive_montage_0.5.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| *(Hairymax pre: chưa có `false_positive_montage_0.5.png`)* | *(Hairymax retrain: chưa có `false_positive_montage_0.5.png`)* |
 
 ### 7.2 Drivers 250 FN (SFAS exp 1.5)
 
@@ -184,27 +199,39 @@ Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 
 Đường cong APCER / BPCER (`apcer_bpcer_vs_threshold.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet APCER/BPCER](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) | ![ONNX APCER/BPCER](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) | ![Hairymax pre APCER/BPCER](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) | ![Hairymax retrain APCER/BPCER](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet APCER/BPCER](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) | ![ONNX APCER/BPCER](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| ![Hairymax pre APCER/BPCER](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) | ![Hairymax retrain APCER/BPCER](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/apcer_bpcer_vs_threshold.png) |
 
 Phân phối `live_score` (`live_score_distribution.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet live_score](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) | ![ONNX live_score](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) | ![Hairymax pre live_score](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) | ![Hairymax retrain live_score](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet live_score](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) | ![ONNX live_score](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| ![Hairymax pre live_score](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) | ![Hairymax retrain live_score](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/live_score_distribution.png) |
 
 Confusion matrix @0.5 (`confusion_matrix_0.5.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) | ![Hairymax pre CM@0.5](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) | ![Hairymax retrain CM@0.5](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet CM@0.5](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) | ![ONNX CM@0.5](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| ![Hairymax pre CM@0.5](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) | ![Hairymax retrain CM@0.5](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/confusion_matrix_0.5.png) |
 
 **FN (âm tính giả)** — nhãn **live**, model **reject** (`live_score` < 0.5). Ảnh là **người thật** (không phải spoof). `false_negative_montage_0.5.png`:
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![Hairymax pre FN](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![Hairymax retrain FN](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet FN](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![ONNX FN](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| ![Hairymax pre FN](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) | ![Hairymax retrain FN](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/false_negative_montage_0.5.png) |
 
 ### 7.5 Ma trận benchmark — tóm tắt @0.5
 
@@ -244,15 +271,21 @@ Nguồn: `reports/models/<model_id>/predictions/<dataset>/latest.csv`, ngưỡng
 
 Phân phối theo nhóm True / False @0.5 (`live_score_true_false_0.5.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet True/False](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) | ![ONNX True/False](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) | ![Hairymax pre True/False](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) | ![Hairymax retrain True/False](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet True/False](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) | ![ONNX True/False](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| ![Hairymax pre True/False](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) | ![Hairymax retrain True/False](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/live_score_true_false_0.5.png) |
 
 Histogram toàn tập live (step **0.1**, `live_score_histogram_bins_0.5.png`):
 
-| MiniFASNet | ONNX | Hairymax pre | Hairymax retrain |
-|:---: | :---: | :---: | :---:|
-| ![MiniFASNet histogram](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) | ![ONNX histogram](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) | ![Hairymax pre histogram](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) | ![Hairymax retrain histogram](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) |
+| MiniFASNet | ONNX |
+| :---: | :---: |
+| ![MiniFASNet histogram](./reports/models/minifasnet_v2_2p7/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) | ![ONNX histogram](./reports/models/face_antispoof_onnx_9820/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) |
+| Hairymax pre | Hairymax retrain |
+| :---: | :---: |
+| ![Hairymax pre histogram](./reports/models/hairymax_bin_1p5_pretrained/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) | ![Hairymax retrain histogram](./reports/models/hairymax_bin_1p5_retrain/metrics/drivers_250_fn_exp1.5/live_score_histogram_bins_0.5.png) |
 
 ---
 
